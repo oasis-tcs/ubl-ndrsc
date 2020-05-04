@@ -15,7 +15,7 @@ content.
 
 ## Description
 
-For the development of the hub document associated with the UBL 2.3 delivery.
+Various build processes in this repository create the NDR subcommittee documentation and other deliverables.
 
 ## Contributions
 
