@@ -15,7 +15,7 @@ content.
 
 ## Description
 
-For the development of the naming and design rules (NDR) artefacts.
+Various build processes in this repository create the NDR subcommittee documentation and other deliverables.
 
 ## Contributions
 
