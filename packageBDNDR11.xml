@@ -1,0 +1,178 @@
+<project default="make">
+
+<!--
+  $Id: packageBDNDR11.xml,v 1.6 2020/04/15 16:07:26 admin Exp $
+
+  ${dir}/     = base directory into which the results are built
+  ${stage}   = project stage suffix to base filename
+  ${version} = result package suffix (typically "test" or "CCYYMMDD-hhmmz")
+  ${datetimelocal} = Unix date/time stamp (typically "now" or "CCYYMMDD-hhmmz")
+-->
+
+<target name="make">
+  <echo message="dir=${dir}"/>
+  <echo message="stage=${stage}"/>
+  <echo message="version=${version}"/>
+  <echo message="datetimelocal=${datetimelocal}"/>
+
+  <antcall target="-make-docs"/>
+  
+  <antcall target="-package"/>
+</target>
+  
+<target name="-check-docs">
+  <uptodate targetfile="Business-Document-NDR-v1.1-${stage}.html"
+            property=  "docs-NDR-html-okay">
+    <srcfiles dir=".">
+      <include name="Business-Document-NDR-v1.1-${stage}.xml"/>
+      <include name="Business-Document-NDR-v1.1-${stage}-summary.ent"/>
+    </srcfiles>
+  </uptodate>  
+  <uptodate targetfile="Business-Document-NDR-v1.1-${stage}.pdf"
+            property=  "docs-NDR-pdf-okay">
+    <srcfiles dir=".">
+      <include name="Business-Document-NDR-v1.1-${stage}.xml"/>
+      <include name="Business-Document-NDR-v1.1-${stage}-summary.ent"/>
+    </srcfiles>
+  </uptodate>
+  <condition property="docs-NDR-okay">
+    <and>
+      <istrue value="${docs-NDR-html-okay}"/>
+      <istrue value="${docs-NDR-pdf-okay}"/>
+    </and>
+  </condition>
+</target>
+
+<target name="-make-docs" depends="-check-docs" unless="docs-NDR-okay">
+  <!--remove old results-->
+  <delete file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
+  <delete file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
+  <delete file="${dir}/Business-Document-NDR-v1.1-${stage}-pub.zip"/>
+  <!--prepare inputs that are generated rather than authored-->
+  <echo message="Harvesting rules..."/>
+  <java failonerror="yes" append="true" classname="net.sf.saxon.Transform">
+     <arg value="-xsl:massage-NDR.xsl"/>
+     <arg value="-s:Business-Document-NDR-v1.1-${stage}.xml"/>
+     <arg value="-o:Business-Document-NDR-v1.1-${stage}-summary.ent"/>
+     <arg value="-versionmsg:off"/>
+  </java>
+  <!--package inputs-->
+  <zip destfile="${dir}/Business-Document-NDR-v1.1-${stage}-pub.zip">
+    <fileset dir=".">
+      <include name="Business-Document-NDR-v1.1-${stage}.xml"/>
+      <include name="Business-Document-NDR-v1.1-${stage}-summary.ent"/>
+      <include name="art/Business-Document-NDR-v1.1-*.png"/>
+    </fileset>
+  </zip>
+  <!--create outputs-->
+  <echo message="Submitting print job..."/>
+  <property name="serverScript" location="SetareServerAnt.xml"/> 
+  <ant antfile="${serverScript}" dir="${dir}">
+    <property name="entrypoint" value="OASIS-spec2pdfhtml"/>
+    <property name="fileupload"
+              value="${dir}/Business-Document-NDR-v1.1-${stage}-pub.zip"/>
+    <property name="dateprefix" value="BDNDR"/>
+  </ant>
+  <echo message="Check and cleanup..."/>
+  <available property="ready-pdf" file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
+  <fail unless="ready-pdf" message="PDF not created"/>
+  <available property="ready-html" file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
+  <fail unless="ready-html" message="HTML not created"/>
+  <!--these touches are necessary because unzip doesn't preserve time of day-->
+  <touch file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
+  <touch file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
+  <!--intermediate file no longer needed-->
+  <delete file="${dir}/Business-Document-NDR-v1.1-${stage}-pub.zip"/>
+</target>
+
+<target name="-package">
+  <echo message="Checking existence of results..."/>
+  <available property="html-made" file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
+  <available property="pdf-made" file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
+  <condition property="docs-not-made">
+    <not>
+      <and>
+        <istrue value="html-made"/>
+        <istrue value="pdf-made"/>
+      </and>
+    </not>
+  </condition>
+  <fail if="docs-made" message="Problem with creating the documentation"/>
+
+  <delete dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}"/>
+  <mkdir dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}"/>
+  <copy todir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}">
+    <fileset dir=".">
+     <include name="Business-Document-NDR-v1.1-${stage}.xml"/>
+     <include name="Business-Document-NDR-v1.1-${stage}-summary.ent"/>
+    </fileset>
+  </copy>
+  <move todir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}">
+    <fileset dir="${dir}">
+     <include name="Business-Document-NDR-v1.1-${stage}.html"/>
+     <include name="Business-Document-NDR-v1.1-${stage}.pdf"/>
+    </fileset>
+  </move>
+
+  <mkdir dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/sample"/>
+  <copy todir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/sample">
+    <fileset dir=".">
+      <include name="CCTSXML2JSON.xsl"/>
+      <include name="readme-CCTSXML2JSON.html"/>
+    </fileset>
+  </copy>
+  
+  <mkdir dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/jsonschema"/>
+  <copy todir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/jsonschema">
+    <fileset dir=".">
+      <include name="BDNDR-*.json"/>
+    </fileset>
+  </copy>
+  
+  <mkdir dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/xsd"/>
+  <copy todir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/xsd">
+    <fileset dir=".">
+      <include name="BDNDR-*.xsd"/>
+    </fileset>
+  </copy>
+  
+  <mkdir dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/db"/>
+  <copy todir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/db">
+    <fileset dir="db/spec-0.8/htmlruntime">
+     <include name="**"/>
+    </fileset>
+  </copy>
+
+  <mkdir dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/art"/>
+  <copy todir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/art">
+    <fileset dir="htmlart">
+     <include name="Business-Document-NDR-v1.1-**"/>
+    </fileset>
+  </copy>
+
+  <mkdir dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/art/pdf"/>
+  <copy todir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/art/pdf">
+    <fileset dir="art">
+     <include name="Business-Document-NDR-v1.1-**"/>
+    </fileset>
+  </copy>
+
+  <delete file="${dir}/Business-Document-NDR-v1.1-${stage}-${version}.zip"/>
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}"/>
+  </touch>
+
+  <zip destfile="${dir}/Business-Document-NDR-v1.1-${stage}-${version}.zip"
+       basedir="${dir}" includes="Business-Document-NDR-v1.1-${stage}-${version}/**"/>
+  <delete dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}"/>
+  <unzip src="${dir}/Business-Document-NDR-v1.1-${stage}-${version}.zip" 
+         dest="${dir}"/>
+
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}">
+      <include name="Business-Document-NDR-v1.1-${stage}-${version}.zip"/>
+    </fileset>
+  </touch>
+</target>
+
+</project>

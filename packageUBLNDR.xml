@@ -1,0 +1,137 @@
+<project default="make">
+
+<target name="make">
+  <!--documentation-->
+  <echo message="stage=${stage}"/>
+  <echo message="version=${version}"/>
+  <echo message="datetimelocal=${datetimelocal}"/>
+
+  <available property="stage-okay" file="UBL-NDR-v3.1-${stage}.xml"/>
+  <fail unless="stage-okay" message="Cannot find documentation with stage: ${stage}."/>
+
+  <antcall target="-make-docs"/>
+  
+  <antcall target="-package"/>
+</target>
+
+<target name="-check-docs">
+  <uptodate targetfile="UBL-NDR-v3.1-${stage}.html"
+            property=  "readme-NDR-html-okay">
+    <srcfiles dir=".">
+      <include name="UBL-NDR-v3.1-${stage}.xml"/>
+    </srcfiles>
+  </uptodate>
+  <uptodate targetfile="UBL-NDR-v3.1-${stage}.pdf"
+            property=  "readme-NDR-pdf-okay">
+    <srcfiles dir=".">
+      <include name="UBL-NDR-v3.1-${stage}.xml"/>
+    </srcfiles>
+  </uptodate>
+  <condition property="readme-NDR-okay">
+    <and>
+      <istrue value="${readme-NDR-html-okay}"/>
+      <istrue value="${readme-NDR-pdf-okay}"/>
+    </and>
+  </condition>
+</target>
+
+<target name="-make-docs" depends="-check-docs" unless="readme-NDR-okay">
+  <!--remove old results-->
+  <delete file="${dir}/UBL-NDR-v3.1-${stage}.html"/>
+  <delete file="${dir}/UBL-NDR-v3.1-${stage}.pdf"/>
+  <delete file="${dir}/UBL-NDR-v3.1-${stage}-pub.zip"/>
+  <!--package inputs-->
+  <zip destfile="${dir}/UBL-NDR-v3.1-${stage}-pub.zip">
+    <fileset dir=".">
+      <include name="UBL-NDR-v3.1-${stage}.xml"/>
+      <include name="art/Business-Document-NDR-v1.1-Open-edi-Application.png"/>
+    </fileset>
+  </zip>
+  <!--create outputs-->
+  <echo message="Submitting print job..."/>
+  <property name="serverScript" location="SetareServerAnt.xml"/> 
+  <ant antfile="${serverScript}" dir="${dir}">
+    <property name="entrypoint" value="OASIS-note2pdfhtml"/>
+    <property name="fileupload"
+              value="${dir}/UBL-NDR-v3.1-${stage}-pub.zip"/>
+    <property name="dateprefix" value="UBL-NDR"/>
+  </ant>
+  <echo message="Check and cleanup..."/>
+  <available property="ready-pdf" file="${dir}/UBL-NDR-v3.1-${stage}.pdf"/>
+  <fail unless="ready-pdf" message="PDF not created"/>
+  <available property="ready-html" file="${dir}/UBL-NDR-v3.1-${stage}.html"/>
+  <fail unless="ready-html" message="HTML not created"/>
+  <!--these touches are necessary because unzip doesn't preserve time of day-->
+  <touch file="${dir}/UBL-NDR-v3.1-${stage}.pdf"/>
+  <touch file="${dir}/UBL-NDR-v3.1-${stage}.html"/>
+  <!--intermediate file no longer needed-->
+  <delete file="${dir}/UBL-NDR-v3.1-${stage}-pub.zip"/>
+</target>
+
+<target name="-package">
+  <delete dir="${dir}/UBL-NDR-v3.1-${stage}-${version}"/>
+  <mkdir dir="${dir}/UBL-NDR-v3.1-${stage}-${version}"/>
+  <copy todir="${dir}/UBL-NDR-v3.1-${stage}-${version}">
+    <fileset dir=".">
+     <include name="UBL-NDR-v3.1-${stage}.xml"/>
+    </fileset>
+  </copy>
+  <move todir="${dir}/UBL-NDR-v3.1-${stage}-${version}">
+    <fileset dir="${dir}">
+     <include name="UBL-NDR-v3.1-${stage}.html"/>
+     <include name="UBL-NDR-v3.1-${stage}.pdf"/>
+    </fileset>
+  </move>
+
+  <copy todir="${dir}/UBL-NDR-v3.1-${stage}-${version}/art">
+    <fileset dir="htmlart">
+      <include name="Business-Document-NDR-v1.1-Open-edi-Application.png"/>
+    </fileset>
+  </copy>
+
+  <copy todir="${dir}/UBL-NDR-v3.1-${stage}-${version}/art/pdf">
+    <fileset dir="art">
+      <include name="Business-Document-NDR-v1.1-Open-edi-Application.png"/>
+    </fileset>
+  </copy>
+
+  <mkdir dir="${dir}/UBL-NDR-v3.1-${stage}-${version}/db"/>
+  <copy todir="${dir}/UBL-NDR-v3.1-${stage}-${version}/db">
+    <fileset dir="db/spec-0.8/htmlruntime">
+     <include name="**"/>
+    </fileset>
+  </copy>
+
+  <mkdir dir="${dir}/UBL-NDR-v3.1-${stage}-${version}/art"/>
+  <copy todir="${dir}/UBL-NDR-v3.1-${stage}-${version}/art">
+    <fileset dir="htmlart">
+     <include name="UBL-NDR-v3.0-**"/>
+    </fileset>
+  </copy>
+
+  <mkdir dir="${dir}/UBL-NDR-v3.1-${stage}-${version}/art/pdf"/>
+  <copy todir="${dir}/UBL-NDR-v3.1-${stage}-${version}/art/pdf">
+    <fileset dir="art">
+     <include name="UBL-NDR-v3.0-**"/>
+    </fileset>
+  </copy>
+
+  <delete file="${dir}/UBL-NDR-v3.1-${stage}-${version}.zip"/>
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}/UBL-NDR-v3.1-${stage}-${version}"/>
+  </touch>
+
+  <zip destfile="${dir}/UBL-NDR-v3.1-${stage}-${version}.zip"
+       basedir="${dir}" includes="UBL-NDR-v3.1-${stage}-${version}/**"/>
+  <delete dir="${dir}/UBL-NDR-v3.1-${stage}-${version}"/>
+  <unzip src="${dir}/UBL-NDR-v3.1-${stage}-${version}.zip" 
+         dest="${dir}"/>
+
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}">
+      <include name="UBL-NDR-v3.1-${stage}-${version}.zip"/>
+    </fileset>
+  </touch>
+</target>
+
+</project>

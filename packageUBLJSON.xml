@@ -1,0 +1,134 @@
+<project default="make">
+
+<target name="make">
+  <!--documentation-->
+  <echo message="UBLversion=${UBLversion}"/>
+  <echo message="JSONversion=${JSONversion}"/>
+  <echo message="stage=${stage}"/>
+  <echo message="version=${version}"/>
+  <echo message="datetimelocal=${datetimelocal}"/>
+  <echo message="artefactsdir=${artefactsdir}"/>
+
+  <available property="stage-okay" file="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.xml"/>
+  <fail unless="stage-okay" message="Cannot find documentation with stage: ${stage}."/>
+
+  <available property="artefacts-okay" file="${artefactsdir}/json"/>
+  <fail unless="artefacts-okay" message="Cannot find artefacts to copy at: ${artefactsdir}"/>
+
+  <antcall target="-make-docs"/>
+  
+  <antcall target="-package"/>
+</target>
+
+<target name="-check-docs">
+  <uptodate targetfile="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"
+            property=  "readme-JSON-html-okay">
+    <srcfiles dir=".">
+      <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.xml"/>
+    </srcfiles>
+  </uptodate>
+  <uptodate targetfile="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"
+            property=  "readme-JSON-pdf-okay">
+    <srcfiles dir=".">
+      <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.xml"/>
+    </srcfiles>
+  </uptodate>
+  <condition property="readme-JSON-okay">
+    <and>
+      <istrue value="${readme-JSON-html-okay}"/>
+      <istrue value="${readme-JSON-pdf-okay}"/>
+    </and>
+  </condition>
+</target>
+
+<target name="-make-docs" depends="-check-docs" unless="readme-JSON-okay">
+  <!--remove old results-->
+  <delete file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
+  <delete file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>
+  <delete file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip"/>
+  <!--package inputs-->
+  <zip destfile="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip">
+    <fileset dir=".">
+      <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.xml"/>
+      <include name="art/Business-Document-NDR-v1.1-Open-edi-Application.png"/>
+    </fileset>
+  </zip>
+  <!--create outputs-->
+  <echo message="Submitting print job..."/>
+  <property name="serverScript" location="SetareServerAnt.xml"/> 
+  <ant antfile="${serverScript}" dir="${dir}">
+    <property name="entrypoint" value="OASIS-note2pdfhtml"/>
+    <property name="fileupload"
+              value="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip"/>
+    <property name="dateprefix" value="UBL-${UBLversion}-JSON-${JSONversion}"/>
+  </ant>
+  <echo message="Check and cleanup..."/>
+  <available property="ready-pdf" file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>
+  <fail unless="ready-pdf" message="PDF not created"/>
+  <available property="ready-html" file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
+  <fail unless="ready-html" message="HTML not created"/>
+  <!--these touches are necessary because unzip doesn't preserve time of day-->
+  <touch file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>
+  <touch file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
+  <!--intermediate file no longer needed-->
+  <delete file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip"/>
+</target>
+
+<target name="-package">
+
+  <delete dir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}"/>
+  <mkdir dir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}"/>
+  <copy todir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}">
+    <fileset dir=".">
+     <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.xml"/>
+    </fileset>
+  </copy>
+  <move todir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}">
+    <fileset dir="${dir}">
+     <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
+     <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>
+    </fileset>
+  </move>
+  <copy todir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}/art">
+    <fileset dir="htmlart">
+      <include name="Business-Document-NDR-v1.1-Open-edi-Application.png"/>
+    </fileset>
+  </copy>
+  <copy todir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}/art/pdf">
+    <fileset dir="art">
+      <include name="Business-Document-NDR-v1.1-Open-edi-Application.png"/>
+    </fileset>
+  </copy>
+  
+  <copy todir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}/db">
+    <fileset dir="db/spec-0.8/htmlruntime">
+     <include name="**"/>
+    </fileset>
+  </copy>
+  
+  <copy todir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}">
+    <fileset dir="${artefactsdir}">
+       <include name="json/**"/>
+       <include name="json-schema/**"/>
+       <include name="val/**"/>
+    </fileset>
+  </copy>
+
+  <delete file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}.zip"/>
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}"/>
+  </touch>
+
+  <zip destfile="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}.zip"
+       basedir="${dir}" includes="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}/**"/>
+  <delete dir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}"/>
+  <unzip src="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}.zip" 
+         dest="${dir}"/>
+
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}">
+      <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}.zip"/>
+    </fileset>
+  </touch>
+</target>
+</project>
