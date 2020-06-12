@@ -166,8 +166,8 @@
     </fileset>
   </copy>
   
-  <mkdir dir="${dir}/UBL-NDR-v3.1-${stage}-${version}/db"/>
-  <copy todir="${dir}/UBL-NDR-v3.1-${stage}-${version}/db">
+  <mkdir dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/db"/>
+  <copy todir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}/db">
     <fileset dir="db/spec-0.8/htmlruntime">
      <include name="**"/>
     </fileset>
