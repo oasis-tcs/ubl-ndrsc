@@ -57,78 +57,88 @@
     </fileset>
   </copy>
   <echo message="Harvesting rules..."/>
-  <java failonerror="yes" append="true" classname="net.sf.saxon.Transform">
+  <java append="true" classname="net.sf.saxon.Transform">
      <arg value="-xsl:massage-NDR.xsl"/>
      <arg value="-s:${dir}/Business-Document-NDR-v1.1-${stage}.xml"/>
      <arg value="-o:${dir}/Business-Document-NDR-v1.1-${stage}-summary.ent"/>
      <arg value="-versionmsg:off"/>
   </java>
-  <echo message="Assembling entities..."/>
-  <java classname="net.sf.saxon.Transform">
-     <arg value="-xsl:assembleEntities.xsl"/>
-     <arg value="-s:${dir}/Business-Document-NDR-v1.1-${stage}.xml"/>
-     <arg value="-o:${dir}/Business-Document-NDR-v1.1-${stage}-assembled.xml"/>
-  </java>
-  <move tofile="${dir}/Business-Document-NDR-v1.1-${stage}.xml"
-          file="${dir}/Business-Document-NDR-v1.1-${stage}-assembled.xml"/>
-  <!--package inputs-->
-  <zip destfile="${dir}/Business-Document-NDR-v1.1-${stage}-pub.zip">
-    <fileset dir="${dir}">
-      <include name="Business-Document-NDR-v1.1-${stage}.xml"/>
-      <include name="art/Business-Document-NDR-v1.1-*.png"/>
-    </fileset>
-  </zip>
-  <!--create outputs-->
-  <echo message="Submitting print job..."/>
-  <property name="serverScript" location="SetareServerAnt.xml"/> 
-  <ant antfile="${serverScript}" dir="${dir}">
-    <property name="entrypoint" value="OASIS-spec2pdfhtml"/>
-    <property name="fileupload"
-              value="Business-Document-NDR-v1.1-${stage}-pub.zip"/>
-    <property name="dateprefix" value="BDNDR"/>
-  </ant>
-  <echo message="Check and cleanup..."/>
-  <available property="ready-pdf" file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
-  <sequential unless:set="ready-pdf">
-    <loadfile property="pdf-errors" srcFile="${dir}/errors.txt"/>
-    <echo message="${pdf-errors}"/>
-    <echo message="PDF not created"/>
-  </sequential>
-  <available property="ready-html" file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
-  <sequential unless:set="ready-html">
-    <loadfile property="html-errors" srcFile="${dir}/errors.txt"/>
-    <echo message="${html-errors}"/>
-    <echo message="HTML not created"/>
-  </sequential>
-  <condition property="output-ready">
+  <condition property="useSetarePublishing">
     <and>
-      <isset property="ready-pdf"/>
-      <isset property="ready-html"/>
+      <not>
+        <equals arg1="${setareuser}" arg2=""/>
+      </not>
+      <not>
+        <equals arg1="${setarepass}" arg2=""/>
+      </not>
     </and>
   </condition>
-  <fail unless="output-ready"/>
-  <!--these touches are necessary because unzip doesn't preserve time of day-->
-  <touch file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
-  <touch file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
-  <!--intermediate file no longer needed-->
-  <delete file="${dir}/Business-Document-NDR-v1.1-${stage}-pub.zip"/>
+  <sequential unless:set="useSetarePublishing">
+    <echo message="No credentials for remote publishing; creating local HTML presuming stylesheet association..."/>
+    <java classname="net.sf.saxon.Transform">
+      <arg value="-a"/>
+      <arg value="-s:${dir}/Business-Document-NDR-v1.1-${stage}.xml"/>
+      <arg value="-o:${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
+    </java>
+    <available property="html-made" file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
+    <touch unless:set="html-made" file="${dir}/HTML-FROM-XML-ATTEMPTED-WITHOUT-SUCCESS.txt"/>
+    <touch file="${dir}/WITHOUT-CREDENTIALS-PDF-OUTPUT-NOT-ATTEMPTED.txt"/>
+  </sequential>
+  <sequential if:set="useSetarePublishing">
+    <echo message="Using credentials for remote publishing..."/>
+    <echo message="Assembling entities..."/>
+    <java classname="net.sf.saxon.Transform">
+       <arg value="-xsl:assembleEntities.xsl"/>
+       <arg value="-s:${dir}/Business-Document-NDR-v1.1-${stage}.xml"/>
+       <arg value="-o:${dir}/Business-Document-NDR-v1.1-${stage}-assembled.xml"/>
+    </java>
+    <move tofile="${dir}/Business-Document-NDR-v1.1-${stage}.xml"
+            file="${dir}/Business-Document-NDR-v1.1-${stage}-assembled.xml"/>
+    <!--package inputs-->
+    <zip destfile="${dir}/Business-Document-NDR-v1.1-${stage}-pub.zip">
+      <fileset dir="${dir}">
+        <include name="Business-Document-NDR-v1.1-${stage}.xml"/>
+        <include name="art/Business-Document-NDR-v1.1-*.png"/>
+      </fileset>
+    </zip>
+    <!--create outputs-->
+    <echo message="Submitting print job..."/>
+    <property name="serverScript" location="SetareServerAnt.xml"/> 
+    <ant antfile="${serverScript}" dir="${dir}">
+      <property name="entrypoint" value="OASIS-spec2pdfhtml"/>
+      <property name="fileupload"
+                value="Business-Document-NDR-v1.1-${stage}-pub.zip"/>
+      <property name="dateprefix" value="BDNDR"/>
+    </ant>
+    <echo message="Check and cleanup..."/>
+    <available property="ready-pdf" file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
+    <sequential unless:set="ready-pdf">
+      <loadfile property="pdf-errors" srcFile="${dir}/errors.txt"/>
+      <echo message="${pdf-errors}"/>
+      <echo message="PDF not created"/>
+    </sequential>
+    <available property="ready-html" file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
+    <sequential unless:set="ready-html">
+      <loadfile property="html-errors" srcFile="${dir}/errors.txt"/>
+      <echo message="${html-errors}"/>
+      <echo message="HTML not created"/>
+    </sequential>
+    <condition property="output-ready">
+      <and>
+        <isset property="ready-pdf"/>
+        <isset property="ready-html"/>
+      </and>
+    </condition>
+    <fail unless="output-ready"/>
+    <!--these touches are necessary because unzip doesn't preserve time of day-->
+    <touch file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
+    <touch file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
+    <!--intermediate file no longer needed-->
+    <delete file="${dir}/Business-Document-NDR-v1.1-${stage}-pub.zip"/>
+  </sequential>
 </target>
 
 <target name="-package">
-  <echo message="Checking existence of results..."/>
-  <available property="html-made" file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
-  <available property="pdf-made" file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
-  <condition property="docs-not-made">
-    <not>
-      <and>
-        <istrue value="html-made"/>
-        <istrue value="pdf-made"/>
-      </and>
-    </not>
-  </condition>
-  <echo if:set="docs-made" message="Problem with creating the documentation"/>
-  <fail if:set="docs-made" message="Problem with creating the documentation"/>
-
   <delete dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}"/>
   <mkdir dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}"/>
   <copy todir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}">
@@ -139,8 +149,10 @@
   </copy>
   <move todir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}">
     <fileset dir="${dir}">
-     <include name="Business-Document-NDR-v1.1-${stage}.html"/>
-     <include name="Business-Document-NDR-v1.1-${stage}.pdf"/>
+      <include name="Business-Document-NDR-v1.1-${stage}.html"/>
+      <include name="Business-Document-NDR-v1.1-${stage}.pdf"/>
+      <include name="WITHOUT-CREDENTIALS-PDF-OUTPUT-NOT-ATTEMPTED.txt"/>
+      <include name="HTML-FROM-XML-ATTEMPTED-WITHOUT-SUCCESS.txt"/>
     </fileset>
   </move>
 

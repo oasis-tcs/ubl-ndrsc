@@ -1,4 +1,4 @@
-if [ "$7" == "" ]
+if [ "$6" == "" ]
 then 
 echo Missing target directory, ublversion, jsonversion, stage, dateZ, dateTime, username, password arguments
 exit

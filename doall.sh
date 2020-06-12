@@ -4,7 +4,7 @@
 #
 # target platform ${timestamp}z label setareUser setarePass deleteFlag
 
-if [ "$6" = "" ]; then echo Missing target dir, platform, dateZ, dateTime, user, password arguments ; exit 1 ; fi
+if [ "$4" = "" ]; then echo Missing target dir, platform, dateZ, dateTime, user, password arguments ; exit 1 ; fi
 
 if [ ! -d $1 ]; then mkdir $1 ; fi
 if [ ! -d $1/ndr-UBL-$2-$3 ]; then mkdir $1/ndr-UBL-$2-$3 ; fi

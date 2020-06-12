@@ -1,4 +1,4 @@
-if [ "$5" == "" ]
+if [ "$4" == "" ]
 then 
 echo Missing target directory, stage, dateZ, dateTime, username, password arguments
 exit
