@@ -1,4 +1,4 @@
-<project default="make">
+<project default="make" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 <!--
   $Id: packageBDNDR11.xml,v 1.6 2020/04/15 16:07:26 admin Exp $
@@ -49,18 +49,32 @@
   <delete file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
   <delete file="${dir}/Business-Document-NDR-v1.1-${stage}-pub.zip"/>
   <!--prepare inputs that are generated rather than authored-->
+  <copy todir="${dir}" preservelastmodified="true">
+    <fileset dir=".">
+      <include name="Business-Document-NDR-v1.1-*"/>
+      <include name="art/**"/>
+      <include name="db/**"/>
+    </fileset>
+  </copy>
   <echo message="Harvesting rules..."/>
   <java failonerror="yes" append="true" classname="net.sf.saxon.Transform">
      <arg value="-xsl:massage-NDR.xsl"/>
-     <arg value="-s:Business-Document-NDR-v1.1-${stage}.xml"/>
-     <arg value="-o:Business-Document-NDR-v1.1-${stage}-summary.ent"/>
+     <arg value="-s:${dir}/Business-Document-NDR-v1.1-${stage}.xml"/>
+     <arg value="-o:${dir}/Business-Document-NDR-v1.1-${stage}-summary.ent"/>
      <arg value="-versionmsg:off"/>
   </java>
+  <echo message="Assembling entities..."/>
+  <java classname="net.sf.saxon.Transform">
+     <arg value="-xsl:assembleEntities.xsl"/>
+     <arg value="-s:${dir}/Business-Document-NDR-v1.1-${stage}.xml"/>
+     <arg value="-o:${dir}/Business-Document-NDR-v1.1-${stage}-assembled.xml"/>
+  </java>
+  <move tofile="${dir}/Business-Document-NDR-v1.1-${stage}.xml"
+          file="${dir}/Business-Document-NDR-v1.1-${stage}-assembled.xml"/>
   <!--package inputs-->
   <zip destfile="${dir}/Business-Document-NDR-v1.1-${stage}-pub.zip">
-    <fileset dir=".">
+    <fileset dir="${dir}">
       <include name="Business-Document-NDR-v1.1-${stage}.xml"/>
-      <include name="Business-Document-NDR-v1.1-${stage}-summary.ent"/>
       <include name="art/Business-Document-NDR-v1.1-*.png"/>
     </fileset>
   </zip>
@@ -70,14 +84,29 @@
   <ant antfile="${serverScript}" dir="${dir}">
     <property name="entrypoint" value="OASIS-spec2pdfhtml"/>
     <property name="fileupload"
-              value="${dir}/Business-Document-NDR-v1.1-${stage}-pub.zip"/>
+              value="Business-Document-NDR-v1.1-${stage}-pub.zip"/>
     <property name="dateprefix" value="BDNDR"/>
   </ant>
   <echo message="Check and cleanup..."/>
   <available property="ready-pdf" file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
-  <fail unless="ready-pdf" message="PDF not created"/>
+  <sequential unless:set="ready-pdf">
+    <loadfile property="pdf-errors" srcFile="${dir}/errors.txt"/>
+    <echo message="${pdf-errors}"/>
+    <echo message="PDF not created"/>
+  </sequential>
   <available property="ready-html" file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
-  <fail unless="ready-html" message="HTML not created"/>
+  <sequential unless:set="ready-html">
+    <loadfile property="html-errors" srcFile="${dir}/errors.txt"/>
+    <echo message="${html-errors}"/>
+    <echo message="HTML not created"/>
+  </sequential>
+  <condition property="output-ready">
+    <and>
+      <isset property="ready-pdf"/>
+      <isset property="ready-html"/>
+    </and>
+  </condition>
+  <fail unless="output-ready"/>
   <!--these touches are necessary because unzip doesn't preserve time of day-->
   <touch file="${dir}/Business-Document-NDR-v1.1-${stage}.pdf"/>
   <touch file="${dir}/Business-Document-NDR-v1.1-${stage}.html"/>
@@ -97,7 +126,8 @@
       </and>
     </not>
   </condition>
-  <fail if="docs-made" message="Problem with creating the documentation"/>
+  <echo if:set="docs-made" message="Problem with creating the documentation"/>
+  <fail if:set="docs-made" message="Problem with creating the documentation"/>
 
   <delete dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}"/>
   <mkdir dir="${dir}/Business-Document-NDR-v1.1-${stage}-${version}"/>
