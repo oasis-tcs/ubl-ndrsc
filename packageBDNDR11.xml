@@ -52,7 +52,7 @@
   <copy todir="${dir}" preservelastmodified="true">
     <fileset dir=".">
       <include name="Business-Document-NDR-v1.1-*"/>
-      <include name="art/**"/>
+      <include name="art/Business-Document-NDR-v1.1*"/>
       <include name="db/**"/>
     </fileset>
   </copy>
