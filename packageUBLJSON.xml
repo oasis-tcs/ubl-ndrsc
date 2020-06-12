@@ -1,4 +1,4 @@
-<project default="make">
+<project default="make" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 <target name="make">
   <!--documentation-->
@@ -47,35 +47,58 @@
   <delete file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>
   <delete file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip"/>
   <!--package inputs-->
-  <zip destfile="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip">
-    <fileset dir=".">
-      <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.xml"/>
-      <include name="art/Business-Document-NDR-v1.1-Open-edi-Application.png"/>
-    </fileset>
-  </zip>
-  <!--create outputs-->
-  <echo message="Submitting print job..."/>
-  <property name="serverScript" location="SetareServerAnt.xml"/> 
-  <ant antfile="${serverScript}" dir="${dir}">
-    <property name="entrypoint" value="OASIS-note2pdfhtml"/>
-    <property name="fileupload"
-              value="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip"/>
-    <property name="dateprefix" value="UBL-${UBLversion}-JSON-${JSONversion}"/>
-  </ant>
-  <echo message="Check and cleanup..."/>
-  <available property="ready-pdf" file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>
-  <fail unless="ready-pdf" message="PDF not created"/>
-  <available property="ready-html" file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
-  <fail unless="ready-html" message="HTML not created"/>
-  <!--these touches are necessary because unzip doesn't preserve time of day-->
-  <touch file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>
-  <touch file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
-  <!--intermediate file no longer needed-->
-  <delete file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip"/>
+  <condition property="useSetarePublishing">
+    <and>
+      <not>
+        <equals arg1="${setareuser}" arg2=""/>
+      </not>
+      <not>
+        <equals arg1="${setarepass}" arg2=""/>
+      </not>
+    </and>
+  </condition>
+  <sequential unless:set="useSetarePublishing">
+    <echo message="No credentials for remote publishing; creating local HTML presuming stylesheet association..."/>
+    <java classname="net.sf.saxon.Transform">
+      <arg value="-a"/>
+      <arg value="-s:UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.xml"/>
+      <arg value="-o:${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
+    </java>
+    <available property="html-made" file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
+    <touch unless:set="html-made" file="${dir}/HTML-FROM-XML-ATTEMPTED-WITHOUT-SUCCESS.txt"/>
+    <touch file="${dir}/WITHOUT-CREDENTIALS-PDF-OUTPUT-NOT-ATTEMPTED.txt"/>
+  </sequential>
+  <sequential if:set="useSetarePublishing">
+    <echo message="Using credentials for remote publishing..."/>
+    <zip destfile="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip">
+      <fileset dir=".">
+        <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.xml"/>
+        <include name="art/Business-Document-NDR-v1.1-Open-edi-Application.png"/>
+      </fileset>
+    </zip>
+    <!--create outputs-->
+    <echo message="Submitting print job..."/>
+    <property name="serverScript" location="SetareServerAnt.xml"/> 
+    <ant antfile="${serverScript}" dir="${dir}">
+      <property name="entrypoint" value="OASIS-note2pdfhtml"/>
+      <property name="fileupload"
+                value="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip"/>
+      <property name="dateprefix" value="UBL-${UBLversion}-JSON-${JSONversion}"/>
+    </ant>
+    <echo message="Check and cleanup..."/>
+    <available property="ready-pdf" file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>
+    <fail unless="ready-pdf" message="PDF not created"/>
+    <available property="ready-html" file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
+    <fail unless="ready-html" message="HTML not created"/>
+    <!--these touches are necessary because unzip doesn't preserve time of day-->
+    <touch file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>
+    <touch file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
+    <!--intermediate file no longer needed-->
+    <delete file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip"/>
+  </sequential>
 </target>
 
 <target name="-package">
-
   <delete dir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}"/>
   <mkdir dir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}"/>
   <copy todir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}">
@@ -85,8 +108,10 @@
   </copy>
   <move todir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}">
     <fileset dir="${dir}">
-     <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
-     <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>
+      <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.html"/>
+      <include name="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>
+      <include name="WITHOUT-CREDENTIALS-PDF-OUTPUT-NOT-ATTEMPTED.txt"/>
+      <include name="HTML-FROM-XML-ATTEMPTED-WITHOUT-SUCCESS.txt"/>
     </fileset>
   </move>
   <copy todir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}/art">
