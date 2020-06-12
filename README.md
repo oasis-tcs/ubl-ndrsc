@@ -107,8 +107,8 @@ The GitHub invocations by `doall.sh` are as follows:
     - stage (e.g. "csd02wd03", "csprd01", "os", etc.)
     - label (e.g. "CCYYMMDD-hhmmz" UTC time as in "20200406-0250z", or any string for testing purposes)
     - dateTime (e.g. "now" for current time, or "CCYYMMDD-hhmm" in local time as in "20200405-2250z" for EDT -0400)
-    - serverUsername (for those editors with publishing privileges)
-    - serverPassword (for those editors with publishing privileges)
+    - serverUsername (automatically supplied on GitHub as a secret value)
+    - serverPassword (automatically supplied on GitHub as a secret value)
 
 The build results ZIP file contains:
   - `Business-Document-NDR-v1.1-{stage}-{label}.zip`

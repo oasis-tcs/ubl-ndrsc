@@ -16,10 +16,9 @@ jobs:
         java-version: 1.8
 
     - name: Build
-        env:
-          SETARE_USERNAME: ${{ secrets.SETARE_USERNAME }}
-          SETARE_PASSWORD: ${{ secrets.SETARE_PASSWORD }}
-
+      env:
+        SETARE_USERNAME: ${{ secrets.SETARE_USERNAME }}
+        SETARE_PASSWORD: ${{ secrets.SETARE_PASSWORD }}
       run: |
         mkdir target
         timestamp=$(date -u +%Y%m%d-%H%M%S)
