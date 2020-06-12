@@ -38,14 +38,18 @@ repository [LICENSE](https://github.com/oasis-tcs/ubl-ndrsc/blob/master/LICENSE.
 
 ## Further Description of this Repository
 
-This repository is for the artefacts:
+This repository is for GitHub publishing of the artefacts:
 - OASIS Business Document Naming and Design Rules (BDNDR) v1.1
   - `Business-Document-NDR-v1.1-{stage}.xml`
-  - this XML requires an entity file:
-    - `Business-Document-NDR-v1.1-{stage}-summary.ent`
-    - this entity file is created using the stylesheet fragments:
-      - `massage-NDR.xsl`
-      - `check-UBL-NDR-3.0.xsl`
+    - this XML requires an entity file:
+      - `Business-Document-NDR-v1.1-{stage}-summary.ent`
+      - this entity file can be empty when it is made inconsistent with new edits to the base XML
+      - this entity file should be replaced by the version created on GitHub
+      - this entity file is created on GitHub using the stylesheet fragments:
+        - `massage-NDR.xsl`
+        - `check-UBL-NDR-3.0.xsl`
+    - the publishing process leverages an assembly step using:
+      - `assembleEntities.xsl`
 - UBL Naming and Design Rules v3.1
   - `UBL-NDR-v3.1-{stage}.xml`
 - UBL 2.1 JSON Serialization v2.0
@@ -75,44 +79,47 @@ The `/json` subdirectory in each of the above is a transliteration of that UBL r
 
 Support subdirectories:
 - [`art`]( art ) - high-res artwork for PDF publishing
-- [`db`]( db ) - HTMl runtime event for DocBook from OASIS DocBook templates
+- [`db`]( db ) - HTML runtime event for DocBook from OASIS DocBook templates
 - [`htmlart`]( htmlart ) - low-res artwork for HTML publishing
 - [`utilities`]( utilities ) - tools used to generate outputs
 
-For those with publishing privileges, the invocation of the packaging scripts is as follows:
+Every git push triggers GitHub to publish the results of all of the inputs. This is done by the `doall-github.sh` bash invocation of the `doall.sh` script:
+```
+#!/bin/bash
+#
+# This is the invocation that happens in the GitHub action ... it must be bash
+#
+bash doall.sh "$1" "$2" "$3" "$4" "$5" "$6" "$7"
+```
+The invocation `doall.sh` that has all of the required current invocations that must be edited accordingly when new revisions are being published:
+  - `bash doall.sh targetDirectory platform label dateTime serverUsername serverPassword`
+
+The GitHub invocations by `doall.sh` are as follows:
 - Business Document Naming and Design rules
-  - `sh packageBDNDR11.sh target stage label localDateTime serverUsername serverPassword`
-  - `packageBDNDR11.bat target stage label localDateTime serverUsername serverPassword`
+  - `bash packageBDNDR11.sh targetDirectory stage label dateTime serverUsername serverPassword`
 - UBL Naming and Design rules
-  - `sh packageUBLNDR.sh target stage label localDateTime serverUsername serverPassword`
-  - `packageUBLNDR.bat target stage label localDateTime serverUsername serverPassword`
+  - `bash packageUBLNDR.sh targetDirectory stage label dateTime serverUsername serverPassword`
 - JSON Serialization
-  - `sh packageUBLJSON.sh target ublVersion stage label localDateTime serverUsername serverPassword`
-  - `packageUBLJSON.bat target ublVersion stage label localDateTime serverUsername serverPassword`
+  - `bash packageUBLJSON.sh targetDirectory ublVersion stage label dateTime serverUsername serverPassword`
 - where:
     - pre-existing target directory (without trailing "/", e.g. ../results or ..\results)
     - ublVersion (e.g. "2.1", "2.2", "2.3")
     - stage (e.g. "csd02wd03", "csprd01", "os", etc.)
     - label (e.g. "CCYYMMDD-hhmmz" UTC time as in "20200406-0250z", or any string for testing purposes)
-    - localDateTime (e.g. "now" for current time, or "CCYYMMDD-hhmm" in local time as in "20200405-2250z" for EDT -0400)
+    - dateTime (e.g. "now" for current time, or "CCYYMMDD-hhmm" in local time as in "20200405-2250z" for EDT -0400)
     - serverUsername (for those editors with publishing privileges)
     - serverPassword (for those editors with publishing privileges)
 
-A handy invocation is `doall.bat`/`doall.sh` that has all of the required current invocations:
-  - `sh doall.sh label localDateTime serverUsername serverPassword`
-  - `doall.bat label localDateTime serverUsername serverPassword`
-
-The build results in the target directory:
+The build results ZIP file contains:
   - `Business-Document-NDR-v1.1-{stage}-{label}.zip`
-  - `Business-Document-NDR-v1.1-{stage}-{label}/`
   - `UBL-NDR-v3.1-{stage}-{label}.zip`
-  - `UBL-NDR-v3.1-{stage}-{label}/`
   - `UBL-2.1-JSON-v2.0-{stage}-{label}.zip`
-  - `UBL-2.1-JSON-v2.0-{stage}-{label}/`
   - `UBL-2.2-JSON-v1.0-{stage}-{label}.zip`
-  - `UBL-2.2-JSON-v1.0-{stage}-{label}/`
   - `UBL-2.3-JSON-v1.0-{stage}-{label}.zip`
-  - `UBL-2.3-JSON-v1.0-{stage}-{label}/`
+  - `archive-only-not-in-final-distribution/ndr.exitcodes.test.txt`
+    - a summary of the exit codes for each of the publishing tasks
+  - `archive-only-not-in-final-distribution/ndr.console.test.txt`
+    - the console record of the execution of each of the publishing tasks
 
 ## Contact
 

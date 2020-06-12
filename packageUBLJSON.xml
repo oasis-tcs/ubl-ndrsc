@@ -59,7 +59,7 @@
   <ant antfile="${serverScript}" dir="${dir}">
     <property name="entrypoint" value="OASIS-note2pdfhtml"/>
     <property name="fileupload"
-              value="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip"/>
+              value="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip"/>
     <property name="dateprefix" value="UBL-${UBLversion}-JSON-${JSONversion}"/>
   </ant>
   <echo message="Check and cleanup..."/>
