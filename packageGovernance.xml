@@ -1,0 +1,149 @@
+<project default="make" xmlns:if="ant:if" xmlns:unless="ant:unless">
+
+<target name="make">
+  <!--documentation-->
+  <echo message="stage=${stage}"/>
+  <echo message="version=${version}"/>
+  <echo message="datetimelocal=${datetimelocal}"/>
+
+  <available property="stage-okay" file="UBL-Governance-v1.1-${stage}.xml"/>
+  <fail unless="stage-okay" message="Cannot find documentation with stage: ${stage}."/>
+
+  <antcall target="-make-docs"/>
+  
+  <antcall target="-package"/>
+</target>
+
+<target name="-check-docs">
+  <uptodate targetfile="UBL-Governance-v1.1-${stage}.html"
+            property=  "readme-Gov-html-okay">
+    <srcfiles dir=".">
+      <include name="UBL-Governance-v1.1-${stage}.xml"/>
+    </srcfiles>
+  </uptodate>
+  <uptodate targetfile="UBL-Governance-v1.1-${stage}.pdf"
+            property=  "readme-Gov-pdf-okay">
+    <srcfiles dir=".">
+      <include name="UBL-Governance-v1.1-${stage}.xml"/>
+    </srcfiles>
+  </uptodate>
+  <condition property="readme-Gov-okay">
+    <and>
+      <istrue value="${readme-Gov-html-okay}"/>
+      <istrue value="${readme-Gov-pdf-okay}"/>
+    </and>
+  </condition>
+</target>
+
+<target name="-make-docs" depends="-check-docs" unless="readme-Gov-okay">
+  <!--remove old results-->
+  <delete file="${dir}/UBL-Governance-v1.1-${stage}.html"/>
+  <delete file="${dir}/UBL-Governance-v1.1-${stage}.pdf"/>
+  <delete file="${dir}/UBL-Governance-v1.1-${stage}-pub.zip"/>
+  <condition property="useSetarePublishing">
+    <and>
+      <not>
+        <equals arg1="${setareuser}" arg2=""/>
+      </not>
+      <not>
+        <equals arg1="${setarepass}" arg2=""/>
+      </not>
+    </and>
+  </condition>
+  <sequential unless:set="useSetarePublishing">
+    <echo message="No credentials for remote publishing; creating local HTML presuming stylesheet association..."/>
+    <java classname="net.sf.saxon.Transform">
+      <arg value="-a"/>
+      <arg value="-s:UBL-Governance-v1.1-${stage}.xml"/>
+      <arg value="-o:${dir}/UBL-Governance-v1.1-${stage}.html"/>
+    </java>
+    <available property="html-made" file="${dir}/UBL-Governance-v1.1-${stage}.html"/>
+    <touch unless:set="html-made" file="${dir}/HTML-FROM-XML-ATTEMPTED-WITHOUT-SUCCESS.txt"/>
+    <touch file="${dir}/WITHOUT-CREDENTIALS-PDF-OUTPUT-NOT-ATTEMPTED.txt"/>
+  </sequential>
+  <sequential if:set="useSetarePublishing">
+    <echo message="Using credentials for remote publishing..."/>
+    <!--package inputs-->
+    <zip destfile="${dir}/UBL-Governance-v1.1-${stage}-pub.zip">
+      <fileset dir=".">
+        <include name="UBL-Governance-v1.1-${stage}.xml"/>
+        <include name="art/UBL-Governance-*.png"/>
+      </fileset>
+    </zip>
+    <!--create outputs-->
+    <echo message="Submitting print job..."/>
+    <property name="serverScript" location="SetareServerAnt.xml"/> 
+    <ant antfile="${serverScript}" dir="${dir}">
+      <property name="entrypoint" value="OASIS-note2pdfhtml"/>
+      <property name="fileupload"
+                value="UBL-Governance-v1.1-${stage}-pub.zip"/>
+      <property name="dateprefix" value="UBL-NDR"/>
+    </ant>
+    <echo message="Check and cleanup..."/>
+    <available property="ready-pdf" file="${dir}/UBL-Governance-v1.1-${stage}.pdf"/>
+    <fail unless="ready-pdf" message="PDF not created"/>
+    <available property="ready-html" file="${dir}/UBL-Governance-v1.1-${stage}.html"/>
+    <fail unless="ready-html" message="HTML not created"/>
+    <!--these touches are necessary because unzip doesn't preserve time of day-->
+    <touch file="${dir}/UBL-Governance-v1.1-${stage}.pdf"/>
+    <touch file="${dir}/UBL-Governance-v1.1-${stage}.html"/>
+    <!--intermediate file no longer needed-->
+    <delete file="${dir}/UBL-Governance-v1.1-${stage}-pub.zip"/>
+  </sequential>
+</target>
+
+<target name="-package">
+  <delete dir="${dir}/UBL-Governance-v1.1-${stage}-${version}"/>
+  <mkdir dir="${dir}/UBL-Governance-v1.1-${stage}-${version}"/>
+  <copy todir="${dir}/UBL-Governance-v1.1-${stage}-${version}">
+    <fileset dir=".">
+     <include name="UBL-Governance-v1.1-${stage}.xml"/>
+    </fileset>
+  </copy>
+  <move todir="${dir}/UBL-Governance-v1.1-${stage}-${version}">
+    <fileset dir="${dir}">
+      <include name="UBL-Governance-v1.1-${stage}.html"/>
+      <include name="UBL-Governance-v1.1-${stage}.pdf"/>
+      <include name="WITHOUT-CREDENTIALS-PDF-OUTPUT-NOT-ATTEMPTED.txt"/>
+      <include name="HTML-FROM-XML-ATTEMPTED-WITHOUT-SUCCESS.txt"/>
+    </fileset>
+  </move>
+
+  <copy todir="${dir}/UBL-Governance-v1.1-${stage}-${version}/art">
+    <fileset dir="htmlart">
+      <include name="UBL-Governance-*"/>
+    </fileset>
+  </copy>
+
+  <copy todir="${dir}/UBL-Governance-v1.1-${stage}-${version}/art/pdf">
+    <fileset dir="art">
+      <include name="UBL-Governance-*"/>
+    </fileset>
+  </copy>
+
+  <mkdir dir="${dir}/UBL-Governance-v1.1-${stage}-${version}/db"/>
+  <copy todir="${dir}/UBL-Governance-v1.1-${stage}-${version}/db">
+    <fileset dir="db/spec-0.8/htmlruntime">
+     <include name="**"/>
+    </fileset>
+  </copy>
+
+  <delete file="${dir}/UBL-Governance-v1.1-${stage}-${version}.zip"/>
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}/UBL-Governance-v1.1-${stage}-${version}"/>
+  </touch>
+
+  <zip destfile="${dir}/UBL-Governance-v1.1-${stage}-${version}.zip"
+       basedir="${dir}" includes="UBL-Governance-v1.1-${stage}-${version}/**"/>
+  <delete dir="${dir}/UBL-Governance-v1.1-${stage}-${version}"/>
+  <unzip src="${dir}/UBL-Governance-v1.1-${stage}-${version}.zip" 
+         dest="${dir}"/>
+
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}">
+      <include name="UBL-Governance-v1.1-${stage}-${version}.zip"/>
+    </fileset>
+  </touch>
+</target>
+
+</project>

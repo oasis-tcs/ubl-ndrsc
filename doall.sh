@@ -14,6 +14,9 @@ set +x
 if [ -f $1/ndr.console.$3.txt ]; then rm $1/ndr.console.$3.txt ; fi
 touch $1/ndr.console.$3.txt
 
+echo UBL Governance 1.1...                               | tee -a $1/ndr.console.$3.txt
+bash packageGovernance.sh $1 cnd01wd01 $3 $4 $5 $6       | tee -a $1/ndr.console.$3.txt
+UBLGovReturn=${PIPESTATUS[0]}
 echo UBL 2.1 JSON 2.0...                                | tee -a $1/ndr.console.$3.txt
 bash packageUBLJSON.sh $1 2.1 2.0 cnd01wd01 $3 $4 $5 $6 | tee -a $1/ndr.console.$3.txt
 UBL21Return=${PIPESTATUS[0]}
@@ -31,7 +34,7 @@ bash packageBDNDR11.sh $1 csd03wd02 $3 $4 $5 $6         | tee -a $1/ndr.console.
 BDNDRReturn=${PIPESTATUS[0]}
 
 mv $1/ndr.console.$3.txt $1/ndr-UBL-$2-$3/archive-only-not-in-final-distribution/
-echo UBL21:$UBL21Return UBL22:$UBL22Return UBL23:$UBL23Return UBLNDR:$UBLNDRReturn BDNDR:$BDNDRReturn  >$1/ndr-UBL-$2-$3/archive-only-not-in-final-distribution/ndr.exitcodes.$3.txt
+echo Governance:$UBLGovReturn UBL21:$UBL21Return UBL22:$UBL22Return UBL23:$UBL23Return UBLNDR:$UBLNDRReturn BDNDR:$BDNDRReturn  >$1/ndr-UBL-$2-$3/archive-only-not-in-final-distribution/ndr.exitcodes.$3.txt
 
 # move created packages to download zip
 mv $1/*.zip $1/ndr-UBL-$2-$3
