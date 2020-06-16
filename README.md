@@ -58,7 +58,7 @@ This repository is for GitHub publishing of the artefacts:
   - `UBL-2.2-JSON-v1.0-{stage}.xml`
 - UBL 2.3 JSON Serialization v1.0
   - `UBL-2.3-JSON-v1.0-{stage}.xml`
-- UBL Governance
+- UBL Governance v1.1
   - `UBL-Governance-v1.1-{stage}.xml`
 
 Opening the authored XML documents in an XSLT-aware browser (e.g. Safari) allows one to peruse the final document as if it had been published in HTML.
