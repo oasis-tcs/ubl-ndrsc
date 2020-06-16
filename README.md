@@ -97,6 +97,8 @@ The invocation `doall.sh` that has all of the required current invocations that 
   - `bash doall.sh targetDirectory platform label dateTime serverUsername serverPassword`
 
 The GitHub invocations by `doall.sh` are as follows:
+- UBL Governance
+  - `bash packageGovernance.sh targetDirectory stage label dateTime serverUsername serverPassword`
 - Business Document Naming and Design rules
   - `bash packageBDNDR11.sh targetDirectory stage label dateTime serverUsername serverPassword`
 - UBL Naming and Design rules
@@ -113,6 +115,7 @@ The GitHub invocations by `doall.sh` are as follows:
     - serverPassword (automatically supplied on GitHub as a secret value)
 
 The build results ZIP file contains:
+  - `UBL-Governance-v1.1-{stage}-{label}.zip`
   - `Business-Document-NDR-v1.1-{stage}-{label}.zip`
   - `UBL-NDR-v3.1-{stage}-{label}.zip`
   - `UBL-2.1-JSON-v2.0-{stage}-{label}.zip`
