@@ -116,7 +116,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
     </authorgroup>
     <pubdate>&pubdate;</pubdate>
     <copyright>
-      <year>2016</year>
+      <year>2020</year>
     </copyright>
     <!--<legalnotice role="additional">
       <title>Additional artefacts</title>
@@ -209,7 +209,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
     </legalnotice>
     <legalnotice role="notices">
       <title>Notices</title>
-      <para>Copyright &#169; OASIS Open 2001-2016. All Rights Reserved. </para>
+      <para>Copyright &#169; OASIS Open 2001-2020. All Rights Reserved. </para>
       <para>All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the &#8220;OASIS IPR Policy&#8221;). The full <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/ipr">Policy</ulink> may be found at
         the OASIS website.</para>
       <para>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided

@@ -40,6 +40,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
 <!ENTITY this-loc     "https://docs.oasis-open.org/ubl/&dir;/v&version;/&stage;">
 <!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&dir;/v&pversion;">
 <!ENTITY latest-loc   "https://docs.oasis-open.org/ubl/&dir;/v&version;">
+<!ENTITY copyyear "2020">
 <!ENTITY pubdate "16 June 2020"><!--remove time from pub date-->
 ]>
 <article status="&note;" conformance="ids quotes ebuzzwords">
@@ -93,7 +94,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
     </authorgroup>
     <pubdate>&pubdate;</pubdate>
     <copyright>
-      <year>2015</year>
+      <year>&copyyear;</year>
     </copyright>
     <legalnotice role="additional">
       <title>Additional artefacts</title>
@@ -197,7 +198,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
     </legalnotice>
     <legalnotice role="notices">
       <title>Notices</title>
-      <para>Copyright &#169; OASIS Open 2020. All Rights Reserved. </para>
+      <para>Copyright &#169; OASIS Open &copyyear;. All Rights Reserved. </para>
       <para>All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the &#8220;OASIS IPR Policy&#8221;). The full <ulink url="https://www.oasis-open.org/policies-guidelines/ipr" conformance="skip">Policy</ulink> may be found at
         the OASIS website.</para>
       <para>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided
@@ -666,22 +667,24 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
     <para>The following individuals have participated in the creation of this specification and are gratefully acknowledged:</para>
     <simplelist>
       <member>Todd Albers, Federal Reserve Bank of Minneapolis</member>
+      <member>Rui Barros, Individual</member>
       <member>Oriol Bausa Peris, Individual</member>
       <member>Kenneth Bengtsson, Individual</member>
-      <member>Erlend Klakegg Bergheim, Difi-Agency for Public Management and <phrase lang="none">eGovernment</phrase>
-      </member>
+      <member>Erlend Klakegg Bergheim, Norwegian Digitalisation Agency</member>
       <member>Peter Borresen, ClearView Trade</member>
-      <member>Jon Bosak, Individual</member>
       <member>Andrea Caccia, Individual</member>
       <member>Ger Clancy, IBM</member>
       <member>Kees Duvekot, RFS Holland Holding B.V.</member>
-      <member>Cécile Guasch, Individual</member>
+      <member>Martin Forsberg, Swedish Association of Local Authorities &amp; Regions</member>
+      <member>Cecile Guasch, Individual</member>
       <member>Philip Helger, Individual</member>
-      <member>G. Ken Holman, Crane Softwrights Ltd.</member>
+      <member>Ken Holman, Crane Softwrights Ltd.</member>
       <member>Yves Jordan, Publications Office of the European Union</member>
+      <member>Kari Korpela, Individual</member>
+      <member>Ole Madsen, Danish Business Authority</member>
       <member>Natalie Muric, Publications Office of the European Union</member>
-      <member>Levine Naidoo, Individual</member>
-      <member>Enric Staromiejski Torregrosa, everis, S.L.U.</member>
+      <member>Levine Naidoo, IBM</member>
+      <member>Enric Torregrosa, everis, S.L.U.</member>
       <member>Matt Vickers, Xero</member>
     </simplelist>
   </appendix>
