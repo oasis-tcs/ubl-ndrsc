@@ -1,0 +1,1834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+For use when a committee document points at the OASIS web site for publishing:
+<?xml-stylesheet type="text/xsl" 
+href="http://docs.oasis-open.org/templates/DocBook/spec-0.8/stylesheets/oasis-specification-html.xsl"?>
+<!DOCTYPE article
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+         "https://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" 
+
+For use when a committee document points to an embedded installation of DocBook
+<?xml-stylesheet type="text/xsl" 
+               href="db/spec-0.8/stylesheets/oasis-specification-html.xsl"?>
+<!DOCTYPE article
+ PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+        "db/spec-0.8/docbook/docbookx.dtd" 
+
+For use when a committee document is published in a local environment only
+(note the instructions for local publishing require adjusting the stylesheet
+ and DocBook directories in these declarations):
+<?xml-stylesheet type="text/xsl" 
+href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl"?>
+<!DOCTYPE article
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+         "file:///z:/oasis/spec-0.8/docbook/docbookx.dtd" 
+-->
+<?xml-stylesheet type="text/xsl"
+               href="db/spec-0.8/stylesheets/oasis-note-html.xsl"?>
+<?oasis-spec-base-uri db/spec-0.8/?>
+<!DOCTYPE article
+ PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+        "db/spec-0.8/docbook/docbookx.dtd" 
+[
+<!-- the document properties-->
+<!ENTITY dir "UBL-NDR">
+<!ENTITY name "&dir;-v&version;">
+<!ENTITY pversion "NONE">
+<!ENTITY version "3.1">
+<!ENTITY stage "cnd01">
+<!ENTITY pstage "cnxxxxxxxxxxx">
+<!ENTITY title "UBL Naming and Design Rules Version&#xa0;&version;">
+<!ENTITY note "Committee Note Draft 01">
+<!ENTITY this-loc     "https://docs.oasis-open.org/ubl/&dir;/v&version;/&stage;">
+<!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&dir;/v&version;/&pstage;">
+<!ENTITY latest-loc   "https://docs.oasis-open.org/ubl/&dir;/v&version;">
+<!ENTITY pubdate "29 July 2020"><!--remove time from pub date-->
+
+<!--BDNDR information-->
+<!ENTITY bdndr-dir "Business-Document-NDR">
+<!ENTITY bdndr-name "&bdndr-dir;-v&bdndr-version;">
+<!ENTITY bdndr-version "1.1">
+<!ENTITY bdndr-title "Business Document Naming and Design Rules (BDNDR) Version&#xa0;&bdndr-version;">
+<!ENTITY bdndr-standard "Committee Specification Draft 03">
+<!ENTITY bdndr-stage                       "csd03"><!--remember title ent-->
+<!ENTITY bdndr-this-loc     "https://docs.oasis-open.org/ubl/&bdndr-dir;/v&bdndr-version;/&bdndr-stage;">
+<!ENTITY bdndr-latest-loc   "https://docs.oasis-open.org/ubl/&bdndr-dir;/v&bdndr-version;">
+<!ENTITY bdndr-pubdate "29 July 2020">
+
+<!--UBL 2.3-->
+<!ENTITY ubl-name "UBL">
+<!ENTITY ubl-version  "2.3">
+<!ENTITY ubl-standard  "Committee Specification Draft 03">
+<!ENTITY ubl-latest-loc   "https://docs.oasis-open.org/ubl">
+<!ENTITY ubl-pubdate     "29 July 2020"><!--remove time from pub date-->
+<!ENTITY ubl-pubyear     "2020">
+
+]>
+<article status="&note;" conformance="ids">
+  <articleinfo>
+    <releaseinfo role="cvs"> $Id: UBL-NDR-v3.1-cnd01wd01.xml,v 1.7 2020/04/14 20:10:05 admin Exp $ </releaseinfo>
+    <productname>&name;</productname>
+    <productnumber>&stage;</productnumber>
+    <releaseinfo role="track">Non-standards Track</releaseinfo>
+    <releaseinfo role="OASIS-specification-this-authoritative">&this-loc;/&name;-&stage;.xml</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">&this-loc;/&name;-&stage;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">&this-loc;/&name;-&stage;.pdf</releaseinfo>
+    <!-- <releaseinfo role="OASIS-specification-previous-authoritative"
+         >&previous-loc;/&name;-&pstage;.xml</releaseinfo> 
+      <releaseinfo role="OASIS-specification-previous"
+         >&previous-loc;/&name;-&pstage;.html</releaseinfo>
+      <releaseinfo role="OASIS-specification-previous"
+         >&previous-loc;/&name;-&pstage;.pdf</releaseinfo>-->
+    <releaseinfo role="OASIS-specification-latest">&latest-loc;/&dir;-v&version;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-latest">&latest-loc;/&dir;-v&version;.pdf</releaseinfo>
+    <title>&title;</title>
+    <releaseinfo role="committee"><ulink conformance="skip" url="https://www.oasis-open.org/committees/ubl/">OASIS Universal
+        Business Language TC</ulink></releaseinfo>
+    <authorgroup>
+      <editor>
+        <firstname>G. Ken</firstname>
+        <surname>Holman</surname>
+        <affiliation>
+          <orgname><ulink conformance="skip" url="http://www.CraneSoftwrights.com">Crane Softwrights Ltd.</ulink></orgname>
+        </affiliation>
+        <email>gkholman@CraneSoftwrights.com</email>
+      </editor>
+      <othercredit>
+        <firstname>Kenneth</firstname>
+        <surname>Bengtsson</surname>
+        <affiliation>
+          <orgname>Individual</orgname>
+        </affiliation>
+        <email>kbengtsson@efact.pe</email>
+      </othercredit>
+      <othercredit>
+        <firstname>G. Ken</firstname>
+        <surname>Holman</surname>
+        <affiliation>
+          <orgname><ulink conformance="skip" url="http://www.CraneSoftwrights.com/links/info-ubl.htm">Crane Softwrights Ltd.</ulink></orgname>
+        </affiliation>
+        <email>gkholman@CraneSoftwrights.com</email>
+      </othercredit>
+    </authorgroup>
+    <pubdate>&pubdate;</pubdate>
+    <copyright>
+      <year>2020</year>
+    </copyright>
+    <!--<legalnotice role="additional">
+      <title>Additional artefacts</title>
+      <para>The ZIP containing the complete files of this release is found in
+        the directory:</para>
+      <itemizedlist>
+        <listitem>
+          <para><ulink url="&this-loc;/">&this-loc;/</ulink></para>
+        </listitem>
+      </itemizedlist>
+    </legalnotice>-->
+    <legalnotice role="related">
+      <title>Related work</title>
+      <para>This note is related to:</para>
+      <bibliolist>
+        <bibliomixed conformance="skip">
+          <abbrev>BDNDR</abbrev>
+          <citetitle>&bdndr-title;. </citetitle>
+          <bibliomisc>Edited by Kenneth Bengtsson, Erlend Klakegg Bergheim and G. Ken Holman. </bibliomisc>
+          <date>&bdndr-pubdate;. </date>
+          <releaseinfo>&bdndr-standard;. </releaseinfo>
+          <bibliomisc>
+            <ulink url="&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html">&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html</ulink>. Latest version: <ulink url="&bdndr-latest-loc;/&bdndr-name;.html">&bdndr-latest-loc;/&bdndr-name;.html</ulink>. </bibliomisc>
+        </bibliomixed>
+        <!--        <bibliomixed conformance="skip">
+          <citetitle>Universal Business Language Version 2.1.</citetitle>
+          <bibliomisc>Edited by Jon Bosak, Tim McGrath and G. Ken Holman. </bibliomisc>
+          <date>04 November 2013. </date>
+          <releaseinfo>OASIS Standard. </releaseinfo>
+          <bibliomisc>
+            <ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html"
+              >http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html</ulink>.
+          </bibliomisc>
+        </bibliomixed>
+        <bibliomixed conformance="skip">
+          <citetitle>Universal Business Language Version 2.2.</citetitle>
+          <bibliomisc>Edited by G. Ken Holman. </bibliomisc>
+          <date>09 July 2018. </date>
+          <releaseinfo>OASIS Standard. </releaseinfo>
+          <bibliomisc>
+            <ulink url="http://docs.oasis-open.org/ubl/os-UBL-2.2/UBL-2.2.html" conformance="skip">http://docs.oasis-open.org/ubl/os-UBL-2.2/UBL-2.2.html</ulink>. </bibliomisc>
+        </bibliomixed>-->
+        <bibliomixed conformance="skip">
+          <citetitle>Universal Business Language Version 2.3.</citetitle>
+          <bibliomisc>Edited by G. Ken Holman. </bibliomisc>
+          <date>14 April 2020. </date>
+          <releaseinfo>Committee Specification Public Review Draft 03. </releaseinfo>
+          <bibliomisc>
+            <ulink url="https://docs.oasis-open.org/ubl/csprd03-UBL-2.3/UBL-2.3.html">https://docs.oasis-open.org/ubl/csprd03-UBL-2.3/UBL-2.3.html</ulink>. </bibliomisc>
+        </bibliomixed>
+      </bibliolist>
+    </legalnotice>
+    <abstract>
+      <para>This committee note describes the application of the OASIS Business Document Naming and Design Rules (NDR) to the OASIS UBL 2.3 specification.</para>
+    </abstract>
+    <legalnotice role="status" id="STATUS">
+      <title>Status</title>
+      <para>This <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#dWorkingDraft">Working Draft</ulink> (WD) has been produced by one or more TC Members; it has not yet been voted on by the TC or <ulink conformance="skip"
+          url="https://www.oasis-open.org/policies-guidelines/tc-process#committeeDraft">approved</ulink> as a Committee Note Draft. The OASIS document <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#standApprovProcess">Approval Process</ulink> begins
+        officially with a TC vote to approve a WD as a Committee Note Draft. A TC may approve a Working Draft, revise it, and re-approve it any number of times as a Committee Note Draft.</para>
+      <!--
+      <para>This document was last revised or approved by the OASIS Universal
+        Business Language (UBL) TC on the above date. The level of approval is
+        also listed above. Check the “Latest version” location noted above for
+        possible later revisions of this document.</para>
+      <para>Technical Committee (TC) members should send comments on this
+        document to the TC’s email list. Others should send comments to the
+        TC’s public comment list, after subscribing to it by following the
+        instructions at the &#8220;<ulink conformance="skip"
+          url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=ubl"
+          >Send A Comment</ulink>&#8221; button on the Technical
+        Committee&#8217;s web page at <ulink
+          url="https://www.oasis-open.org/committees/ubl/"
+          >https://www.oasis-open.org/committees/ubl/</ulink>.</para>
+      -->
+      <para>See <xref linkend="A-RELEASE-NOTES"/> for more information regarding this release package.</para>
+    </legalnotice>
+    <legalnotice role="citation" id="CITATION">
+      <title>Citation format</title>
+      <para>When referencing this note the following citation format should be used:</para>
+      <bibliolist id="citationfmt">
+        <bibliomixed conformance="skip"><abbrev>UBL-NDR</abbrev>
+          <citetitle>&title;. </citetitle>
+          <date>&pubdate;. </date>
+          <releaseinfo>OASIS &note;. </releaseinfo>
+          <bibliomisc>
+            <ulink url="&this-loc;/&name;-&stage;.html">&this-loc;/&name;-&stage;.html</ulink>. Latest version: <ulink url="&latest-loc;/&name;.html">&latest-loc;/&name;.html</ulink>. </bibliomisc>
+        </bibliomixed>
+      </bibliolist>
+    </legalnotice>
+    <legalnotice role="notices">
+      <title>Notices</title>
+      <para>Copyright &#169; OASIS Open 2001-2020. All Rights Reserved. </para>
+      <para>All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the &#8220;OASIS IPR Policy&#8221;). The full <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/ipr">Policy</ulink> may be found at
+        the OASIS website.</para>
+      <para>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided
+        that the above copyright notice and this section are included on all such copies and derivative works. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document
+        or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.</para>
+      <para>The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns.</para>
+      <para>This document and the information contained herein is provided on an &#8220;AS IS&#8221; basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR ANY IMPLIED
+        WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</para>
+    </legalnotice>
+  </articleinfo>
+  <section id="S-INTRODUCTION">
+    <title>Introduction</title>
+    <section id="S-INTRODUCTION-OVERVIEW">
+      <title>Introduction Overview</title>
+      <para>These UBL Naming and Design Rules (NDR) describe the application of the OASIS Business Document Naming and Design Rules <xref linkend="bdndr"/> by which the XML document user data syntax constraint mechanisms are created from the abstract definition of the UBL business object information
+        bundles. This is illustrated in <xref linkend="F-OPEN-EDI-APPLICATION"/>, reproduced from OASIS Standard UBL 2.3 Figure H.2 with an annotation highlighting the relationship of the NDR applied to UBL. The original figure depicts the roles of the four normative sections of the UBL 2.3
+        specification. This figure adds the JSON serialization as an additional representation of user data.</para>
+      <figure id="F-OPEN-EDI-APPLICATION">
+        <title>Open-edi Application</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/Business-Document-NDR-v1.1-Open-edi-Application.png"/>
+          </imageobject>
+          <textobject>
+            <phrase>[Open-edi Application]</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+      <para>This work product fulfills a commitment by the UBL Technical Committee to document the maintenance of the information bundles and the application of the Business Document NDR to produce the validation artefacts for UBL 2.3 <xref linkend="UBL"/> documents expressing user data. The UBL
+        information bundles are described in the abstract using CCTS <xref linkend="isoccts"/>. The UBL XML user data document model validation artefacts are described using W3C XML Schema [<xref linkend="xsd"/>] and OASIS Context/value association <xref linkend="oasiscva"/> expressions. </para>
+      <para>This work also provides guidance when writing custom extensions for UBL document models and when writing custom documents using the UBL common library.</para>
+      <note>
+        <para>The UBL 2.3 specification is backwards compatible with its predecessors UBL 2.0, UBL 2.1, and UBL 2.2. The earlier specifications were completed before the Business Document Naming and Design Rules were formalized. There may very well be in those specifications some isolated violations
+          of these rules. Changing the specifications to remove these violations is not possible because of the commitment to maintain backward compatibility with established implementations of the published specifications. Such rule violations do not impact on the integrity of the specifications,
+          as the naming and design rules represent a best practice promoted by the UBL Technical Committee. </para>
+      </note>
+      <note>
+        <title>Documentation conventions</title>
+        <para>The documentation convention followed in this committee note is that the major clauses are aligned to the major clauses and first subclauses of the cited Business Document Naming and Design Rules and use the same titles. In some cases it is necessary to instantiate a document section
+          with no additional information in order to align the titles of subsequent sections.</para>
+      </note>
+    </section>
+    <section id="S-TERMINOLOGY">
+      <title>Terminology</title>
+      <section id="S-KEY-WORDS">
+        <title>Key words</title>
+        <para>The key words <glossterm>must</glossterm>, <glossterm>must not</glossterm>, <glossterm>required</glossterm>, <glossterm>shall</glossterm>, <glossterm>shall not</glossterm>, <glossterm>should</glossterm>, <glossterm>should not</glossterm>, <glossterm>recommended</glossterm>,
+            <glossterm>may</glossterm>, and <glossterm>optional</glossterm> in this document are to be interpreted as described in <xref linkend="rfc2119"/>. Note that for reasons of style, these words are not capitalized in this document.</para>
+      </section>
+      <section id="S-TERMS-AND-DEFINITIONS">
+        <title>Terms and Definitions</title>
+        <variablelist>
+          <varlistentry id="cva">
+            <term>Context/value Association</term>
+            <listitem>
+              <para>The association of value constraints imposed on information found in a particular document context.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry id="CCTS">
+            <term>Core Component Technical Specification</term>
+            <listitem>
+              <para>A methodology for creating a business vocabulary that can be expressed in one or more syntactic expressions, as defined in <xref linkend="isoccts"/>. </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>document ABIE</term>
+            <listitem>
+              <para>The apex ABIE of an information bundle.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>document element</term>
+            <listitem>
+              <para>The apex element of information in an XML document, as defined in <xref linkend="xml"/>.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>extension collection</term>
+            <listitem>
+              <para>The set of extension items found in an XML document, constrained by an extension schema, that supplements the base information that is constrained by the published document model.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>extension item</term>
+            <listitem>
+              <para>A single instance of structured supplemental information and its associated metadata distinguishing it from other extension items.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>extension point</term>
+            <listitem>
+              <para>The apex element of structured supplemental information described by its metadata.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>information bundle</term>
+            <listitem>
+              <para>The formal description of the semantics of the recorded information to be exchanged, as defined in <xref linkend="iso14662"/>.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry id="NDR">
+            <term>naming and design rules</term>
+            <listitem>
+              <para>A set of rules governing the expression of information bundles using <xref linkend="CCTS"/>, and the creation of associated XML document model validation artefacts using <xref linkend="cva"/> and <xref linkend="xsd"/>. </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>object class</term>
+            <listitem>
+              <para>A set of ideas, abstractions, or things in the real world that are identified with explicit boundaries and meaning and whose properties and behavior follow the same rules <xref linkend="iso11179"/> (definition 3.3.22).</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>property</term>
+            <listitem>
+              <para>A characteristic common to all members of an object class <xref linkend="iso11179"/> (definition 3.3.29).</para>
+            </listitem>
+          </varlistentry>
+          <!--          <varlistentry>
+            <term>validation</term>
+            <listitem>
+              <para>The processing involved in confirming that an XML document
+                satisfies the document constraints expressed in a set of
+                artefacts governing aspects of document content according to a
+                document model.</para>
+            </listitem>
+          </varlistentry>-->
+          <varlistentry id="xsd">
+            <term>XSD schema</term>
+            <listitem>
+              <para>An XML document model definition conforming to the W3C XML Schema language <xref linkend="xsd1"/><xref linkend="xsd2"/>.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para>The terms <emphasis>Core Component (CC), Basic Core Component (BCC), Aggregate Core Component (ACC), Association Core Component (ASCC), Business Information Entity (BIE), Basic Business Information Entity (BBIE),</emphasis> and <emphasis>Aggregate Business Information Entity
+            (ABIE)</emphasis> are used in this specification with the meanings given in <xref linkend="isoccts"/>.</para>
+        <para>The terms <emphasis>Object Class, Property Term, Representation Term,</emphasis> and <emphasis>Qualifier</emphasis> are used in this specification with the meanings given in <xref linkend="iso11179"/>.</para>
+      </section>
+      <section id="S-SYMBOLS-AND-ABBREVIATIONS">
+        <title>Symbols and Abbreviations</title>
+        <variablelist>
+          <varlistentry>
+            <term>ABIE</term>
+            <listitem>
+              <para>Aggregate Business Information Entity <xref linkend="isoccts"/></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>ASBIE</term>
+            <listitem>
+              <para>Association Business Information Entity <xref linkend="isoccts"/></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>BIE</term>
+            <listitem>
+              <para>Business Information Entity <xref linkend="isoccts"/></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>BBIE</term>
+            <listitem>
+              <para>Basic Business Information Entity <xref linkend="isoccts"/></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>CCTS</term>
+            <listitem>
+              <para><xref linkend="CCTS"/></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>CVA</term>
+            <listitem>
+              <para><xref linkend="cva"/></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>NDR</term>
+            <listitem>
+              <para><xref linkend="NDR"/></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>TC</term>
+            <listitem>
+              <para>Technical Committee</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>XSD</term>
+            <listitem>
+              <para>W3C XML Schema Definition [<xref linkend="xsd"/>]</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </section>
+    </section>
+    <section id="S-REFERENCES">
+      <title>References</title>
+      <bibliolist>
+        <bibliomixed id="bdndr">
+          <abbrev>BDNDR</abbrev><citetitle>&bdndr-title;.</citetitle>
+          <bibliomisc>Edited by Kenneth Bengtsson, Erlend Klakegg Bergheim and G. Ken Holman.</bibliomisc>
+          <date>&bdndr-pubdate;.</date>
+          <releaseinfo>&bdndr-standard;.</releaseinfo>
+          <bibliomisc>
+            <ulink url="&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html">&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html</ulink>. Latest version: <ulink url="&bdndr-latest-loc;/&bdndr-name;.html">&bdndr-latest-loc;/&bdndr-name;.html</ulink>. </bibliomisc>
+        </bibliomixed>
+        <bibliomixed id="isoccts"><abbrev>CCTS</abbrev>
+          <title>UN/CEFACT Core Component Technical Specification Version 2.01</title>
+          <citetitle><ulink url="https://www.oasis-open.org/committees/download.php/6232/CEFACT-CCTS-Version-2pt01.zip">https://www.oasis-open.org/committees/download.php/6232/CEFACT-CCTS-Version-2pt01.zip</ulink></citetitle></bibliomixed>
+        <bibliomixed id="oasiscva">
+          <abbrev>CVA</abbrev>
+          <citetitle>OASIS Context/value association using genericode 1.0. </citetitle>
+          <date>15 April 2010. </date>
+          <releaseinfo>Committee Specification 01. </releaseinfo>
+          <bibliomisc>
+            <ulink conformance="skip" url="http://docs.oasis-open.org/codelist/cs01-ContextValueAssociation-1.0/doc/context-value-association.html">http://docs.oasis-open.org/codelist/cs01-ContextValueAssociation-1.0/doc/context-value-association.html</ulink>. </bibliomisc>
+        </bibliomixed>
+        <bibliomixed id="gc">
+          <abbrev>genericode</abbrev>
+          <citetitle>OASIS Code List Representation (Genericode) Version 1.0.</citetitle>
+          <date>28 December 2007. </date>
+          <releaseinfo>Committee Specification 01. </releaseinfo>
+          <bibliomisc>
+            <ulink conformance="skip" url="http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html">http://docs.oasis-open.org/codelist/cs-genericode-1.0/doc/oasis-code-list-representation-genericode.html</ulink>. </bibliomisc>
+        </bibliomixed>
+        <bibliomixed id="iso11179"><abbrev>ISO 11179</abbrev>
+          <title>ISO/IEC 11179-1:2004 Information technology &#8212; Specification and standardization of data elements &#8212; Part 1: Framework for the specification and standardization of data elements </title>
+          <citetitle>
+            <ulink url="http://standards.iso.org/ittf/PubliclyAvailableStandards/c035343_ISO_IEC_11179-1_2004(E).zip">http://standards.iso.org/ittf/PubliclyAvailableStandards/c035343_ISO_IEC_11179-1_2004(E).zip</ulink></citetitle></bibliomixed>
+        <bibliomixed id="iso14662"><abbrev>ISO 14662</abbrev>
+          <title>ISO/IEC 14662:2004 Information technology &#8212; Open-edi reference model</title>
+          <citetitle>
+            <ulink url="http://standards.iso.org/ittf/PubliclyAvailableStandards/">http://standards.iso.org/ittf/PubliclyAvailableStandards/</ulink></citetitle></bibliomixed>
+        <bibliomixed id="rfc2119"><abbrev>RFC 2119</abbrev>
+          <author>
+            <surname>Bradner, </surname>
+            <firstname>S.</firstname>
+          </author>, <title>Key words for use in RFCs to Indicate Requirement Levels</title>, <releaseinfo>BCP 14, RFC 2119</releaseinfo>, <date>March 1997</date>, <citetitle>&lt;<ulink url="http://www.rfc-editor.org/info/rfc2119">http://www.rfc-editor.org/info/rfc2119</ulink>></citetitle>. </bibliomixed>
+        <bibliomixed id="UBL"><abbrev>UBL-2.3</abbrev>
+          <citetitle>Universal Business Language Version&#xa0;&ubl-version;. </citetitle>
+          <bibliomisc>Edited by G. Ken Holman. </bibliomisc>
+          <date>&ubl-pubdate;. </date>
+          <releaseinfo>&ubl-standard;. </releaseinfo>
+          <bibliomisc>
+            <ulink url="&ubl-latest-loc;/UBL-2.3.html">&ubl-latest-loc;/UBL-2.3.html</ulink>. </bibliomisc>
+        </bibliomixed>
+        <bibliomixed id="xml"><abbrev>XML</abbrev>
+          <title>Extensible Markup Language (XML) 1.0 (Fifth Edition)</title>, <author>
+            <firstname>T. </firstname>
+            <surname>Bray</surname>
+          </author>, <author>
+            <firstname>J. </firstname>
+            <surname>Paoli</surname>
+          </author>, <author>
+            <firstname>C. M. </firstname>
+            <surname>Sperberg-McQueen</surname>
+          </author>, <author>
+            <firstname>E. </firstname>
+            <surname>Maler</surname>
+          </author>, <author>
+            <firstname>F. </firstname>
+            <surname>Yergeau</surname>
+          </author>, Editors, <releaseinfo>W3C Recommendation</releaseinfo>, <date>26 November 2008</date>, <citetitle><ulink url="http://www.w3.org/TR/2008/REC-xml-20081126/">http://www.w3.org/TR/2008/REC-xml-20081126/</ulink></citetitle>. Latest version available at <citetitle><ulink
+              url="http://www.w3.org/TR/xml">http://www.w3.org/TR/xml</ulink></citetitle>. </bibliomixed>
+        <bibliomixed id="xmldsig"><abbrev>xmldsig</abbrev>
+          <title>XML-Signature Syntax and Processing Version 1.1</title>, <author>
+            <firstname>D. E. </firstname>
+            <surname>Eastlake</surname>
+          </author>, <author>
+            <firstname>J. </firstname>
+            <surname>Reagle</surname>
+          </author>, <author>
+            <firstname>D. </firstname>
+            <surname>Solo</surname>
+          </author>, <author>
+            <firstname>F. </firstname>
+            <surname>Hirsch</surname>
+          </author>, <author>
+            <firstname>M. </firstname>
+            <surname>Nyström</surname>
+          </author>, <author>
+            <firstname>T. </firstname>
+            <surname>Roessler</surname>
+          </author>, <author>
+            <firstname>K. </firstname>
+            <surname>Yiu</surname>
+          </author>, Editors, <releaseinfo>W3C Recommendation</releaseinfo>, <date>11 April 2013</date>, <citetitle><ulink url="http://www.w3.org/TR/2013/REC-xmldsig-core1-20130411/">http://www.w3.org/TR/2013/REC-xmldsig-core1-20130411/</ulink></citetitle>. Latest version available at
+              <citetitle><ulink url="http://www.w3.org/TR/xmldsig-core1">http://www.w3.org/TR/xmldsig-core1</ulink></citetitle>. </bibliomixed>
+        <bibliomixed id="xpath10"><abbrev>XPath 1.0</abbrev>
+          <title>XML Path Language (XPath) Version 1.0</title>, <author>
+            <firstname>J. </firstname>
+            <surname>Clark</surname>
+          </author>, <author>
+            <firstname>S. </firstname>
+            <surname>DeRose</surname>
+          </author>, Editors, <releaseinfo>W3C Recommendation</releaseinfo>, <date>16 November 1999</date>, <citetitle><ulink url="http://www.w3.org/TR/1999/REC-xpath-19991116/">http://www.w3.org/TR/1999/REC-xpath-19991116/</ulink></citetitle>. Latest version available at <citetitle><ulink
+              url="http://www.w3.org/TR/xpath">http://www.w3.org/TR/xpath</ulink></citetitle>. </bibliomixed>
+        <bibliomixed id="xsd1"><abbrev>XSD1</abbrev>
+          <title>XML Schema Part 1: Structures Second Edition</title>, <author>
+            <firstname>H. S. </firstname>
+            <surname>Thompson</surname>
+          </author>, <author>
+            <firstname>D. </firstname>
+            <surname>Beech</surname>
+          </author>, <author>
+            <firstname>M. </firstname>
+            <surname>Maloney</surname>
+          </author>, <author>
+            <firstname>N. </firstname>
+            <surname>Mendelsohn</surname>
+          </author>, Editors, <releaseinfo>W3C Recommendation</releaseinfo>, <date>28 October 2004</date>, <citetitle><ulink url="http://www.w3.org/TR/2004/REC-xmlschema-1-20041028/">http://www.w3.org/TR/2004/REC-xmlschema-1-20041028/</ulink></citetitle>. Latest version available at
+              <citetitle><ulink url="http://www.w3.org/TR/xmlschema-1">http://www.w3.org/TR/xmlschema-1</ulink></citetitle>. </bibliomixed>
+        <bibliomixed id="xsd2"><abbrev>XSD2</abbrev>
+          <title>XML Schema Part 2: Datatypes Second Edition</title>, <author>
+            <firstname>P. V. </firstname>
+            <surname>Biron</surname>
+          </author>, <author>
+            <firstname>A. </firstname>
+            <surname>Malhotra</surname>
+          </author>, Editors, <releaseinfo>W3C Recommendation</releaseinfo>, <date>28 October 2004</date>, <citetitle><ulink url="http://www.w3.org/TR/2004/REC-xmlschema-2-20041028/">http://www.w3.org/TR/2004/REC-xmlschema-2-20041028/</ulink></citetitle>. Latest version available at
+              <citetitle><ulink url="http://www.w3.org/TR/xmlschema-2">http://www.w3.org/TR/xmlschema-2</ulink></citetitle>. </bibliomixed>
+        <!--<bibliomixed id="UBLCCTS"><abbrev>UBL-CCTS</abbrev>
+          <citetitle>UBL Conformance to ebXML CCTS ISO/TS 15000-5:2005 Version
+            1.0</citetitle>
+          <date>08 May 2014. </date>
+          <releaseinfo>Committee Note 01. </releaseinfo>
+          <bibliomisc>
+            <ulink
+              url="http://docs.oasis-open.org/ubl/UBL-conformance-to-CCTS/v1.0/"
+              >http://docs.oasis-open.org/ubl/UBL-conformance-to-CCTS/v1.0/</ulink>.
+          </bibliomisc>
+        </bibliomixed>-->
+      </bibliolist>
+    </section>
+  </section>
+  <section id="S-CONTEXT-OF-USE-AND-APPLICATION-OF-THESE-RULES">
+    <title>Context of use and application of these rules</title>
+    <para>The UBL Technical Committee has established a suite of worksheets in an office spreadsheet in which all business object information is maintained, organized by the types of information bundle. Periodic snapshots of revisions to the spreadsheet are archived in the committee's document
+      repository. Per the Business Document NDR, these information bundles are expressed in terms and concepts of the Core Component Technical Specification <xref linkend="isoccts"/>.</para>
+    <note>
+      <para>The UBL community site resources page <ulink url="http://ubl.xml.org/wiki/ubl-resources"/> has links to the live copy of the spreadsheet being edited by the committee.</para>
+    </note>
+    <para>Also per the Business Document NDR, the user data validation artefacts for a document model are twofold: the document structural constraints (e.g. nesting and cardinality) of elements and attributes in XML documents <xref linkend="xml"/>, and the data type qualifications (e.g. coded value
+      domains, a.k.a. code lists). Document structural constraints are expressed using XSD schema semantics and syntax [<xref linkend="xsd"/>]. Data type qualifications are expressed using CVA associations [<xref linkend="cva"/>] of code list values <xref linkend="gc"/> with XML document locations
+      using XPath <xref linkend="xpath10"/>.</para>
+    <para>The processes engaged by the UBL TC to produce these artefacts are depicted in <xref linkend="F-UBL-NDR-PROCESS-TO-CREATE-VALIDATION-ARTEFACTS"/>. This diagram shows how the office spreadsheet worksheets are used to organize the CCTS information describing information bundles in a manner
+      suitable for collaboration amongst members of the technical committee. This information is exported in an XML vocabulary using OASIS Open Document Format (ODF). This is then massaged using XSLT to produce a single serialization of the CCTS information in XML using the OASIS genericode
+      vocabulary. </para>
+    <para>This genericode file is the master copy of all information bundle information and is used to create all of the artefacts. Using XSLT the process produces both an HTML summary of all of the models and a model checking report detailing problems with the CCTS information. These reporting
+      artefacts are used by the collaborators to polish the CCTS information. </para>
+    <para>The genericode file is also used to create the validation artefacts, again using XSLT.</para>
+    <figure id="F-UBL-NDR-PROCESS-TO-CREATE-VALIDATION-ARTEFACTS">
+      <title>UBL NDR process to create validation artefacts</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/&name;-procubl.png" contentwidth="750px"/>
+        </imageobject>
+        <textobject>
+          <phrase>[UBL Process Diagram]</phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
+  </section>
+  <section id="S-INFORMATION-MODELING">
+    <title>Information modeling</title>
+    <section id="S-DOCUMENT-ABIES">
+      <title>Document ABIEs</title>
+      <para>In UBL 2.3 no document-level ABIE is referenced by an ASBIE. This merely reflects user requirements to date and in a future revision of UBL there may be such references.</para>
+      <para>There are 86 document ABIEs representing information bundles in UBL 2.3. The class names for these ABIEs are as follows:</para>
+      <table frame="all" id="T-UBL-2.3-DOCUMENT-ABIES">
+        <title>UBL 2.3 Document ABIEs</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+          <colspec colname="c3" colnum="3" colwidth="1.0*"/>
+          <tbody>
+            <row valign="top">
+              <entry>
+                <itemizedlist>
+                  <listitem>
+                    <para>ApplicationResponse</para>
+                  </listitem>
+                  <listitem>
+                    <para>AttachedDocument</para>
+                  </listitem>
+                  <listitem>
+                    <para>AwardedNotification</para>
+                  </listitem>
+                  <listitem>
+                    <para>BillOfLading</para>
+                  </listitem>
+                  <listitem>
+                    <para>BusinessCard</para>
+                  </listitem>
+                  <listitem>
+                    <para>CallForTenders</para>
+                  </listitem>
+                  <listitem>
+                    <para>Catalogue</para>
+                  </listitem>
+                  <listitem>
+                    <para>CatalogueDeletion</para>
+                  </listitem>
+                  <listitem>
+                    <para>CatalogueItemSpecificationUpdate</para>
+                  </listitem>
+                  <listitem>
+                    <para>CataloguePricingUpdate</para>
+                  </listitem>
+                  <listitem>
+                    <para>CatalogueRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>CertificateOfOrigin</para>
+                  </listitem>
+                  <listitem>
+                    <para>ContractAwardNotice</para>
+                  </listitem>
+                  <listitem>
+                    <para>ContractNotice</para>
+                  </listitem>
+                  <listitem>
+                    <para>CreditNote</para>
+                  </listitem>
+                  <listitem>
+                    <para>DebitNote</para>
+                  </listitem>
+                  <listitem>
+                    <para>DespatchAdvice</para>
+                  </listitem>
+                  <listitem>
+                    <para>DigitalAgreement</para>
+                  </listitem>
+                  <listitem>
+                    <para>DigitalCapability</para>
+                  </listitem>
+                  <listitem>
+                    <para>DocumentStatus</para>
+                  </listitem>
+                  <listitem>
+                    <para>DocumentStatusRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>Enquiry</para>
+                  </listitem>
+                  <listitem>
+                    <para>EnquiryResponse</para>
+                  </listitem>
+                  <listitem>
+                    <para>ExceptionCriteria</para>
+                  </listitem>
+                  <listitem>
+                    <para>ExceptionNotification</para>
+                  </listitem>
+                  <listitem>
+                    <para>ExportCustomsDeclaration</para>
+                  </listitem>
+                  <listitem>
+                    <para>ExpressionOfInterestRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>ExpressionOfInterestResponse</para>
+                  </listitem>
+                  <listitem>
+                    <para>Forecast</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+              <entry>
+                <itemizedlist>
+                  <listitem>
+                    <para>ForecastRevision</para>
+                  </listitem>
+                  <listitem>
+                    <para>ForwardingInstructions</para>
+                  </listitem>
+                  <listitem>
+                    <para>FreightInvoice</para>
+                  </listitem>
+                  <listitem>
+                    <para>FulfilmentCancellation</para>
+                  </listitem>
+                  <listitem>
+                    <para>GoodsCertificate</para>
+                  </listitem>
+                  <listitem>
+                    <para>GoodsItemItinerary</para>
+                  </listitem>
+                  <listitem>
+                    <para>GoodsItemPassport</para>
+                  </listitem>
+                  <listitem>
+                    <para>GuaranteeCertificate</para>
+                  </listitem>
+                  <listitem>
+                    <para>InstructionForReturns</para>
+                  </listitem>
+                  <listitem>
+                    <para>InventoryReport</para>
+                  </listitem>
+                  <listitem>
+                    <para>Invoice</para>
+                  </listitem>
+                  <listitem>
+                    <para>ItemInformationRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>Order</para>
+                  </listitem>
+                  <listitem>
+                    <para>OrderCancellation</para>
+                  </listitem>
+                  <listitem>
+                    <para>OrderChange</para>
+                  </listitem>
+                  <listitem>
+                    <para>OrderResponse</para>
+                  </listitem>
+                  <listitem>
+                    <para>OrderResponseSimple</para>
+                  </listitem>
+                  <listitem>
+                    <para>PackingList</para>
+                  </listitem>
+                  <listitem>
+                    <para>PriorInformationNotice</para>
+                  </listitem>
+                  <listitem>
+                    <para>ProductActivity</para>
+                  </listitem>
+                  <listitem>
+                    <para>ProofOfReexportation</para>
+                  </listitem>
+                  <listitem>
+                    <para>ProofOfReexportationRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>QualificationApplicationRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>QualificationApplicationResponse</para>
+                  </listitem>
+                  <listitem>
+                    <para>Quotation</para>
+                  </listitem>
+                  <listitem>
+                    <para>ReceiptAdvice</para>
+                  </listitem>
+                  <listitem>
+                    <para>Reminder</para>
+                  </listitem>
+                  <listitem>
+                    <para>RemittanceAdvice</para>
+                  </listitem>
+                  <listitem>
+                    <para>RequestForQuotation</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+              <entry>
+                <itemizedlist>
+                  <listitem>
+                    <para>RetailEvent</para>
+                  </listitem>
+                  <listitem>
+                    <para>SelfBilledCreditNote</para>
+                  </listitem>
+                  <listitem>
+                    <para>SelfBilledInvoice</para>
+                  </listitem>
+                  <listitem>
+                    <para>Statement</para>
+                  </listitem>
+                  <listitem>
+                    <para>StockAvailabilityReport</para>
+                  </listitem>
+                  <listitem>
+                    <para>Tender</para>
+                  </listitem>
+                  <listitem>
+                    <para>TenderContract</para>
+                  </listitem>
+                  <listitem>
+                    <para>TenderReceipt</para>
+                  </listitem>
+                  <listitem>
+                    <para>TenderStatus</para>
+                  </listitem>
+                  <listitem>
+                    <para>TenderStatusRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>TenderWithdrawal</para>
+                  </listitem>
+                  <listitem>
+                    <para>TendererQualification</para>
+                  </listitem>
+                  <listitem>
+                    <para>TendererQualificationResponse</para>
+                  </listitem>
+                  <listitem>
+                    <para>TradeItemLocationProfile</para>
+                  </listitem>
+                  <listitem>
+                    <para>TransportExecutionPlan</para>
+                  </listitem>
+                  <listitem>
+                    <para>TransportExecutionPlanRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>TransportProgressStatus</para>
+                  </listitem>
+                  <listitem>
+                    <para>TransportProgressStatusRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>TransportServiceDescription</para>
+                  </listitem>
+                  <listitem>
+                    <para>TransportServiceDescriptionRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>TransportationStatus</para>
+                  </listitem>
+                  <listitem>
+                    <para>TransportationStatusRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>UnawardedNotification</para>
+                  </listitem>
+                  <listitem>
+                    <para>UnsubscribeFromProcedureRequest</para>
+                  </listitem>
+                  <listitem>
+                    <para>UnsubscribeFromProcedureResponse</para>
+                  </listitem>
+                  <listitem>
+                    <para>UtilityStatement</para>
+                  </listitem>
+                  <listitem>
+                    <para>Waybill</para>
+                  </listitem>
+                  <listitem>
+                    <para>WeightStatement</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section id="S-ABIE-LIBRARY">
+      <title>ABIE Library</title>
+      <para>In UBL 2.3 the common library contains 267 ABIEs for reference as ASBIEs in the document ABIEs, library ABIEs and extension ABIEs.</para>
+    </section>
+    <section id="S-EXTENSIONS">
+      <title>Extensions</title>
+      <para>Per the Business Document NDR every document and library ABIE has as its first child a reference to an optional extension point that can be used to add supplemental information not already defined by UBL to the document.</para>
+      <para>In the UBL 2.3 distribution there is one extension made available to be used, that being for digital signatures. The information in this extension is modeled primarily using CCTS but with an additional data item modeled by the W3C in <xref linkend="xmldsig"/>. The components described
+        using CCTS are in a single collection of two ABIEs describing the signature extension ABIE and another ABIE for reference by the extension's ASBIEs.</para>
+    </section>
+  </section>
+  <section id="S-DICTIONARY-INFORMATION">
+    <title>Dictionary information</title>
+    <section id="S-DICTIONARY-INFORMATION-OVERVIEW">
+      <title>Dictionary information overview</title>
+      <para>The UBL TC uses office spreadsheet worksheets as the collaborative tool to maintain the CCTS model of the UBL documents, the common library and the signature extension. A worksheet row is used for each component. A worksheet column is used for each mandatory and optional CCTS facet. In
+        the UBL distribution this information is split into individual spreadsheets as follows.</para>
+      <para>The 65 document ABIEs are described using individual spreadsheets that are all found here:</para>
+      <blockquote>
+        <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.3/mod/maindoc/"/></para>
+      </blockquote>
+      <para>The common library ABIEs are in a single spreadsheet and the signature extension ABIEs are in a single spreadsheet that are both found here:</para>
+      <blockquote>
+        <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.3/mod/common/"/></para>
+      </blockquote>
+    </section>
+    <section id="S-DICTIONARY-INFORMATION-VALUES">
+      <title>Dictionary information values</title>
+      <para>UBL imposes an additional constraint on the values of recorded CCTS information that all characters used be ASCII characters. This prohibits accented letters, exotic symbols, and stylized punctuation such as "smart quotes". The rationale for this is that the resulting character sequences
+        are then not subject to character encoding vagaries that may not be properly handled by downstream processing applications.</para>
+    </section>
+    <section id="S-ABBREVIATIONS">
+      <title>Abbreviations</title>
+      <para>UBL abbreviates the following name value words when used in a component's name:</para>
+      <itemizedlist>
+        <listitem>
+          <para>"Identifier" is abbreviated as "ID"</para>
+        </listitem>
+      </itemizedlist>
+      <para>UBL considers the following name value words equivalent when used in a component's name:</para>
+      <itemizedlist>
+        <listitem>
+          <para>the property term "UUID" is equivalent to the representation term "Identifier"</para>
+        </listitem>
+        <listitem>
+          <para>the property term primary noun "URI" is equivalent to the representation term "Identifier"</para>
+        </listitem>
+      </itemizedlist>
+      <para>UBL allows the use of the following abbreviations in name values and in a component's name:</para>
+      <itemizedlist>
+        <listitem>
+          <para>CV2 is allowed for "Card Verification Value"</para>
+        </listitem>
+        <listitem>
+          <para>UBL is allowed for "Universal Business Language"</para>
+        </listitem>
+        <listitem>
+          <para>UNDG is allowed for "United Nations Dangerous Goods"</para>
+        </listitem>
+        <listitem>
+          <para>URI is allowed for "Uniform Resource Identifier"</para>
+        </listitem>
+        <listitem>
+          <para>UUID is allowed for "Universally Unique Identifier"</para>
+        </listitem>
+        <listitem>
+          <para>XPath is allowed for "XML Path Language"</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="S-DICTIONARY-INFORMATION-FOR-BIES">
+      <title>Dictionary information for BIEs</title>
+      <para>The CCTS information "Name" value for a BIE definition is labeled "UBL Name" in the UBL spreadsheets.</para>
+      <para>In addition to the CCTS columns indicated as having to be maintained by these NDR, the UBL spreadsheets contain the following columns of additional information used and recorded during analysis, all of which are optional:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Examples</para>
+        </listitem>
+        <listitem>
+          <para>UN/TDED Code</para>
+        </listitem>
+        <listitem>
+          <para>Current Version</para>
+        </listitem>
+        <listitem>
+          <para>Analyst Notes</para>
+        </listitem>
+        <listitem>
+          <para>CCL Dictionary Entry Name</para>
+        </listitem>
+        <listitem>
+          <para>Context: Business Process</para>
+        </listitem>
+        <listitem>
+          <para>Context: Region (Geopolitical)</para>
+        </listitem>
+        <listitem>
+          <para>Context: Official Constraints</para>
+        </listitem>
+        <listitem>
+          <para>Context: Product</para>
+        </listitem>
+        <listitem>
+          <para>Context: Industry</para>
+        </listitem>
+        <listitem>
+          <para>Context Role</para>
+        </listitem>
+        <listitem>
+          <para>Context: Supporting Role</para>
+        </listitem>
+        <listitem>
+          <para>Context: System Constraint</para>
+        </listitem>
+        <listitem>
+          <para>Editor's Notes</para>
+        </listitem>
+        <listitem>
+          <para>Changes from Previous Version</para>
+        </listitem>
+      </itemizedlist>
+      <para>Object classes are never qualified in UBL. Accordingly, the "Object Class Qualifier" and "Associated Object Class Qualifier" columns are present but always empty in instances of the spreadsheets. </para>
+      <para>Every Document ABIE contains as its first four BBIE children, in order and all with property Term Primary Noun "Identifier" and Representation Term "Identifier", items with the following Property Term Possessive Nouns and cardinality "0..1":</para>
+      <itemizedlist>
+        <listitem>
+          <para>UBL Version</para>
+        </listitem>
+        <listitem>
+          <para>Customization</para>
+        </listitem>
+        <listitem>
+          <para>Profile</para>
+        </listitem>
+        <listitem>
+          <para>Profile Execution</para>
+        </listitem>
+      </itemizedlist>
+      <para>Every Document ABIE contains a Signature ASBIE with cardinality "0..n" to the Signature ABIE.</para>
+    </section>
+    <section id="S-STRUCTURE-OF-AN-ABIE">
+      <title>Structure of an ABIE</title>
+      <para>These NDR to not vary from the Business Document NDR in this regard. This section of the documentation exists to maintain alignment of sections.</para>
+    </section>
+  </section>
+  <section id="S-XML-VALIDATION-ARTEFACTS">
+    <title>XML validation artefacts</title>
+    <section id="S-XML-VALIDATION-ARTEFACTS-OVERVIEW">
+      <title>XML validation artefacts overview</title>
+      <para>While the information bundles are described using CCTS principles, it is the document models that govern the structure of documents expressing in a machine-readable format the information described by the bundles. These NDR provide for expressing the model of an information bundle using
+        validation artefacts that describe constraints on the structure and content of documents. Validation processes report violations of these model constraints found in a document.</para>
+      <para>There are two types of validation artefacts. W3C XSD schemas are used to validate the structure of elements and the structure of data content. OASIS CVA expressions and OASIS genericode files are used to validate the values of data content.</para>
+      <para>The UBL distribution organizes the documented XSD schemas (with BIE XSD annotations) under the <literal>xsd/</literal> subdirectory and the runtime XSD schemas (without BIE XSD annotations) under the <literal>xsdrt/</literal> subdirectory:</para>
+      <blockquote>
+        <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.3/xsd/"/></para>
+        <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.3/xsdrt/"/></para>
+      </blockquote>
+      <para>The CVA file and formatted report are distributed in the <literal>cva/</literal> subdirectory:</para>
+      <blockquote>
+        <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.3/cva/"/></para>
+      </blockquote>
+      <para>The genericode files referenced by the CVA file are distributed in the <literal>gc/</literal> subdirectories of each of the UBL 2.2, UBL 2.1, and UBL 2.0 distributions:</para>
+      <blockquote>
+        <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.2/cl/gc/"/></para>
+        <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.1/cl/gc/"/></para>
+        <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.0/cl/gc/"/></para>
+      </blockquote>
+      <para>The UBL CVA and genericode files are compiled into an XSLT stylesheet expression for runtime testing against XML instances that have been validated using the UBL XSD schemas. This stylesheet is named <literal>UBL-DefaultDTQ-2.3.xsl</literal> and is distributed in the
+          <literal>val/</literal> subdirectory:</para>
+      <blockquote>
+        <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.3/val/"/></para>
+      </blockquote>
+    </section>
+    <section id="S-NAMESPACES">
+      <title>Namespaces</title>
+      <para>The following namespace URI strings are associated with the indicated documentary namespace prefixes:</para>
+      <table frame="all" rowsep="1" colsep="1" id="T-UBL-NAMESPACES">
+        <title>UBL Namespaces</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1.3*"/>
+          <colspec colname="c2" colnum="2" colwidth="13.13*"/>
+          <tbody>
+            <row valign="top">
+              <entry>(no prefix)</entry>
+              <entry>Document ABIE namespaces use the component name of the ABIE XXXXXXXX as follows:<para><literal>urn:oasis:names:specification:ubl:schema:xsd:XXXXXXXX-2</literal></para></entry>
+            </row>
+            <row valign="top">
+              <entry>cbc</entry>
+              <entry><literal>urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2</literal></entry>
+            </row>
+            <row valign="top">
+              <entry>cac</entry>
+              <entry><literal>urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2</literal></entry>
+            </row>
+            <row valign="top">
+              <entry>ext</entry>
+              <entry><literal>urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2</literal></entry>
+            </row>
+            <row valign="top">
+              <entry>sig</entry>
+              <entry><literal>urn:oasis:names:specification:ubl:schema:xsd:CommonSignatureComponents-2</literal></entry>
+            </row>
+            <row valign="top">
+              <entry>sac</entry>
+              <entry><literal>urn:oasis:names:specification:ubl:schema:xsd:SignatureAggregateComponents-2</literal></entry>
+            </row>
+            <row valign="top">
+              <entry>sbc</entry>
+              <entry><literal>urn:oasis:names:specification:ubl:schema:xsd:SignatureBasicComponents-2</literal></entry>
+            </row>
+            <row valign="top">
+              <entry>qdt</entry>
+              <entry><literal>urn:oasis:names:specification:ubl:schema:xsd:QualifiedDataTypes-2</literal></entry>
+            </row>
+            <row valign="top">
+              <entry>udt</entry>
+              <entry><literal>urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2</literal></entry>
+            </row>
+            <row valign="top">
+              <entry>ccts-cct</entry>
+              <entry><literal>urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2</literal></entry>
+            </row>
+            <row valign="top">
+              <entry>ccts</entry>
+              <entry><literal>urn:un:unece:uncefact:documentation:2</literal></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section id="S-XSD-IMPORT-INCLUDE-TREE">
+      <title>XSD import/include tree</title>
+      <para><xref linkend="F-UBL-IMPORT-INCLUDE-HIERARCHY-OF-XSD-SCHEMA-EXPRESSIONS"/> depicts the UBL implementation of the import and include directives described in the naming and design rules. </para>
+      <figure id="F-UBL-IMPORT-INCLUDE-HIERARCHY-OF-XSD-SCHEMA-EXPRESSIONS">
+        <title>UBL import/include hierarchy of XSD schema expressions</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="art/&name;-ublschema.png" contentwidth="750px"/>
+          </imageobject>
+          <textobject>
+            <phrase>[XSD Schema Structure]</phrase>
+          </textobject>
+        </mediaobject>
+      </figure>
+    </section>
+    <section id="S-SCHEMA-FRAGMENT-ANNOTATIONS">
+      <title>Schema fragment annotations</title>
+      <para>The documented XSD schemas include CCTS information in annotations of the Library and Document ABIE complex types (not of the element declarations). Only those values found in the columns referenced in <xref linkend="S-DICTIONARY-INFORMATION-FOR-BIES"/> are included. An example of each
+        of an ABIE, BBIE and ASBIE is as follows:</para>
+      <programlisting>&lt;xsd:complexType name="WinningPartyType">
+  &lt;xsd:annotation>
+     &lt;xsd:documentation>
+        &lt;ccts:Component>
+           &lt;ccts:ComponentType>ABIE&lt;/ccts:ComponentType>
+           &lt;ccts:DictionaryEntryName>Winning Party. 
+           Details&lt;/ccts:DictionaryEntryName>
+           &lt;ccts:Definition>A party that is identified as the awarded by
+           a tender result.&lt;/ccts:Definition>
+           &lt;ccts:ObjectClass>Winning Party&lt;/ccts:ObjectClass>
+        &lt;/ccts:Component>
+     &lt;/xsd:documentation>
+  &lt;/xsd:annotation>
+  &lt;xsd:sequence>
+     &lt;xsd:element ref="cbc:Rank" minOccurs="0" maxOccurs="1">
+        &lt;xsd:annotation>
+           &lt;xsd:documentation>
+              &lt;ccts:Component>
+                 &lt;ccts:ComponentType>BBIE&lt;/ccts:ComponentType>
+                 &lt;ccts:DictionaryEntryName>Winning Party. Rank.
+                 Text&lt;/ccts:DictionaryEntryName>
+                 &lt;ccts:Definition>Indicates the rank obtained in the
+                 award.&lt;/ccts:Definition>
+                 &lt;ccts:Cardinality>0..1&lt;/ccts:Cardinality>
+                 &lt;ccts:ObjectClass>Winning Party&lt;/ccts:ObjectClass>
+                 &lt;ccts:PropertyTerm>Rank&lt;/ccts:PropertyTerm>
+                 &lt;ccts:RepresentationTerm>Text&lt;/ccts:RepresentationTerm>
+                 &lt;ccts:DataType>Text. Type&lt;/ccts:DataType>
+              &lt;/ccts:Component>
+           &lt;/xsd:documentation>
+        &lt;/xsd:annotation>
+     &lt;/xsd:element>
+     &lt;xsd:element ref="cac:Party" minOccurs="1" maxOccurs="1">
+        &lt;xsd:annotation>
+           &lt;xsd:documentation>
+              &lt;ccts:Component>
+                 &lt;ccts:ComponentType>ASBIE&lt;/ccts:ComponentType>
+                 &lt;ccts:DictionaryEntryName>Winning Party.
+                 Party&lt;/ccts:DictionaryEntryName>
+                 &lt;ccts:Definition>Information about an organization,
+                 sub-organization, or individual fulfilling a role in a
+                 business process.&lt;/ccts:Definition>
+                 &lt;ccts:Cardinality>1&lt;/ccts:Cardinality>
+                 &lt;ccts:ObjectClass>Winning Party&lt;/ccts:ObjectClass>
+                 &lt;ccts:PropertyTerm>Party&lt;/ccts:PropertyTerm>
+                 &lt;ccts:AssociatedObjectClass>Party&lt;/ccts:Associated
+ObjectClass>
+                 &lt;ccts:RepresentationTerm>Party&lt;/ccts:RepresentationTerm>
+              &lt;/ccts:Component>
+           &lt;/xsd:documentation>
+        &lt;/xsd:annotation>
+     &lt;/xsd:element>
+  &lt;/xsd:sequence>
+&lt;/xsd:complexType></programlisting>
+      <para>Every schema fragment generated for UBL 2.3 includes an XML comment at both the beginning of the document and the end of the document. These comments are present in both the documented schemas and the runtime schemas.</para>
+      <para>The comment at the beginning of every schema fragment includes identification information and revision metadata, as in this example from the common aggregate components fragment:</para>
+      <programlisting>&lt;!--
+  Library:           OASIS Universal Business Language (UBL) 2.3 OS
+                     http://docs.oasis-open.org/ubl/os-UBL-2.3/
+  Release Date:      14 April 2020
+  Module:            xsd/common/UBL-CommonAggregateComponents-2.3.xsd
+  Generated on:      2020-04-03 17:20z
+  Copyright (c) OASIS Open 2020. All Rights Reserved.
+--></programlisting>
+      <para>The comment at the end of the document is a detailed copyright notice as follows: </para>
+      <programlisting>&lt;!-- ===== Copyright Notice ===== -->&lt;!--
+  OASIS takes no position regarding the validity or scope of any 
+  intellectual property or other rights that might be claimed to pertain 
+  to the implementation or use of the technology described in this 
+  document or the extent to which any license under such rights 
+  might or might not be available; neither does it represent that it has 
+  made any effort to identify any such rights. Information on OASIS's 
+  procedures with respect to rights in OASIS specifications can be 
+  found at the OASIS website. Copies of claims of rights made 
+  available for publication and any assurances of licenses to be made 
+  available, or the result of an attempt made to obtain a general 
+  license or permission for the use of such proprietary rights by 
+  implementors or users of this specification, can be obtained from 
+  the OASIS Executive Director.
+
+  OASIS invites any interested party to bring to its attention any 
+  copyrights, patents or patent applications, or other proprietary 
+  rights which may cover technology that may be required to 
+  implement this specification. Please address the information to the 
+  OASIS Executive Director.
+  
+  This document and translations of it may be copied and furnished to 
+  others, and derivative works that comment on or otherwise explain 
+  it or assist in its implementation may be prepared, copied, 
+  published and distributed, in whole or in part, without restriction of 
+  any kind, provided that the above copyright notice and this 
+  paragraph are included on all such copies and derivative works. 
+  However, this document itself may not be modified in any way, 
+  such as by removing the copyright notice or references to OASIS, 
+  except as needed for the purpose of developing OASIS 
+  specifications, in which case the procedures for copyrights defined 
+  in the OASIS Intellectual Property Rights document must be 
+  followed, or as required to translate it into languages other than 
+  English. 
+
+  The limited permissions granted above are perpetual and will not be 
+  revoked by OASIS or its successors or assigns. 
+
+  This document and the information contained herein is provided on 
+  an "AS IS" basis and OASIS DISCLAIMS ALL WARRANTIES, 
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY 
+  WARRANTY THAT THE USE OF THE INFORMATION HEREIN 
+  WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED 
+  WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A 
+  PARTICULAR PURPOSE.    
+--></programlisting>
+      <para>Throughout the fragments are short XML comments delineating sections with declarations for different purposes.</para>
+      <para>The built-in version annotation of the schema document element is used to reflect the version of the UBL release. For example, this is used for every schema fragment in the UBL 2.3 release:</para>
+      <programlisting>&lt;xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="2.3" ...</programlisting>
+    </section>
+    <section id="S-SCHEMA-FRAGMENTS-AND-DECLARATIONS">
+      <title>Schema fragments and declarations</title>
+      <para>The UBL common ABIE library schema fragment is named UBL-CommonAggregateComponents-2.3.xsd in UBL 2.3.</para>
+      <para>Each UBL document ABIE schema fragment is named UBL-XXXXX-2.3.xsd in UBL 2.3, where XXXXX is the component name of the document ABIE.</para>
+      <para>There is only one addition in the UBL implementation of declarations as in the naming and design rules. The element declaration in a document ABIE includes an annotation as follows:</para>
+      <programlisting>&lt;xsd:annotation>
+   &lt;xsd:documentation>This element MUST be conveyed as the root element 
+in any instance document based on this Schema expression&lt;/xsd:documentation>
+&lt;/xsd:annotation></programlisting>
+      <para>The UBL common BBIE library schema fragment is named UBL-CommonBasicComponents-2.3.xsd in UBL 2.3.</para>
+      <para>There are no differences in the UBL implementation of declarations as in the naming and design rules.</para>
+    </section>
+    <section id="S-EXTENSION-SCHEMA-FRAGMENTS-AND-DECLARATIONS">
+      <title>Extension schema fragments and declarations</title>
+      <para>The UBL common extension library schema fragment is named UBL-CommonExtensionComponents-2.3.xsd in UBL 2.3.</para>
+      <para>The UBL extension collection element is named "UBLExtensions" and its type is named "UBLExtensionsType". It is comprised of one or more UBL extension elements.</para>
+      <para>The UBL extension element is named "UBLExtension" and its type is named " UBLExtensionType". It is comprised of the following elements, in order, each with a type named by the element name suffixed with "Type", each with a cardinality of 0..1, and those declared in the module are
+        declared with the given unqualified data type:</para>
+      <itemizedlist>
+        <listitem>
+          <para>cbc:ID (from the common library)</para>
+          <itemizedlist>
+            <listitem>
+              <para>An identifier for the Extension assigned by the creator of the extension.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>cbc:Name (from the common library)</para>
+          <itemizedlist>
+            <listitem>
+              <para>A name for the Extension assigned by the creator of the extension.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>ExtensionAgencyID (of unqualified data type "Identifier. Type")</para>
+          <itemizedlist>
+            <listitem>
+              <para>An agency that maintains one or more Extensions.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>ExtensionAgencyName (of unqualified data type "Text. Type")</para>
+          <itemizedlist>
+            <listitem>
+              <para>The name of the agency that maintains the Extension.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>ExtensionVersionID (of unqualified data type "Identifier. Type")</para>
+          <itemizedlist>
+            <listitem>
+              <para>The version of the Extension.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>ExtensionAgencyURI (of unqualified data type "Identifier. Type")</para>
+          <itemizedlist>
+            <listitem>
+              <para>A URI for the Agency that maintains the Extension.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>ExtensionURI (of unqualified data type "Identifier. Type")</para>
+          <itemizedlist>
+            <listitem>
+              <para>A URI for the Extension.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>ExtensionReasonCode (of unqualified data type "Code. Type")</para>
+          <itemizedlist>
+            <listitem>
+              <para>A code for reason the Extension is being included.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>ExtensionReason (of unqualified data type "Text. Type")</para>
+          <itemizedlist>
+            <listitem>
+              <para>A description of the reason for the Extension.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>ExtensionContent (this type is declared in an included extension content data type schema fragment)</para>
+          <itemizedlist>
+            <listitem>
+              <para>The definition of the extension content.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </itemizedlist>
+      <para>The UBL implementation of the extension content data type schema fragment imposes "lax" processing on a single, mandatory element of type xsd:any. The schema fragment imports the UBL common digital signature extension in order to impose that extension's schema constraints when the
+        signature extension element is used.</para>
+      <para>The UBL common digital signature extension schema fragment is named UBL-CommonSignatureComponents-2.3.xsd in UBL 2.3.</para>
+    </section>
+    <section id="S-QUALIFIED-DATA-TYPES-SCHEMA-FRAGMENT-AND-DECLARATIONS">
+      <title>Qualified data types schema fragment and declarations</title>
+      <para>The UBL qualified data type schema fragment is named UBL-QualifiedDataTypes-2.3.xsd in UBL 2.3.</para>
+      <para>The UBL implementation of qualified data types is pass-through. There are no data type qualifications expressed in XSD semantics. Data type qualifications are validated solely through the expression of code list constraints using CVA expressions and genericode code list
+        expressions.</para>
+    </section>
+    <section id="S-UNQUALIFIED-DATA-TYPES-SCHEMA-FRAGMENT-AND-DECLARATIONS">
+      <title>Unqualified data types schema fragment and declarations</title>
+      <para>The UBL unqualified data type schema fragment in UBL 2.3 is the BDNDR 1.1 fragment named BDNDR-UnqualifiedDataTypes-1.1.xsd.</para>
+    </section>
+    <section id="S-CCTS-CORE-COMPONENT-TYPES-SCHEMA">
+      <title>CCTS Core Component Types schema</title>
+      <para>The UBL CCTS Core Component Types schema fragment in UBL 2.3 is the BDNDR 1.1 fragment named BDNDR-CCTS_CCT_SchemaModule-1.1.xsd.</para>
+    </section>
+    <section id="S-XML-ATTRIBUTE-NAMES">
+      <title>XML attribute names</title>
+      <para>These NDR do not vary from the Business Document NDR in this regard. This section of the documentation exists to maintain alignment of subsequent sections.</para>
+    </section>
+    <section id="S-DATA-TYPE-QUALIFICATIONS">
+      <title>Data type qualifications</title>
+      <para>The data type qualifications in UBL 2.3 reference code lists whose name matches a name found in the Data Type Qualification information item of all BBIEs. These code lists are found in the following directories:</para>
+      <itemizedlist>
+        <listitem>
+          <para>UBL 2.0 supplementary components</para>
+          <itemizedlist>
+            <listitem>
+              <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.0/cl/gc/cefact/"/></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>UBL 2.0 qualifications</para>
+          <itemizedlist>
+            <listitem>
+              <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.0/cl/gc/default/"/></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>UBL 2.1 qualifications</para>
+          <itemizedlist>
+            <listitem>
+              <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.1/cl/gc/default/"/></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>UBL 2.2 qualifications</para>
+          <itemizedlist>
+            <listitem>
+              <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.2/cl/gc/default/"/></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>UBL 2.3 qualifications</para>
+          <itemizedlist>
+            <listitem>
+              <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.3/cl/gc/default/"/></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </itemizedlist>
+      <para>For completeness, the Binary Object. Mime. Code and Measure. Unit. Code lists, using the names "BinaryObjectMime" and "UnitOfMeasure" respectively, also are included from these directories:</para>
+      <itemizedlist>
+        <listitem>
+          <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.0/cl/gc/cefact/"/></para>
+        </listitem>
+        <listitem>
+          <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.1/cl/gc/default/"/></para>
+        </listitem>
+        <listitem>
+          <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.2/cl/gc/default/"/></para>
+        </listitem>
+        <listitem>
+          <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.3/cl/gc/default/"/></para>
+        </listitem>
+      </itemizedlist>
+      <para>Instance metadata is described for the supplementary components as follows:</para>
+      <programlisting>&lt;InstanceMetadataSets>
+&lt;Annotation>
+  &lt;Description>
+    &lt;x:p>
+      A supplementary component is a piece of metadata describing a
+      property of the list of values in which a particular value is
+      found.  For example, each code list of currency values has a
+      version and when a currency value is specified in a UBL document
+      it may be important to specify which version of the currency 
+      code list that value is found.  By knowing the list from which a
+      value is found, the semantics representated by that value are
+      unambiguous.
+    &lt;/x:p>
+    &lt;x:p>
+      These sets of supplementary components describe where instance-level
+      metadata is found that contains values of list-level metadata from
+      genericode files.  Each set is identified in a context using that
+      set's unique &lt;x:samp>xml:id=&lt;/x:samp> attribute.
+    &lt;/x:p>
+    &lt;x:p>
+      Each component pairs an XPath address of the supplementary component
+      (specified in &lt;x:samp>address=&lt;/x:samp>) relative to the item with
+      the code list value in the UBL document, with the XPath address of
+      the corresponding list-level metadata item in the genericode file
+      (specified in &lt;x:samp>identification=&lt;/x:samp>) relative to the
+      &lt;x:samp>&amp;lt;Identification>&lt;/x:samp> element in the code
+      list file.
+    &lt;/x:p>
+    &lt;x:p>
+      All supplementary components in UBL are defined by the UN/CEFACT Core
+      Component Technical Specification (CCTS) Version 2.01 dated
+      15 November 2003
+      &lt;x:a href="http://www.unece.org/cefact/ebxml/CCTS_V2-01_Final.pdf">
+    &lt;x:samp>http://www.unece.org/cefact/ebxml/CCTS_V2-01_Final.
+               pdf&lt;/x:samp>.&lt;/x:a>
+      Table 8-2 "Approved Core Component Type Content
+      and Supplementary Components" lists the various supplementary
+      components available.  The UN/CEFACT 
+      UnqualifiedDataTypeSchemaModule-2.0.xsd schema fragment specifies
+      the names of the attributes for supplementary components.
+    &lt;/x:p>
+  &lt;/Description>
+&lt;/Annotation>
+&lt;InstanceMetadataSet xml:id="cctsV2.01-amount">
+  &lt;Annotation>
+    &lt;Description>
+      &lt;x:p>
+        The &lt;x:samp>Amount. Type&lt;/x:samp> supplementary component.
+      &lt;/x:p>
+    &lt;/Description>
+  &lt;/Annotation>
+  &lt;InstanceMetadata address="../@currencyCodeListVersionID"
+                    identification="Version"/>
+&lt;/InstanceMetadataSet>
+&lt;InstanceMetadataSet xml:id="cctsV2.01-binary">
+  &lt;Annotation>
+    &lt;Description>
+      &lt;x:p>
+        There are no supplementary components for the
+        &lt;x:samp>Binary Object. Type&lt;/x:samp>.
+      &lt;/x:p>
+    &lt;/Description>
+  &lt;/Annotation>
+&lt;/InstanceMetadataSet>
+&lt;InstanceMetadataSet xml:id="cctsV2.01-code">
+  &lt;Annotation>
+    &lt;Description>
+      &lt;x:p>
+        The &lt;x:samp>Code. Type&lt;/x:samp> supplementary components.
+      &lt;/x:p>
+    &lt;/Description>
+  &lt;/Annotation>
+  &lt;InstanceMetadata address="@listName"
+                    identification="LongName[not(@Identifier='listID')]"/>
+  &lt;InstanceMetadata address="@listID"
+                    identification="LongName[@Identifier='listID']"/>
+  &lt;InstanceMetadata address="@listVersionID"
+                    identification="Version"/>
+  &lt;InstanceMetadata address="@listSchemeURI"
+                    identification="CanonicalUri"/>
+  &lt;InstanceMetadata address="@listURI"
+                    identification="LocationUri"/>
+  &lt;InstanceMetadata address="@listAgencyName"
+                    identification="Agency/LongName"/>
+  &lt;InstanceMetadata address="@listAgencyID"
+                    identification="Agency/Identifier"/>
+&lt;/InstanceMetadataSet>
+&lt;InstanceMetadataSet xml:id="cctsV2.01-identifier">
+  &lt;Annotation>
+    &lt;Description>
+      &lt;x:p>
+        The &lt;x:samp>Identifier. Type&lt;/x:samp> supplementary components.
+      &lt;/x:p>
+    &lt;/Description>
+  &lt;/Annotation>
+  &lt;InstanceMetadata address="@schemeName"
+                    identification="LongName[not(@Identifier='listID')]"/>
+  &lt;InstanceMetadata address="@schemeID"
+                    identification="LongName[@Identifier='listID']"/>
+  &lt;InstanceMetadata address="@schemeVersionID"
+                    identification="Version"/>
+  &lt;InstanceMetadata address="@schemeURI"
+                    identification="CanonicalUri"/>
+  &lt;InstanceMetadata address="@schemeDataURI"
+                    identification="LocationUri"/>
+  &lt;InstanceMetadata address="@schemeAgencyName"
+                    identification="Agency/LongName"/>
+  &lt;InstanceMetadata address="@schemeAgencyID"
+                    identification="Agency/Identifier"/>
+&lt;/InstanceMetadataSet>
+&lt;InstanceMetadataSet xml:id="cctsV2.01-measure">
+  &lt;Annotation>
+    &lt;Description>
+      &lt;x:p>
+        The &lt;x:samp>Measure. Type&lt;/x:samp> supplementary component.
+      &lt;/x:p>
+    &lt;/Description>
+  &lt;/Annotation>
+  &lt;InstanceMetadata address="../@unitCodeListVersionID"
+                    identification="Version"/>
+&lt;/InstanceMetadataSet>
+&lt;InstanceMetadataSet xml:id="cctsV2.01-quantity">
+  &lt;Annotation>
+    &lt;Description>
+      &lt;x:p>
+        The &lt;x:samp>Quantity. Type&lt;/x:samp> supplementary components.
+      &lt;/x:p>
+    &lt;/Description>
+  &lt;/Annotation>
+  &lt;InstanceMetadata address="../@unitCodeListID"
+                    identification="LongName[@Identifier='listID']"/>
+  &lt;InstanceMetadata address="../@unitCodeListAgencyName"
+                    identification="Agency/LongName"/>
+  &lt;InstanceMetadata address="../@unitCodeListAgencyID"
+                    identification="Agency/Identifier"/>
+&lt;/InstanceMetadataSet>
+&lt;/InstanceMetadataSets></programlisting>
+      <para>The following contexts are described for attributes:</para>
+      <itemizedlist>
+        <listitem>
+          <para>every <literal>currencyID</literal> attribute is a context for the currency code lists</para>
+        </listitem>
+        <listitem>
+          <para>every <literal>mimeCode</literal> attribute is a context for the binary object mime code lists</para>
+        </listitem>
+        <listitem>
+          <para>every <literal>unitCode</literal> attribute of those BBIEs with a Data Type value of "Measure" is a context for the unit of measure code lists</para>
+        </listitem>
+        <listitem>
+          <para>every <literal>unitCode</literal> attribute of those BBIEs with a Data Type value of "Quantity" is a context for the unit of measure code lists</para>
+        </listitem>
+      </itemizedlist>
+      <para>The following contexts are described for elements:</para>
+      <itemizedlist>
+        <listitem>
+          <para>every element of those BBIEs with a Qualified Data Type value is a context for a code list with the same name as the value</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+  <appendix role="non-normative" id="A-RELEASE-NOTES">
+    <title>Release notes</title>
+    <section id="S-AVAILABILITY">
+      <title>Availability</title>
+      <para>Online and downloadable versions of this release are available from the locations specified at the top of this document.</para>
+    </section>
+    <section id="S-STATUS-OF-THIS-RELEASE">
+      <title>Status of this release</title>
+      <!--
+      <para>This is an internal working draft for editors.</para>
+      -->
+      <!--<para> Release of this package marks the beginning of its internal committee review.</para>-->
+      <!--<para>Release of this package to the public marks the beginning of its first public review. </para>-->
+      <!--      <para>Release of this package to the public marks the beginning of its
+        first public review. The UBL Technical Committee actively solicits
+        input from the user community regarding this release. See <xref
+          linkend="STATUS"/> at the beginning of this document for procedures
+        to be used in submitting comments to the Committee. Note that in
+        accordance with OASIS policies regarding intellectual property, the UBL
+        TC <emphasis role="italic">cannot</emphasis> accept input from persons
+        outside the UBL TC (including OASIS members) unless it is submitted via
+        the comment list.</para>-->
+      <!--<para><emphasis role="bold"><emphasis role="italic">THIS RELEASE IS SUBJECT TO CHANGE. IT IS PROVIDED FOR TESTING PURPOSES ONLY AND SHOULD NOT BE USED FOR PRODUCTION SYSTEMS.</emphasis></emphasis></para>-->
+      <para>Release of this package marks the completion of this committee note. </para>
+      <para>The UBL Technical Committee welcomes input from the user community regarding this note. See <xref linkend="STATUS"/> at the beginning of this document for procedures to be used in submitting comments to the Committee. Note that in accordance with OASIS policies regarding intellectual
+        property, the UBL TC <emphasis role="italic">cannot</emphasis> accept input from persons outside the UBL TC (including OASIS members) unless it is submitted via the comment list.</para>
+    </section>
+    <section id="S-PACKAGE-STRUCTURE">
+      <title>Package structure</title>
+      <para>This &note; is published as a zip archive in the <ulink url="&this-loc;/">&this-loc;/</ulink> directory. Unzipping this archive creates a directory tree containing a number of files and subdirectories. Note that while the two XML files comprise the revisable version of this
+        specification, this revisable XML may not be directly viewable in all currently available web browsers.</para>
+      <para>The base directory has the following files:</para>
+      <blockquote>
+        <variablelist>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>&name;-&stage;.xml</literal>
+              </emphasis></term>
+            <listitem>
+              <para>The revisable form of the document.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>&name;-&stage;.html</literal>
+              </emphasis></term>
+            <listitem>
+              <para>An HTML rendering of the document.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>&name;-&stage;.pdf</literal>
+              </emphasis></term>
+            <listitem>
+              <para>A PDF rendering of the document.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </blockquote>
+      <para>These are the subdirectories in the package:</para>
+      <blockquote>
+        <variablelist>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>art</literal>
+              </emphasis></term>
+            <listitem>
+              <para>Diagrams and illustrations used in this specification</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>db</literal>
+              </emphasis></term>
+            <listitem>
+              <para>DocBook stylesheets for viewing in HTML the XML of this work product</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </blockquote>
+    </section>
+  </appendix>
+  <appendix id="A-ACKNOWLEDGEMENTS" role="non-normative">
+    <title>Acknowledgements</title>
+    <para>The following individuals have participated in the creation of this specification and are gratefully acknowledged:</para>
+    <simplelist>
+      <member>Todd Albers, Federal Reserve Bank of Minneapolis</member>
+      <member>Rui Barros, Individual</member>
+      <member>Oriol Bausa Peris, Individual</member>
+      <member>Kenneth Bengtsson, Individual</member>
+      <member>Erlend Klakegg Bergheim, Norwegian Digitalisation Agency</member>
+      <member>Peter Borresen, ClearView Trade</member>
+      <member>Andrea Caccia, Individual</member>
+      <member>Ger Clancy, IBM</member>
+      <member>Kees Duvekot, RFS Holland Holding B.V.</member>
+      <member>Martin Forsberg, Swedish Association of Local Authorities &amp; Regions</member>
+      <member>Cecile Guasch, Individual</member>
+      <member>Philip Helger, Individual</member>
+      <member>Ken Holman, Crane Softwrights Ltd.</member>
+      <member>Yves Jordan, Publications Office of the European Union</member>
+      <member>Kari Korpela, Individual</member>
+      <member>Ole Madsen, Danish Business Authority</member>
+      <member>Natalie Muric, Publications Office of the European Union</member>
+      <member>Levine Naidoo, IBM</member>
+      <member>Enric Torregrosa, everis, S.L.U.</member>
+      <member>Matt Vickers, Xero</member>
+    </simplelist>
+  </appendix>
+  <appendix id="A-ADDITIONAL-PRODUCTION-PROCESSES">
+    <title>Additional production processes</title>
+    <section id="S-CCTS-SERIALIZATION">
+      <title>CCTS serialization</title>
+      <para>The UBL distribution includes the following serializations of CCTS information expressed using the OASIS genericode XML vocabulary:</para>
+      <blockquote>
+        <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.1/mod/"/></para>
+        <itemizedlist>
+          <listitem>
+            <para>UBL-Entities-2.1.gc - all document ABIEs and common library ABIEs</para>
+          </listitem>
+          <listitem>
+            <para>UBL-Signature-Entities-2.1.gc - all signature extension ABIEs</para>
+          </listitem>
+        </itemizedlist>
+      </blockquote>
+      <note>
+        <para>The rationale is that while OASIS genericode was designed for use with code lists, it is a suitable XML serialization of any sparsely-populated tabular construct. The table of CCTS information in a model is sparsely-populated with numerous undefined cells.</para>
+      </note>
+      <para>In addition to a column for each piece of CCTS information saved for each BIE, there is a column named "ModelName" populated by every row. The value in this column indicates the model in which the BIE is defined. The values include "UBL-CommonLibrary-2.1" for all BIEs defined in the
+        common library, and "UBL-XXXX-2.1" where "XXXX" is the component name of the ABIE for the object class (e.g. "FreightInvoice") for the document ABIE and its child BIEs.</para>
+      <para>The key column in the genericode serialization is declared to be the "DictionaryEntryName" column.</para>
+      <para>The genericode specification imposes no order on the values in a row. In UBL 2.1 the order happens to correspond to the order of column declarations.</para>
+      <para>An example serialization of all three kinds of BIE is as follows for the common library ABIE "Winning Party", one of 8 ABIEs in UBL 2.1 that have a single BBIE and a single ASBIE (note that commented numbers indicate the row number from the spreadsheet; this supplemental information is
+        not required to be included but exists as a convenient reference):</para>
+      <programlisting><![CDATA[<Row><!--2709-->
+   <Value ColumnRef="ModelName">
+      <SimpleValue>UBL-CommonLibrary-2.3</SimpleValue>
+   </Value>
+   <Value ColumnRef="ComponentName">
+      <SimpleValue>WinningParty</SimpleValue>
+   </Value>
+   <Value ColumnRef="Definition">
+      <SimpleValue>A party that is identified as the 
+awarded by a tender result.</SimpleValue>
+   </Value>
+   <Value ColumnRef="DictionaryEntryName">
+      <SimpleValue>Winning Party. Details</SimpleValue>
+   </Value>
+   <Value ColumnRef="ObjectClass">
+      <SimpleValue>Winning Party</SimpleValue>
+   </Value>
+   <Value ColumnRef="ComponentType">
+      <SimpleValue>ABIE</SimpleValue>
+   </Value>
+   <Value ColumnRef="CurrentVersion">
+      <SimpleValue>2.1</SimpleValue>
+   </Value>
+</Row>
+<Row><!--2710-->
+   <Value ColumnRef="ModelName">
+      <SimpleValue>UBL-CommonLibrary-2.3</SimpleValue>
+   </Value>
+   <Value ColumnRef="ComponentName">
+      <SimpleValue>Rank</SimpleValue>
+   </Value>
+   <Value ColumnRef="Cardinality">
+      <SimpleValue>0..1</SimpleValue>
+   </Value>
+   <Value ColumnRef="Definition">
+      <SimpleValue>Indicates the rank obtained in the award.</SimpleValue>
+   </Value>
+   <Value ColumnRef="DictionaryEntryName">
+      <SimpleValue>Winning Party. Rank. Text</SimpleValue>
+   </Value>
+   <Value ColumnRef="ObjectClass">
+      <SimpleValue>Winning Party</SimpleValue>
+   </Value>
+   <Value ColumnRef="PropertyTermPrimaryNoun">
+      <SimpleValue>Rank</SimpleValue>
+   </Value>
+   <Value ColumnRef="PropertyTerm">
+      <SimpleValue>Rank</SimpleValue>
+   </Value>
+   <Value ColumnRef="RepresentationTerm">
+      <SimpleValue>Text</SimpleValue>
+   </Value>
+   <Value ColumnRef="DataType">
+      <SimpleValue>Text. Type</SimpleValue>
+   </Value>
+   <Value ColumnRef="ComponentType">
+      <SimpleValue>BBIE</SimpleValue>
+   </Value>
+   <Value ColumnRef="CurrentVersion">
+      <SimpleValue>2.1</SimpleValue>
+   </Value>
+</Row>
+<Row><!--2711-->
+   <Value ColumnRef="ModelName">
+      <SimpleValue>UBL-CommonLibrary-2.3</SimpleValue>
+   </Value>
+   <Value ColumnRef="ComponentName">
+      <SimpleValue>Party</SimpleValue>
+   </Value>
+   <Value ColumnRef="Cardinality">
+      <SimpleValue>1</SimpleValue>
+   </Value>
+   <Value ColumnRef="Definition">
+      <SimpleValue>Information about an organization,
+sub-organization, or individual fulfilling a role in
+a business process.</SimpleValue>
+   </Value>
+   <Value ColumnRef="DictionaryEntryName">
+      <SimpleValue>Winning Party. Party</SimpleValue>
+   </Value>
+   <Value ColumnRef="ObjectClass">
+      <SimpleValue>Winning Party</SimpleValue>
+   </Value>
+   <Value ColumnRef="PropertyTerm">
+      <SimpleValue>Party</SimpleValue>
+   </Value>
+   <Value ColumnRef="RepresentationTerm">
+      <SimpleValue>Party</SimpleValue>
+   </Value>
+   <Value ColumnRef="AssociatedObjectClass">
+      <SimpleValue>Party</SimpleValue>
+   </Value>
+   <Value ColumnRef="ComponentType">
+      <SimpleValue>ASBIE</SimpleValue>
+   </Value>
+   <Value ColumnRef="CurrentVersion">
+      <SimpleValue>2.1</SimpleValue>
+   </Value>
+</Row>]]></programlisting>
+    </section>
+    <section id="S-REPORTING">
+      <title>Reporting</title>
+      <section id="S-HTML-SUMMARY-REPORTS">
+        <title>HTML summary reports</title>
+        <para>The UBL distribution includes a number of HTML summary files reporting filtered content from the CCTS information. These files are found in the directory:</para>
+        <blockquote>
+          <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.3/mod/summary/"/></para>
+          <itemizedlist>
+            <listitem>
+              <para>readme-Reports.html - report descriptions and usage, legend information, and a summary of links to all of the HTML summary files</para>
+            </listitem>
+            <listitem>
+              <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.3/mod/summary/reports/"/> - the subdirectory with all of the reports</para>
+              <itemizedlist>
+                <listitem>
+                  <para>All-UBL-2.3-Documents.html - an unfiltered report of the entire CCTS information content</para>
+                </listitem>
+                <listitem>
+                  <para>UBL-XXXX-2.3.html - a filtered report for the document type "XXXX" as the component name of the ABIE of the object class of the Document ABIE (e.g. OrderResponseSimple) in which all common library CCTS information not found to be used somewhere in the document type is not
+                    included</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </itemizedlist>
+        </blockquote>
+      </section>
+      <section id="S-MODEL-CHECK-REPORT">
+        <title>Model check report</title>
+        <para>Not included in the UBL distribution is a textual report the UBL TC utilizes as a "model check" that has analyzed the CCTS information reporting any violations of these Naming and Design Rules or any anomalies that may inadvertently interfere with the production of the validation
+          artefacts. An example of such inadvertent interference is the use of a double-hyphen "--" in any description field. Such a sequence interferes with generating XML-based artefacts where some content might be, or later want to be, placed in an XML comment. Participants can be warned to
+          revise field values so as not to include this or other sensitive character sequences.</para>
+      </section>
+    </section>
+  </appendix>
+  <!--<appendix role="non-normative" id="A-REVISION-HISTORY"><title>Revision History</title><informaltable frame="all"><tgroup cols="4"><colspec colwidth="1*"/><colspec colwidth="2*"/><colspec colwidth="1*"/><colspec colwidth="8*"/><thead><row><entry>Revision</entry><entry>Date</entry><entry>Editor</entry><entry>Changes made</entry></row></thead><tbody><row><entry>cnd01wd01</entry><entry>14 April 2020</entry><entry>GKH</entry><entry>Initial version referencing BD-NDR 1.1</entry></row></tbody></tgroup></informaltable></appendix>-->
+</article>
