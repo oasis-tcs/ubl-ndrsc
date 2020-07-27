@@ -84,7 +84,6 @@
       <property name="fileupload"
                 value="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-pub.zip"/>
       <property name="dateprefix" value="UBL-${UBLversion}-JSON-${JSONversion}"/>
-      <property name="servername" value="run.setaresolutions.com"/>
     </ant>
     <echo message="Check and cleanup..."/>
     <available property="ready-pdf" file="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.pdf"/>

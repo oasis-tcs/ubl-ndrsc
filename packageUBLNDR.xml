@@ -78,7 +78,6 @@
       <property name="fileupload"
                 value="UBL-NDR-v3.1-${stage}-pub.zip"/>
       <property name="dateprefix" value="UBL-NDR"/>
-      <property name="servername" value="run.setaresolutions.com"/>
     </ant>
     <echo message="Check and cleanup..."/>
     <available property="ready-pdf" file="${dir}/UBL-NDR-v3.1-${stage}.pdf"/>
