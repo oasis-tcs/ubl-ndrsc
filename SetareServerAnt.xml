@@ -126,6 +126,7 @@
     &lt;arg value="--form"/>&lt;arg value="files=@${fileupload};type=application/zip"/>
     &lt;arg value="--form"/>&lt;arg value="note=${dateprefix} ${submitTime}"/>
     &lt;arg value="--form"/>&lt;arg value="entrypoint=${entrypoint}"/>
+    &lt;arg value="--verbose"/>
   &lt;/exec>
     '/>
   <exec executable="curl" errorproperty="errSubmit"
@@ -141,6 +142,7 @@
     <arg value="--form"/><arg value="files=@${fileupload};type=application/zip"/>
     <arg value="--form"/><arg value="note=${dateprefix} ${submitTime}"/>
     <arg value="--form"/><arg value="entrypoint=${entrypoint}"/>
+    <arg value="--verbose"/>
   </exec>
   <propertyregex property="jobid" input="${jobidReturn}"
                  regexp='.*"id"[^:]*:[^0-9]*([0-9]+).*' select="\1"/>

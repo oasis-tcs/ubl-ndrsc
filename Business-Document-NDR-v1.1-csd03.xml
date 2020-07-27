@@ -35,15 +35,15 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
 <!ENTITY name "&dir;-v&version;">
 <!ENTITY version "1.1">
 <!ENTITY title "Business Document Naming and Design Rules (BDNDR) Version&#xa0;&version;">
-<!ENTITY standard "Committee Specification Draft 03 / Working Draft 02">
+<!ENTITY standard "Committee Specification Draft 03">
 <!ENTITY pstage "csprd01">
-<!ENTITY stage                                     "csd03wd02">
-<!ENTITY summary SYSTEM "Business-Document-NDR-v1.1-csd03wd02-summary.ent">
+<!ENTITY stage                                     "csd03">
+<!ENTITY summary SYSTEM "Business-Document-NDR-v1.1-csd03-summary.ent">
 <!ENTITY this-loc     "https://docs.oasis-open.org/ubl/&dir;/v&version;/&stage;">
 <!ENTITY previous-loc "http://docs.oasis-open.org/ubl/&dir;/v&version;/&pstage;">
 <!ENTITY latest-loc   "https://docs.oasis-open.org/ubl/&dir;/v&version;">
 <!ENTITY copyyear        "2020">
-<!ENTITY pubdate "11 June 2020">
+<!ENTITY pubdate "29 July 2020">
 <!ENTITY conformancePrefix "7">
 ]>
 <article status="&standard;" conformance="ids quotes">
