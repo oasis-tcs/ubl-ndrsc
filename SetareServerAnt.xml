@@ -112,7 +112,7 @@
             pattern="YYYY-MM-dd HH:mm:ssZ"/>
   </tstamp>
   <echo message='Submitting "${dateprefix} ${submitTime}" to "${entrypoint}" ...'/>
-  &lt;echo message='
+  <echo message='
   &lt;exec executable="curl" errorproperty="errSubmit"
         resultproperty="returnSubmit"
         outputproperty="jobidReturn">
