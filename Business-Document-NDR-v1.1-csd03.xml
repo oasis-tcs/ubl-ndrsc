@@ -140,10 +140,12 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
     </abstract>
     <legalnotice role="status" id="STATUS">
       <title>Status</title>
+      <!--
       <para>This <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#dWorkingDraft">Working Draft</ulink> (WD) has been produced by one or more TC Members; it has not yet been voted on by the TC or <ulink conformance="skip"
           url="https://www.oasis-open.org/policies-guidelines/tc-process#committeeDraft">approved</ulink> as a Committee Specification Draft. The OASIS document <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#standApprovProcess">Approval Process</ulink>
         begins officially with a TC vote to approve a WD as a Committee Draft. A TC may approve a Working Draft, revise it, and re-approve it any number of times as a Committee Draft. </para>
-      <!--
+      -->
+      
       <para>This document was last revised or approved by the OASIS Universal Business Language TC
         on the above date. The level of approval is also listed above. Check the &#x201c;Latest
         version&#x201d; location noted above for possible later revisions of this document. Any
@@ -163,9 +165,10 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
         the Intellectual Property Rights section of the Technical Committee web page at <ulink
           url="https://www.oasis-open.org/committees/ubl/ipr.php"
           >https://www.oasis-open.org/committees/ubl/ipr.php</ulink>.</para>
+
       <para>See <xref linkend="A-RELEASE-NOTES"/> for more information regarding this release
         package.</para>
-      -->
+      
     </legalnotice>
     <legalnotice role="citation" id="CITATION">
       <title>Citation format</title>

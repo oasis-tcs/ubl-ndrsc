@@ -1,7 +1,7 @@
 <project default="-setare" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 <!--
-  2020-07-06 18:00z
+  2020-07-06 18:00z - modified to use APIv1 as default instead of APIv2
   
   This Ant project interacts with the Setare Server API using curl.
   
@@ -26,6 +26,8 @@
 <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
 <target name="-setare">
+  <property name="servername"
+            value="run.setaresolutions.com"/>
   <property name="servername"
             value="qatest-api.setaresolutions.com/v2"/>
   <property name="dateprefix" value=""/>
