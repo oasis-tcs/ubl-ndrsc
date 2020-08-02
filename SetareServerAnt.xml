@@ -121,7 +121,6 @@
     &lt;arg value="--request"/>&lt;arg value="POST"/>
     &lt;arg value="--url"/>&lt;arg value="https://${servername}/jobs"/>
     &lt;arg value="--location"/>
-    &lt;arg value="--header"/>&lt;arg value="content-type: multipart/form-data; boundary=---mp-boundary"/>
     &lt;arg value="--output"/>&lt;arg value="-"/>
     &lt;arg value="--header"/>&lt;arg value="authorization: Bearer ${token}"/>
     &lt;arg value="--header"/>&lt;arg value="accept: application/json"/>
@@ -137,7 +136,6 @@
     <arg value="--request"/><arg value="POST"/>
     <arg value="--url"/><arg value="https://${servername}/jobs"/>
     <arg value="--location"/>
-    <arg value="--header"/><arg value="content-type: multipart/form-data; boundary=---mp-boundary"/>
     <arg value="--output"/><arg value="-"/>
     <arg value="--header"/><arg value="authorization: Bearer ${token}"/>
     <arg value="--header"/><arg value="accept: application/json"/>
