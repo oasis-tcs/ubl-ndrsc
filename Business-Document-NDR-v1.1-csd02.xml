@@ -4564,7 +4564,7 @@ measure.",
       </section>
       <section id="S-DIFFERENCES-BETWEEN-VERSION-1.1-CSD02-AND-1.1-CSD01">
         <title>Differences between version 1.1 csd02 and 1.1 csd01</title>
-        <para>Version 1.1 csd02 modified the availability of extension content in csd02 also to be available for all Library ABIEs in addition to the csd01 availability only on Document ABIEs (see <xref linkend="S-XML-SCHEMA-DECLARATIONS-FOR-ABIES"/>).</para>
+        <para>Version 1.1 csd02 modifies the availability of extension content in csd02 also to be available for all Library ABIEs in addition to the csd01 availability only on Document ABIEs (see <xref linkend="S-XML-SCHEMA-DECLARATIONS-FOR-ABIES"/>).</para>
         <para>Version 1.1 csd02 repairs some faults in the specification of JSON schema identified during the public review. Specifically, the inappropriate specifications of &#x201c;<literal>additionalProperties</literal>&#x201d; in rules DCL23, DCL24, DCL26, and EXT23 have been removed.
           Additionally, in UDT25 the need for co-constraints on date-time values in order to express individual date and time constraints in Draft-04 of JSON Schema is removed due to the availability in Draft-07 of JSON Schema of individual date and time constraints.</para>
         <para>Version 1.1 csd02 makes some further wholesale changes to the JSON serialization in order to promote ease of transliteration of instances with the XML serialization. Before the changes were made it was necessary to have some foreknowledge of the document model. With these changes,
