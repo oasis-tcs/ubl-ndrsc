@@ -35,8 +35,8 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
 <!ENTITY name "&dir;-v&version;">
 <!ENTITY pversion "NONE">
 <!ENTITY version "1.0">
-<!ENTITY pstage "cnd01wd01">
-<!ENTITY stage  "cnd01wd01">
+<!ENTITY pstage "cnd01">
+<!ENTITY stage  "cnd01">
 <!ENTITY stagetext "Committee Note Draft 01">
 <!ENTITY this-loc     "https://docs.oasis-open.org/ubl/&dir;/v&version;/&stage;">
 <!ENTITY previous-loc "">
