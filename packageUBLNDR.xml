@@ -68,6 +68,8 @@
       <fileset dir=".">
         <include name="UBL-NDR-v3.1-${stage}.xml"/>
         <include name="art/Business-Document-NDR-v1.1-Open-edi-Application.png"/>
+        <include name="art/UBL-NDR-v3.1-procubl.png"/>
+        <include name="art/UBL-NDR-v3.1-ublschema.png"/>
       </fileset>
     </zip>
     <!--create outputs-->
@@ -127,20 +129,6 @@
   <copy todir="${dir}/UBL-NDR-v3.1-${stage}-${version}/db">
     <fileset dir="db/spec-0.8/htmlruntime">
      <include name="**"/>
-    </fileset>
-  </copy>
-
-  <mkdir dir="${dir}/UBL-NDR-v3.1-${stage}-${version}/art"/>
-  <copy todir="${dir}/UBL-NDR-v3.1-${stage}-${version}/art">
-    <fileset dir="htmlart">
-     <include name="UBL-NDR-v3.0-**"/>
-    </fileset>
-  </copy>
-
-  <mkdir dir="${dir}/UBL-NDR-v3.1-${stage}-${version}/art/pdf"/>
-  <copy todir="${dir}/UBL-NDR-v3.1-${stage}-${version}/art/pdf">
-    <fileset dir="art">
-     <include name="UBL-NDR-v3.0-**"/>
     </fileset>
   </copy>
 
