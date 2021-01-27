@@ -2,7 +2,7 @@
 
 # args
 #
-# target platform ${timestamp}z label setareUser setarePass deleteFlag
+# target platform ${timestamp}z label realtauser realtapass deleteFlag
 
 if [ "$4" = "" ]; then echo Missing target dir, platform, dateZ, dateTime, user, password arguments ; exit 1 ; fi
 

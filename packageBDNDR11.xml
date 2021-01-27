@@ -63,17 +63,17 @@
      <arg value="-o:${dir}/Business-Document-NDR-v1.1-${stage}-summary.ent"/>
      <arg value="-versionmsg:off"/>
   </java>
-  <condition property="useSetarePublishing">
+  <condition property="useRealtaPublishing">
     <and>
       <not>
-        <equals arg1="${setareuser}" arg2=""/>
+        <equals arg1="${realtauser}" arg2=""/>
       </not>
       <not>
-        <equals arg1="${setarepass}" arg2=""/>
+        <equals arg1="${realtapass}" arg2=""/>
       </not>
     </and>
   </condition>
-  <sequential unless:set="useSetarePublishing">
+  <sequential unless:set="useRealtaPublishing">
     <echo message="No credentials for remote publishing; creating local HTML presuming stylesheet association..."/>
     <java classname="net.sf.saxon.Transform">
       <arg value="-a"/>
@@ -84,7 +84,7 @@
     <touch unless:set="html-made" file="${dir}/HTML-FROM-XML-ATTEMPTED-WITHOUT-SUCCESS.txt"/>
     <touch file="${dir}/WITHOUT-CREDENTIALS-PDF-OUTPUT-NOT-ATTEMPTED.txt"/>
   </sequential>
-  <sequential if:set="useSetarePublishing">
+  <sequential if:set="useRealtaPublishing">
     <echo message="Using credentials for remote publishing..."/>
 <!--    <echo message="Assembling entities..."/>
     <java classname="net.sf.saxon.Transform">
@@ -104,7 +104,7 @@
     </zip>
     <!--create outputs-->
     <echo message="Submitting print job..."/>
-    <property name="serverScript" location="SetareServerAnt.xml"/> 
+    <property name="serverScript" location="RealtaServerAnt.xml"/> 
     <ant antfile="${serverScript}" dir="${dir}">
       <property name="entrypoint" value="OASIS-spec2pdfhtml"/>
       <property name="fileupload"

@@ -18,6 +18,6 @@ fi
 
 
 echo Building package...
-java -Dant.home=utilities/ant -classpath utilities/ant/lib/ant-launcher.jar:db/spec-0.8/validate//saxon9he.jar:. org.apache.tools.ant.launch.Launcher -buildfile packageUBLJSON.xml -Ddir=$1 -DUBLversion=$2 -DJSONversion=$3 -Dstage=$4 -Dversion=$5 -Ddatetimelocal=$6 -Dsetareuser=$7 -Dsetarepass=$8 -Dartefactsdir=UBL-$2-JSON-results
+java -Dant.home=utilities/ant -classpath utilities/ant/lib/ant-launcher.jar:db/spec-0.8/validate//saxon9he.jar:. org.apache.tools.ant.launch.Launcher -buildfile packageUBLJSON.xml -Ddir=$1 -DUBLversion=$2 -DJSONversion=$3 -Dstage=$4 -Dversion=$5 -Ddatetimelocal=$6 -Drealtauser=$7 -Drealtapass=$8 -Dartefactsdir=UBL-$2-JSON-results
 
 if [ "$?" != "0" ]; then exit 1 ; fi
