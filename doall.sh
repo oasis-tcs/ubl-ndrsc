@@ -30,7 +30,7 @@ echo UBL NDR 3.1...                                     | tee -a $1/ndr.console.
 bash packageUBLNDR.sh $1 cn01 $3 $4 $5 $6          | tee -a $1/ndr.console.$3.txt
 UBLNDRReturn=${PIPESTATUS[0]}
 echo BDNDR 1.1...                                       | tee -a $1/ndr.console.$3.txt
-bash packageBDNDR11.sh $1 cs03 $3 $4 $5 $6         | tee -a $1/ndr.console.$3.txt
+bash packageBDNDR11.sh $1 cs04wd01 $3 $4 $5 $6         | tee -a $1/ndr.console.$3.txt
 BDNDRReturn=${PIPESTATUS[0]}
 
 mv $1/ndr.console.$3.txt $1/ndr-UBL-$2-$3/archive-only-not-in-final-distribution/

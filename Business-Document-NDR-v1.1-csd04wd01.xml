@@ -36,14 +36,14 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
 <!ENTITY version "1.1">
 <!ENTITY title "Business Document Naming and Design Rules (BDNDR) Version&#xa0;&version;">
 <!ENTITY standard "Committee Specification 04 Working Draft 01">
-<!ENTITY pstage "csd04wd01">
+<!ENTITY pstage "csd03">
 <!ENTITY stage                                     "csd04wd01">
 <!ENTITY summary SYSTEM "Business-Document-NDR-v1.1-csd04wd01-summary.ent">
 <!ENTITY this-loc     "https://docs.oasis-open.org/ubl/&dir;/v&version;/&stage;">
 <!ENTITY previous-loc "http://docs.oasis-open.org/ubl/&dir;/v&version;/&pstage;">
 <!ENTITY latest-loc   "https://docs.oasis-open.org/ubl/&dir;/v&version;">
 <!ENTITY copyyear           "2021">
-<!ENTITY pubdate "03 March 2021">
+<!ENTITY pubdate "19 July 2021">
 <!ENTITY conformancePrefix "7">
 ]>
 <article status="&standard;" conformance="ids quotes">
@@ -3184,8 +3184,8 @@ Last change: 14 January 2005</programlisting>
     <title>JSON validation artefacts</title>
     <section id="S-JSON-SERIALIZATION-MODES">
       <title>JSON serialization modes</title>
-      <section id="S-JSON-SERIALIZATION-MODE-OVERVIEW">
-        <title>JSON serialization mode overview</title>
+      <section id="S-JSON-SERIALIZATION-MODES-OVERVIEW">
+        <title>JSON serialization modes overview</title>
         <para>Recognizing there are different applications of the use of JSON syntax in different programming and data scenarios, these NDR for JSON have evolved to embrace the concept of three serialization modes of CCTS information into JSON serialized syntax: legacy mode, schema mode, and
           instance mode.</para>
         <para>Users can assess which serialization mode meets their information requirements in a particular scenario. Each serialization mode is built on the same conventions for naming, so as to promote familiarity across the use of all modes. The modes are not directly interchangeable as each
@@ -3196,22 +3196,27 @@ Last change: 14 January 2005</programlisting>
         <para>The JSON legacy-mode serialization protects a given serialization of an instance of CCTS content from future changes in cardinality.</para>
         <para>In this mode, the JSON array structure of object structures is used in the serialization of each and every BIE in a document instance, regardless of the declared cardinality in the CCTS model. This is reflected in the JSON legacy schema for the CCTS model.</para>
         <para>Any given legacy JSON instance is guaranteed to be JSON-schema-valid to the current and all future JSON legacy schemas. This is due to the backward-compatibility of future CCTS models.</para>
-        <para>These NDR specify the creation of legacy-mode JSON schemas to be used to validate instances following legacy-mode serialization.</para>
+        <para>These NDR specify the creation of JSON legacy schemas to be used to validate instances following legacy-mode serialization.</para>
       </section>
       <section id="S-JSON-MODEL-MODE-SERIALIZATION">
         <title>JSON model-mode serialization</title>
-        <para>The JSON model-mode serialization presents a given serialization of an instance of CCTS according to the current version of the CCTS model, respecting the declared cardinality found in the model.</para>
+        <para>The JSON model-mode serialization presents a given serialization of an instance of CCTS according to the current version of the CCTS model, respecting the declared cardinality found in the current model.</para>
         <para>In this mode, the JSON array structure is used in the serialization only for those BIE constructs with an unbounded maximum cardinality. The JSON array structure is not used for the serialization of any BIE construct with a maximum cardinality of 1. The JSON object structure is used
-          for the serialization of any BIE construct with a maximum cardinality of 1. This is reflected in the JSON version schema for the CCTS model.</para>
-        <para>Any given version JSON instance is guaranteed to be schema-valid only to the current JSON version schema and not necessarily to any future JSON version schema. This is due to the possibility that a future version of the CCTS model may have increased the upper bound of the cardinality
-          of any given BIE. Such would change the serialization from a single object structure to an array structure of object structures, and so the future JSON version schema would not successfully validate the older JSON serialization.</para>
-        <para>These NDR specify the creation of model-mode JSON version schemas to be used to validate instances following model-mode serialization.</para>
+          for the serialization of any BIE construct with a maximum cardinality of 1. This is reflected in the JSON model schema for the particular version of the CCTS model.</para>
+        <para>Any given version&#x2019;s JSON instance is guaranteed to be schema-valid only to that version&#x2019;s JSON model schema and not necessarily to any past or future version&#x2019;s JSON model schema. This is due to the possibility that the current or future version of the CCTS model
+          may have increased the upper bound of the cardinality of any given BIE. Such would change the serialization from a single object structure to an array structure of object structures, and so the current or future version JSON model schema would not successfully validate the older version
+          JSON model-mode serialization.</para>
+        <para>These NDR specify the creation of version-specific JSON model schemas to be used to validate instances following model-mode serialization.</para>
       </section>
       <section id="S-JSON-INSTANCE-MODE-SERIALIZATION">
         <title>JSON instance-mode serialization</title>
         <para>The JSON instance-mode serialization is the most parsimonious of the three serialization modes. A string value is used for the content of a BBIE that does not have any supplementary components associated with the content. An object structure is used for the content of a singleton BBIE
           that does have supplementary components associated with the content. An object structure is used for the content of a singleton ASBIE. An array construct of object constructs is used for an adjacent sequence of like-named BBIEs and for an adjacent sequence of like-named ASBIEs.</para>
         <para>These NDR do not specify any creation of instance-mode JSON schemas to be used for validation purposes. It is up to the ingesting application to determine the structural validity and content of a given construct on-the-fly.</para>
+      </section>
+      <section id="S-JSON-SERIALIZATION-MODE-SCHEMA-DECLARATION-DIFFERENCES">
+        <title>JSON serialization mode schema declaration differences</title>
+        <para>Legacy-mode and model-mode schemas are predominantly identical except only for the applications of NDR <xref linkend="DCL24"/> and <xref linkend="DCL26"/> that differ based on creating an array of objects or a single object.</para>
       </section>
     </section>
     <section id="S-JSON-VALIDATION-ARTEFACTS-OVERVIEW">
@@ -3682,6 +3687,7 @@ definitions/UBLExtensions"
             <tbody>
               <tr>
                 <td>
+                  <para>Legacy-mode declaration:</para>
                   <para>Every ASBIE child of an ABIE shall be declared as an array named by the CCTS Component Name of the ASBIE. It shall have as its title the CCTS Dictionary Entry Name. It shall have as its description the CCTS Definition. It shall have a minimum number of items as 1. If the
                     cardinality has a maximum bound of 1, then the declaration shall have a maximum number of items as 1, otherwise there shall be no constraint on the maximum number of items. It shall declare that additional properties are not permitted. The items of the array shall be declared by
                     referencing the ASBIE in the Library ABIE schema fragment.</para>
@@ -3698,6 +3704,19 @@ definitions/SenderParty"
   "maxItems": 1,
   "minItems": 1,
   "type": "array",
+  },</programlisting>
+                  </note>
+                  <para>Model-mode declaration: </para>
+                  <para>All ASBIE children with an unbounded maximum cardinality of &#x2018;n&#x2019; are declared as arrays in the manner used for a legacy-mode declaration.</para>
+                  <para>All ASBIE children with a bounded maximum cardinality of &#x201c;1&#x201d; are declared as an object referencing the ASBIE in the Library ABIE schema fragment.</para>
+                  <note>
+                    <title>Example</title>
+                    <programlisting>"SenderParty": {
+  "title": "Application Response. Sender_ Party. Party",
+  "description": "The party sending this document.",
+  "$ref": 
+"../common/UBL-CommonAggregateComponents-2.2.json#/
+definitions/SenderParty"
   },</programlisting>
                   </note>
                 </td>
@@ -3756,7 +3775,20 @@ definitions/ResponseDate"
   "minItems": 1,
   "type": "array",
   },</programlisting>
-                  </note></td>
+                  </note>
+                  <para>Model-mode declaration: </para><para>All BBIE children with an unbounded maximum cardinality of &#x2018;n&#x2019; are declared as arrays in the manner used for a legacy-mode declaration.</para>All BBIE children with a bounded maximum cardinality of &#x201c;1&#x201d; are
+                  declared as an object referencing the BBIE declaration in the BBIE schema fragment using the CCTS Component Name of the BBIE. <note>
+                    <title>Example</title>
+                    <programlisting>"ResponseDate": {
+  "title": "Application Response. Response Date. Date",
+  "description": "The date on which the information in 
+the response was created.",
+  "$ref": 
+"../common/UBL-CommonBasicComponents-2.2.json#/
+definitions/ResponseDate"
+  },</programlisting>
+                  </note>
+                </td>
               </tr>
             </tbody>
           </informaltable>
