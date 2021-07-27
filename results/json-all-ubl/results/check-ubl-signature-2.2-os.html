@@ -1,0 +1,209 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Analysis of UBL 2.2</title></head>
+   <body>
+      <div style="text-align:right;margin-bottom:0pt"><small>2021-07-26T17:19:57.966-04:00</small></div>
+      <h2><a name="_analysis"></a>Analysis of UBL 2.2
+      </h2>
+      <p>
+         Hover over the category titles for a more detailed description
+         in a pop-up tool-tip.
+         
+      </p>
+      <h3>Non-fatal backward compatibility observations</h3><pre>
+<span title="Renaming an old DEN with a new value does not impact conformance, as the schema constraints do not change. However, the DEN is meant to be persistent and should only change if it is necessary to correct it. For example, it might have been used as a key for documentation. Accordingly, one should consider preserving old DEN values in such uses, along with the new DEN values, so that old links continue to work."><span>Renamed old DENs in new model: 0</span></span>
+
+<span title="It is not fatal to deem an element to change or no longer to have a data type qualification in a newer model, but it is reported here in case it was an oversight."><span>Missing old Data Type Qualifications in new model: 0</span></span>
+
+<span title="It is not fatal to have new data type qualifications. Such are listed here to help with integrity checking by reviewing important changes to the model."><span>Added Data Type Qualifications in new model: 0</span></span>
+</pre><h3>Fatal backward compatibility issues</h3><pre>
+<span title="When changing the cardinality of an old item in a new model, the minimum can be dropped (but not raised) and the maximum can be raised (but not dropped)."><span>Cardinalities found in error: 0</span></span>
+
+<span title="All items in the old model must be in the same order in the new model."><span>Sequences found in error (by DEN): 0</span></span>
+</pre><h3>Non-fatal issues but not allowed by these checks</h3><pre>
+<span title="In these checks there are no qualifications on ABIEs"><span>Qualified ABIEs: 0</span></span>
+
+<span title="In these checks there are no qualifications on ABIEs"><span>ASBIEs referring to qualified ABIEs: 0</span></span>
+
+<span title="Unused library ABIEs are not an error, but having them is suspicious."><span>Orphaned ABIEs not being referenced by an ASBIE: 0</span></span>
+
+<span title="Since an element cannot be empty, a one-child element should not have an optional child"><span>Single-child ABIEs should not have an optional child: 0</span></span>
+
+<span title="The configuration file indicates the need for certain property terms in all Document ABIEs"><span>Missing expected BIEs in Document ABIE: 0</span></span>
+
+<span title="Non-Text BBIEs should not have repeatable cardinality and should be considered to be remodeled as a repeatable ASBIE with a non-repeated BBIE"><span>Unexpected cardinality for non-Text BBIEs: 0</span></span>
+</pre><h3>Additional reporting</h3><pre>
+<span title="A handy summary for reference"><span>Data type qualifications: 0</span></span>
+Data type qualifiers: 0
+</pre><h3>Naming and Design Rules (NDR)</h3>
+      <p>
+         As defined in <a target="_blank" href="http://docs.oasis-open.org/ubl/UBL-NDR/v3.0/UBL-NDR-v3.0.html">the UBL NDR v3.0 specification</a> and <a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html">the OASIS Business Document v1.0 specification</a>.
+         
+      </p>
+      <h4>Model-related NDRs</h4><pre>
+UBL-SignatureLibrary-2.2: 1 ABIEs
+
+<span title="The apex of the information bundle shall be structured as a single top-level ABIE, referred to in this specification as a Document ABIE."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#MOD01">MOD01</a> - Document ABIE: 1</span>
+<a id="d18e0">UBL Document Signatures
+</a>
+<span title="There should be zero references to document ABIEs."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#MOD02">MOD02</a> - References to Document ABIEs: 0</span>
+
+<span title="The ABIEs in the common library shall be in alphabetical order. The ABIE reported is the one that occurrs before the prior ABIE. Subsequent ones might very well be in order, which would indicate that it is the prior ABIE that is actually the one out of order."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#MOD03">MOD03</a> - Library ABIEs out of order: 0</span>
+
+<span title="Each document shall allow for optional augmentation with a collection of information not conceptually described by existing BIEs."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#MOD04">MOD04</a> - Extension availability: 0</span>
+(no schema information provided for checking)
+
+<span title="The CCTS values in the model cannot be structured and must be made up of only string values. No empty values are allowed (the CCTS item should be absent from the mdoel if it has no value). The DEN and the column in error are indicated for each problem."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM01">COM01</a> - structured values: 0</span>
+
+<span title="The CCTS values in the model cannot have sensitive XML characters or sequences that might disturb down-stream processing of the information. Newline characters are allowed at the end of a value but not otherwise as there is no concept of a paragraph in a value."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM02">COM02</a> - prohibited characters: 0</span>
+
+<a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM03">COM03</a> - list of permitted abbreviations in name values: 
+ CV2 = Card Verification Value
+ ID = Identifier
+ OID = Object Identifier
+ URI = Uniform Resource Identifier
+ UNDG = United Nations Development Group
+ UBL = Universal Business Language
+ UUID = Universally Unique Identifier
+ XPath = XML Path Language
+<span title="This analysis considers any word split after a sequence of digits, after two capitals that come before a capital followed by lowercase (e.g. UBLVersion-&gt;UBL Version), and between a lower-case followed by uppercase (e.g. VersionID-&gt;Version ID"><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM03">COM03</a> - prohibited abbreviations in name values: 0</span>
+
+<a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM04">COM04</a> - list of permitted abbreviations in DEN values: 
+ CV2 = Card Verification Value
+ OID = Object Identifier
+ URI = Uniform Resource Identifier
+ UNDG = United Nations Development Group
+ UBL = Universal Business Language
+ UUID = Universally Unique Identifier
+ XPath = XML Path Language
+<span title="This analysis considers any word split after a sequence of digits, after two capitals that come before a capital followed by lowercase (e.g. UBLVersion-&gt;UBL Version), and between a lower-case followed by uppercase (e.g. VersionID-&gt;Version ID"><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM04">COM04</a> - prohibited abbreviations in DEN values: 0</span>
+
+<a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM05">COM05</a> - list of equivalences of primary nouns to representation terms
+        in names when testing for duplication: 
+ OID = Identifier
+ URI = Identifier
+ UUID = Identifier
+
+<span title="The component type can only be ABIE, BBIE or ASBIE."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM06">COM06</a> - invalid component type: 0</span>
+
+<span title="ABIE values are constrained by the specification."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM07">COM07</a> - invalid ABIE values: 0</span>
+
+<span title="BBIE values are constrained by the specification."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM08">COM08</a> - invalid BBIE values: 0</span>
+
+<span title="ASBIE values are constrained by the specification."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM09">COM09</a> - invalid ASBIE values: 0</span>
+
+<span title="No two BIEs can have the same DEN"><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM10">COM10</a> - DEN uniqueness: 0</span>
+
+<span title="Words in name values cannot have characters that interfere with the syntax for dictionary entry names."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM11">COM11</a> - prohibited character in name values: 0</span>
+
+<span title="Words in name values must have leading upper-case and the remainder lower-case unless the word is an approved abbreviation."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM12">COM12</a> - leading upper case in DEN name values: 0</span>
+
+<span title="An ABIE cannot be empty."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM13">COM13</a> - ABIE empty: 0</span>
+
+<span title="All BBIEs for an ABIE must be before all ASBIEs."><a target="_blank" href="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/Business-Document-NDR-v1.0.html#COM14">COM14</a> - ABIE order: 0</span>
+</pre><table>
+         <table style="border:1px solid black;border-collapse:collapse">
+            
+            <tr>
+               <th>Aggregate BIE</th>
+               <th>Basic or Association BIE</th>
+               <th>Changes for UBL Signature</th>
+            </tr>
+            <tr>
+               <td style="border:1px solid black">
+                  No changes detected.
+                  
+               </td>
+               <td style="border:1px solid black"></td>
+               <td style="border:1px solid black"></td>
+            </tr>
+         </table>
+      </table>
+      <table>
+         <table style="border:1px solid black;border-collapse:collapse">
+            
+            <tr>
+               <th>Aggregate BIE</th>
+               <th>Basic or Association BIE</th>
+               <th>Changes for UBL Signature</th>
+            </tr>
+            <tr>
+               <td style="border:1px solid black">
+                  No changes detected.
+                  
+               </td>
+               <td style="border:1px solid black"></td>
+               <td style="border:1px solid black"></td>
+            </tr>
+         </table>
+      </table>
+      <table>
+         <table style="border:1px solid black;border-collapse:collapse">
+            
+            <tr>
+               <th style="border:1px solid black;vertical-align:top">&nbsp;</th>
+               <th style="border:1px solid black;vertical-align:top">Component Name</th>
+               <th style="border:1px solid black;vertical-align:top">Cardinality</th>
+               <th style="border:1px solid black;vertical-align:top">Alternative Business Terms</th>
+               <th style="border:1px solid black;vertical-align:top">Examples</th>
+               <th style="border:1px solid black;vertical-align:top">Dictionary Entry Name</th>
+               <th style="border:1px solid black;vertical-align:top">Object Class</th>
+               <th style="border:1px solid black;vertical-align:top">Property Term Qualifier</th>
+               <th style="border:1px solid black;vertical-align:top">Property Term Possessive Noun</th>
+               <th style="border:1px solid black;vertical-align:top">Property Term Primary Noun</th>
+               <th style="border:1px solid black;vertical-align:top">Property Term</th>
+               <th style="border:1px solid black;vertical-align:top">Representation Term</th>
+               <th style="border:1px solid black;vertical-align:top">Data Type Qualifier</th>
+               <th style="border:1px solid black;vertical-align:top">Data Type</th>
+               <th style="border:1px solid black;vertical-align:top">Associated Object Class</th>
+               <th style="border:1px solid black;vertical-align:top">Comp. Type</th>
+               <th style="border:1px solid black;vertical-align:top">UN/TDED Code</th>
+               <th style="border:1px solid black;vertical-align:top">Current Version</th>
+               <th style="border:1px solid black;vertical-align:top">Editor's Notes</th>
+            </tr>
+            <tr>
+               <td style="border:1px solid black">
+                  No changes detected.
+                  
+               </td>
+               <td style="border:1px solid black"></td>
+               <td style="border:1px solid black"></td>
+            </tr>
+         </table>
+      </table>
+      <table>
+         <table style="border:1px solid black;border-collapse:collapse">
+            
+            <tr>
+               <th style="border:1px solid black;vertical-align:top">&nbsp;</th>
+               <th style="border:1px solid black;vertical-align:top">Component Name</th>
+               <th style="border:1px solid black;vertical-align:top">Cardinality</th>
+               <th style="border:1px solid black;vertical-align:top">Alternative Business Terms</th>
+               <th style="border:1px solid black;vertical-align:top">Examples</th>
+               <th style="border:1px solid black;vertical-align:top">Dictionary Entry Name</th>
+               <th style="border:1px solid black;vertical-align:top">Object Class</th>
+               <th style="border:1px solid black;vertical-align:top">Property Term Qualifier</th>
+               <th style="border:1px solid black;vertical-align:top">Property Term Possessive Noun</th>
+               <th style="border:1px solid black;vertical-align:top">Property Term Primary Noun</th>
+               <th style="border:1px solid black;vertical-align:top">Property Term</th>
+               <th style="border:1px solid black;vertical-align:top">Representation Term</th>
+               <th style="border:1px solid black;vertical-align:top">Data Type Qualifier</th>
+               <th style="border:1px solid black;vertical-align:top">Data Type</th>
+               <th style="border:1px solid black;vertical-align:top">Associated Object Class</th>
+               <th style="border:1px solid black;vertical-align:top">Comp. Type</th>
+               <th style="border:1px solid black;vertical-align:top">UN/TDED Code</th>
+               <th style="border:1px solid black;vertical-align:top">Current Version</th>
+               <th style="border:1px solid black;vertical-align:top">Editor's Notes</th>
+            </tr>
+            <tr>
+               <td style="border:1px solid black">
+                  No changes detected.
+                  
+               </td>
+               <td style="border:1px solid black"></td>
+               <td style="border:1px solid black"></td>
+            </tr>
+         </table>
+      </table>
+   </body>
+</html>

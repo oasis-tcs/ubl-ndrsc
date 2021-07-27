@@ -1,0 +1,598 @@
+<!--Summary changes to Document Elements UBL 2.2--><tgroup cols="3"><!--Document UBL 2.2-->
+   <colspec colwidth="35*"/>
+   <colspec colwidth="35*"/>
+   <colspec colwidth="30*"/>
+   <thead>
+      <row>
+         <entry>Aggregate BIE</entry>
+         <entry>Basic or Association BIE</entry>
+         <entry>Changes for UBL</entry>
+      </row>
+   </thead>
+   <tbody>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-AwardedNotification.Details">AwardedNotification</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-AwardedNotification.ContractName.Name">ContractName</ulink>
+         </entry>
+         <entry>Changed dictionary entry name from “Awarded Notification. Contract Name. Text” to “Awarded Notification. Contract Name. Name”</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-BusinessCard.Details">BusinessCard</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-CallForTenders.Details">CallForTenders</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-CallForTenders.Required_DocumentReference.DocumentReference">RequiredDocumentReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-CallForTenders.Provided_DocumentReference.DocumentReference">ProvidedDocumentReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-CallForTenders.ContractingParty">ContractingParty</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 1..n</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-ContractAwardNotice.Details">ContractAwardNotice</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-ContractAwardNotice.Notice_LanguageCode.Code">NoticeLanguageCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-ContractAwardNotice.ContractingParty">ContractingParty</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 1..n</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-ContractNotice.Details">ContractNotice</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-ContractNotice.NoticeTypeCode.Code">NoticeTypeCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-ContractNotice.Notice_LanguageCode.Code">NoticeLanguageCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-ContractNotice.ContractingParty">ContractingParty</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 1..n</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-CreditNote.Details">CreditNote</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-CreditNote.DueDate.Date">DueDate</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-CreditNote.ProjectReference">ProjectReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-CreditNote.Withholding_TaxTotal.TaxTotal">WithholdingTaxTotal</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-DebitNote.Details">DebitNote</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-DebitNote.Withholding_TaxTotal.TaxTotal">WithholdingTaxTotal</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-DigitalAgreement.Details">DigitalAgreement</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-DigitalCapability.Details">DigitalCapability</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-Enquiry.Details">Enquiry</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-EnquiryResponse.Details">EnquiryResponse</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-ExpressionOfInterestRequest.Details">ExpressionOfInterestRequest</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-ExpressionOfInterestResponse.Details">ExpressionOfInterestResponse</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-ForwardingInstructions.Details">ForwardingInstructions</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-ForwardingInstructions.DocumentDistribution">DocumentDistribution</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-FreightInvoice.Details">FreightInvoice</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-FreightInvoice.DueDate.Date">DueDate</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-FreightInvoice.ProjectReference">ProjectReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-FreightInvoice.Withholding_TaxTotal.TaxTotal">WithholdingTaxTotal</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-GuaranteeCertificate.Details">GuaranteeCertificate</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-GuaranteeCertificate.Signature">Signature</ulink>
+         </entry>
+         <entry>Changed cardinality from 1..n to 0..n</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-OrderResponse.Details">OrderResponse</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-OrderResponse.OrderChange_DocumentReference.DocumentReference">OrderChangeDocumentReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-OrderResponseSimple.Details">OrderResponseSimple</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-OrderResponseSimple.OrderChange_DocumentReference.DocumentReference">OrderChangeDocumentReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-PriorInformationNotice.Details">PriorInformationNotice</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-PriorInformationNotice.NoticeTypeCode.Code">NoticeTypeCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-PriorInformationNotice.Notice_LanguageCode.Code">NoticeLanguageCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-PriorInformationNotice.ContractingParty">ContractingParty</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 1..n</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-QualificationApplicationRequest.Details">QualificationApplicationRequest</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-QualificationApplicationResponse.Details">QualificationApplicationResponse</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-SelfBilledCreditNote.Details">SelfBilledCreditNote</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-SelfBilledCreditNote.DueDate.Date">DueDate</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-SelfBilledCreditNote.CreditNoteTypeCode.Code">CreditNoteTypeCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-SelfBilledCreditNote.Buyer_Reference.Text">BuyerReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-SelfBilledCreditNote.ProjectReference">ProjectReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-SelfBilledCreditNote.Withholding_TaxTotal.TaxTotal">WithholdingTaxTotal</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-SelfBilledInvoice.Details">SelfBilledInvoice</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-SelfBilledInvoice.DueDate.Date">DueDate</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-SelfBilledInvoice.Buyer_Reference.Text">BuyerReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-SelfBilledInvoice.ProjectReference">ProjectReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-SelfBilledInvoice.Withholding_TaxTotal.TaxTotal">WithholdingTaxTotal</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-Tender.Details">Tender</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-Tender.ContractName.Name">ContractName</ulink>
+         </entry>
+         <entry>Changed dictionary entry name from “Tender. Contract Name. Text” to “Tender. Contract Name. Name”</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-Tender.CallForTender_DocumentReference.DocumentReference">CallForTenderDocumentReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-Tender.Tenderer_Party.Party">TendererParty</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 1..n</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-Tender.ContractingParty">ContractingParty</ulink>
+         </entry>
+         <entry>Changed cardinality from 0..1 to 0..n</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-TenderContract.Details">TenderContract</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-TenderReceipt.Details">TenderReceipt</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-TenderReceipt.ContractName.Name">ContractName</ulink>
+         </entry>
+         <entry>Changed dictionary entry name from “Tender Receipt. Contract Name. Text” to “Tender Receipt. Contract Name. Name”</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-TenderStatus.Details">TenderStatus</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-TenderStatusRequest.Details">TenderStatusRequest</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-TenderWithdrawal.Details">TenderWithdrawal</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-TendererQualificationResponse.Details">TendererQualificationResponse</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-TendererQualificationResponse.ContractName.Name">ContractName</ulink>
+         </entry>
+         <entry>Changed dictionary entry name from “Tenderer Qualification Response. Contract Name. Text” to “Tenderer Qualification Response. Contract Name. Name”</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-UnawardedNotification.Details">UnawardedNotification</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-UnawardedNotification.ContractName.Name">ContractName</ulink>
+         </entry>
+         <entry>Changed dictionary entry name from “Unawarded Notification. Contract Name. Text” to “Unawarded Notification. Contract Name. Name”</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-UnsubscribeFromProcedureRequest.Details">UnsubscribeFromProcedureRequest</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-UnsubscribeFromProcedureResponse.Details">UnsubscribeFromProcedureResponse</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.2-Documents.html#Table-WeightStatement.Details">WeightStatement</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+   </tbody>
+</tgroup>

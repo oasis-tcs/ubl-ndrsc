@@ -1,0 +1,243 @@
+UBL 2.1 JSON 2.0...
+Pre-validate sources...
+
+############################################################
+Validating UBL-2.1-JSON-v2.0-cn01.xml
+############################################################
+============== Phase 1: DTD validation ==============
+No DTD validation errors.
+============ Phase 2: Writing rules validation ============
+No writing rule validation errors.
+Building package...
+Buildfile: /Users/admin/u/git/oasis/ubl-ndrsc/packageUBLJSON.xml
+
+make:
+     [echo] UBLversion=2.1
+     [echo] JSONversion=2.0
+     [echo] stage=cn01
+     [echo] version=test
+     [echo] datetimelocal=now
+     [echo] artefactsdir=results/json-all-ubl/results/os-2.1
+
+-check-docs:
+
+-make-docs:
+     [echo] Using credentials for remote publishing...
+      [zip] Building zip: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-pub.zip
+     [echo] Submitting print job...
+
+-realta:
+     [echo] Realta server access initiated
+     [echo] Invoking API version 2 - api.realtaonline.com/v2
+
+-realta-authenticate-v2:
+     [echo] Authenticating...
+     [echo] Token successfully returned from server: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZW5AcmVhbHRhb25saW5lLmNvbSIsInJvbGVlbnVtIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjI3MzUyNDI1LCJpYXQiOjE2MjczMzQ0MjUsInRlbmFudCI6IlRFTkFOVF9PQVNJUyJ9.BKHJ2gD9CrAdfHAlEsmadbHO6oWDW4cxtP38CmEcsQ3j0dm2aOE1a4ThSx8QvxxUl4s4xqawCO_dSnt1oouQvg
+
+-realta-submit-v2:
+     [echo] Submitting "UBL-2.1-JSON-2.0 2021-07-26 21:20:25+0000" to "OASIS-note2pdfhtml" ...
+     [echo] Returned job ID: 133994
+
+-realta-retrieve-v2:
+
+-realta-fetch-v2:
+     [echo] Sleeping for 10 seconds...
+     [echo] Checking job status...
+     [echo] Status: RUNNING
+
+-realta-fetch-v2:
+     [echo] Sleeping for 10 seconds...
+     [echo] Checking job status...
+     [echo] Status: FINISHED
+     [echo] Fetching file UBL-2.1-JSON-v2.0-cn01-pub.zip.realta.zip
+
+-realta-unpack-v2:
+     [echo] Unzipping UBL-2.1-JSON-v2.0-cn01-pub.zip.realta.zip PDF/HTML results...
+    [unzip] Expanding: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-pub.zip.realta.zip into /Users/admin/u/git/oasis/ubl-ndrsc/results
+     [echo] Disposing of temporary UBL-2.1-JSON-v2.0-cn01-pub.zip.realta.zip results...
+   [delete] Deleting: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-pub.zip.realta.zip
+
+-realta-cleanup-v2:
+     [echo] Deleting job from server...
+
+-realta-complete-v2:
+     [echo] Realta server access ended without error
+     [echo] Check and cleanup...
+   [delete] Deleting: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-pub.zip
+
+-package:
+    [mkdir] Created dir: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-test
+     [copy] Copying 1 file to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-test
+     [move] Moving 2 files to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-test
+     [copy] Copying 1 file to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-test/art
+     [copy] Copying 1 file to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-test/art/pdf
+     [copy] Copying 256 files to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-test/db
+     [copy] Copying 268 files to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-test
+      [zip] Building zip: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-test.zip
+   [delete] Deleting directory /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-test
+    [unzip] Expanding: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.1-JSON-v2.0-cn01-test.zip into /Users/admin/u/git/oasis/ubl-ndrsc/results
+
+BUILD SUCCESSFUL
+Total time: 28 seconds
+UBL 2.2 JSON 1.0...
+Pre-validate sources...
+
+############################################################
+Validating UBL-2.2-JSON-v1.0-cn01.xml
+############################################################
+============== Phase 1: DTD validation ==============
+No DTD validation errors.
+============ Phase 2: Writing rules validation ============
+No writing rule validation errors.
+Building package...
+Buildfile: /Users/admin/u/git/oasis/ubl-ndrsc/packageUBLJSON.xml
+
+make:
+     [echo] UBLversion=2.2
+     [echo] JSONversion=1.0
+     [echo] stage=cn01
+     [echo] version=test
+     [echo] datetimelocal=now
+     [echo] artefactsdir=results/json-all-ubl/results/os-2.2
+
+-check-docs:
+
+-make-docs:
+     [echo] Using credentials for remote publishing...
+      [zip] Building zip: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-pub.zip
+     [echo] Submitting print job...
+
+-realta:
+     [echo] Realta server access initiated
+     [echo] Invoking API version 2 - api.realtaonline.com/v2
+
+-realta-authenticate-v2:
+     [echo] Authenticating...
+     [echo] Token successfully returned from server: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZW5AcmVhbHRhb25saW5lLmNvbSIsInJvbGVlbnVtIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjI3MzUyNDU1LCJpYXQiOjE2MjczMzQ0NTUsInRlbmFudCI6IlRFTkFOVF9PQVNJUyJ9._jHZOWzv5quVaPyYyJK6hC-PZbuvZXVF5ncZJ-X5bneBQeDkQOpMvEcmCEhmMigMuRXFbc4N5uoSRqOgFMYq5g
+
+-realta-submit-v2:
+     [echo] Submitting "UBL-2.2-JSON-1.0 2021-07-26 21:20:55+0000" to "OASIS-note2pdfhtml" ...
+     [echo] Returned job ID: 133999
+
+-realta-retrieve-v2:
+
+-realta-fetch-v2:
+     [echo] Sleeping for 10 seconds...
+     [echo] Checking job status...
+     [echo] Status: RUNNING
+
+-realta-fetch-v2:
+     [echo] Sleeping for 10 seconds...
+     [echo] Checking job status...
+     [echo] Status: FINISHED
+     [echo] Fetching file UBL-2.2-JSON-v1.0-cn01-pub.zip.realta.zip
+
+-realta-unpack-v2:
+     [echo] Unzipping UBL-2.2-JSON-v1.0-cn01-pub.zip.realta.zip PDF/HTML results...
+    [unzip] Expanding: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-pub.zip.realta.zip into /Users/admin/u/git/oasis/ubl-ndrsc/results
+     [echo] Disposing of temporary UBL-2.2-JSON-v1.0-cn01-pub.zip.realta.zip results...
+   [delete] Deleting: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-pub.zip.realta.zip
+
+-realta-cleanup-v2:
+     [echo] Deleting job from server...
+
+-realta-complete-v2:
+     [echo] Realta server access ended without error
+     [echo] Check and cleanup...
+   [delete] Deleting: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-pub.zip
+
+-package:
+    [mkdir] Created dir: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-test
+     [copy] Copying 1 file to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-test
+     [move] Moving 2 files to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-test
+     [copy] Copying 1 file to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-test/art
+     [copy] Copying 1 file to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-test/art/pdf
+     [copy] Copying 256 files to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-test/db
+     [copy] Copying 317 files to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-test
+      [zip] Building zip: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-test.zip
+   [delete] Deleting directory /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-test
+    [unzip] Expanding: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.2-JSON-v1.0-cn01-test.zip into /Users/admin/u/git/oasis/ubl-ndrsc/results
+
+BUILD SUCCESSFUL
+Total time: 27 seconds
+UBL 2.3 JSON 1.0...
+Pre-validate sources...
+
+############################################################
+Validating UBL-2.3-JSON-v1.0-cn01.xml
+############################################################
+============== Phase 1: DTD validation ==============
+No DTD validation errors.
+============ Phase 2: Writing rules validation ============
+No writing rule validation errors.
+Building package...
+Buildfile: /Users/admin/u/git/oasis/ubl-ndrsc/packageUBLJSON.xml
+
+make:
+     [echo] UBLversion=2.3
+     [echo] JSONversion=1.0
+     [echo] stage=cn01
+     [echo] version=test
+     [echo] datetimelocal=now
+     [echo] artefactsdir=results/json-all-ubl/results/os-2.3
+
+-check-docs:
+
+-make-docs:
+     [echo] Using credentials for remote publishing...
+      [zip] Building zip: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-pub.zip
+     [echo] Submitting print job...
+
+-realta:
+     [echo] Realta server access initiated
+     [echo] Invoking API version 2 - api.realtaonline.com/v2
+
+-realta-authenticate-v2:
+     [echo] Authenticating...
+     [echo] Token successfully returned from server: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZW5AcmVhbHRhb25saW5lLmNvbSIsInJvbGVlbnVtIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjI3MzUyNDg0LCJpYXQiOjE2MjczMzQ0ODQsInRlbmFudCI6IlRFTkFOVF9PQVNJUyJ9.7GdwQ3ax9rJ_PPuuh7QCbKs3-VHD_URlxcida6ldpXPC-caxPhnG_T08P3YpLra-qL7lMOMyIcKYn1TJIYHRCA
+
+-realta-submit-v2:
+     [echo] Submitting "UBL-2.3-JSON-1.0 2021-07-26 21:21:24+0000" to "OASIS-note2pdfhtml" ...
+     [echo] Returned job ID: 134004
+
+-realta-retrieve-v2:
+
+-realta-fetch-v2:
+     [echo] Sleeping for 10 seconds...
+     [echo] Checking job status...
+     [echo] Status: RUNNING
+
+-realta-fetch-v2:
+     [echo] Sleeping for 10 seconds...
+     [echo] Checking job status...
+     [echo] Status: FINISHED
+     [echo] Fetching file UBL-2.3-JSON-v1.0-cn01-pub.zip.realta.zip
+
+-realta-unpack-v2:
+     [echo] Unzipping UBL-2.3-JSON-v1.0-cn01-pub.zip.realta.zip PDF/HTML results...
+    [unzip] Expanding: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-pub.zip.realta.zip into /Users/admin/u/git/oasis/ubl-ndrsc/results
+     [echo] Disposing of temporary UBL-2.3-JSON-v1.0-cn01-pub.zip.realta.zip results...
+   [delete] Deleting: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-pub.zip.realta.zip
+
+-realta-cleanup-v2:
+     [echo] Deleting job from server...
+
+-realta-complete-v2:
+     [echo] Realta server access ended without error
+     [echo] Check and cleanup...
+   [delete] Deleting: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-pub.zip
+
+-package:
+    [mkdir] Created dir: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-test
+     [copy] Copying 1 file to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-test
+     [move] Moving 2 files to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-test
+     [copy] Copying 1 file to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-test/art
+     [copy] Copying 1 file to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-test/art/pdf
+     [copy] Copying 256 files to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-test/db
+     [copy] Copying 358 files to /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-test
+      [zip] Building zip: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-test.zip
+   [delete] Deleting directory /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-test
+    [unzip] Expanding: /Users/admin/u/git/oasis/ubl-ndrsc/results/UBL-2.3-JSON-v1.0-cn01-test.zip into /Users/admin/u/git/oasis/ubl-ndrsc/results
+
+BUILD SUCCESSFUL
+Total time: 27 seconds

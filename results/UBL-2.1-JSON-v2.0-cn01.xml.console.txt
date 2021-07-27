@@ -1,0 +1,82 @@
+
+Realta:
+     [echo] Realta publishing environment - http://RealtaOnline.com
+     [echo] 2021-07-26 21:20:30 UTC
+     [echo] 
+     [echo] Invoking of OASIS-note2pdfhtml on C:\Pub2\realta-publishing-orchestrator\jobs\133994\UBL-2.1-JSON-v2.0-cn01.xml
+     [echo] properties=C:\Pub2\realta-publishing-orchestrator\jobs\133994\UBL-2.1-JSON-v2.0-cn01.xml.properties.txt
+     [echo] dirRender=C:\Pub2\render
+     [echo] entryPoint=OASIS-note2pdfhtml
+     [echo] dirXML=C:\Pub2\realta-publishing-orchestrator\jobs\133994
+     [echo] nameInputXML=UBL-2.1-JSON-v2.0-cn01
+     [echo] dirNameInputXMLdot=C:\Pub2\realta-publishing-orchestrator\jobs\133994\UBL-2.1-JSON-v2.0-cn01.
+     [echo] extInputXML=xml
+     [echo] inputXML=C:\Pub2\realta-publishing-orchestrator\jobs\133994\UBL-2.1-JSON-v2.0-cn01.xml
+     [echo] fetchLabel=OASIS
+     [echo] open=
+     [echo] pause=
+     [echo] RealtaSetIndirect=no
+
+enumerate-result-files:
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\133994\UBL-2.1-JSON-v2.0-cn01.xml.console.txt
+[stopwatch] [enumerate-result-files: 1.134 sec]
+
+OASIS-note2pdfhtml:
+     [echo] Create OASIS Committee Note PDF and HTML
+
+process:
+
+delete-with-retry:
+
+process-skip-delete:
+
+Realta-validate-OASIS:
+
+Realta-validate-DocBook:
+     [echo] Validating with the DTD referenced in the DocBook document
+     [java] Attempting validating, namespace-aware parse
+     [java] Parse succeeded (0.190) with no errors and no warnings.
+     [echo] Return: 0
+
+Realta-validate-OASIS-constraints:
+     [echo] Validating with the OASIS value validation constraints
+     [echo] Return: 0
+[stopwatch] [Realta-validate-OASIS: 1.913 sec]
+
+Realta-publish-DocBook:
+
+DocBook-publish-PDF:
+     [echo] Applying PDF stylesheet...
+     [java] Making portrait pages on A4 paper (210mmx297mm)
+     [echo] Return: 0
+
+Realta-render-AHF:
+     [echo] Rendering 'C:\Pub2\realta-publishing-orchestrator\jobs\133994\UBL-2.1-JSON-v2.0-cn01.xml.fo' to 'C:\Pub2\realta-publishing-orchestrator\jobs\133994\UBL-2.1-JSON-v2.0-cn01.pdf'
+     [echo] AHFCmd : AH XSL Formatter V7.1 MR3 for Windows (x64) : 7.1.4.51036 (2021-06-14T14:17+09)
+     [echo]          Copyright (c) 1999-2021 Antenna House, Inc.
+     [echo] 
+     [echo] AHFCmd :Formatting finished normally :total 28 pages
+     [echo] Return: 0
+[stopwatch] [Realta-render-AHF: 7.100 sec]
+[stopwatch] [DocBook-publish-PDF: 10.707 sec]
+
+DocBook-publish-HTML:
+     [echo] Applying HTML stylesheet...
+     [echo] Return: 0
+[stopwatch] [DocBook-publish-HTML: 3.251 sec]
+
+result-handling:
+
+prepare-results:
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\133994\UBL-2.1-JSON-v2.0-cn01.pdf
+
+enumerate-result-files:
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\133994\UBL-2.1-JSON-v2.0-cn01.pdf
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\133994\UBL-2.1-JSON-v2.0-cn01.html
+     [echo] C:\Pub2\realta-publishing-orchestrator\jobs\133994\UBL-2.1-JSON-v2.0-cn01.xml.console.txt
+[stopwatch] [enumerate-result-files: 1.086 sec]
+     [echo] 
+[stopwatch] [Overall process: 18.443 sec]
+     [echo] 2021-07-26 21:20:47 UTC
+
+BUILD SUCCESSFUL

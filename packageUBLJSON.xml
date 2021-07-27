@@ -12,7 +12,7 @@
   <available property="stage-okay" file="UBL-${UBLversion}-JSON-v${JSONversion}-${stage}.xml"/>
   <fail unless="stage-okay" message="Cannot find documentation with stage: ${stage}."/>
 
-  <available property="artefacts-okay" file="${artefactsdir}/json"/>
+  <available property="artefacts-okay" file="${artefactsdir}/json-model"/>
   <fail unless="artefacts-okay" message="Cannot find artefacts to copy at: ${artefactsdir}"/>
 
   <antcall target="-make-docs"/>
@@ -132,9 +132,11 @@
   </copy>
   
   <copy todir="${dir}/UBL-${UBLversion}-JSON-v${JSONversion}-${stage}-${version}">
-    <fileset dir="${artefactsdir}">
-       <include name="json/**"/>
-       <include name="json-schema/**"/>
+    <fileset dir="${dir}/json-all-ubl/${dir}/os-${UBLversion}">
+       <include name="json-model/**"/>
+       <include name="json-legacy/**"/>
+       <include name="json-schema-model/**"/>
+       <include name="json-schema-legacy/**"/>
        <include name="val/**"/>
     </fileset>
   </copy>
