@@ -31,54 +31,41 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
   "db/spec-0.8/docbook/docbookx.dtd"
 [
 <!-- the document properties-->
-<!ENTITY dir "UBL-2.3-JSON">
+<!ENTITY dir "UBL-2.1-JSON">
 <!ENTITY name "&dir;-v&version;">
-<!ENTITY version "1.0">
+<!ENTITY version "2.0">
 <!ENTITY pstage "cnd01">
-<!ENTITY stage  "cn01">
-<!ENTITY stagetext "Committee Note 01">
+<!ENTITY stage  "cnd02">
+<!ENTITY stagetext "Committee Note Draft 02">
 <!ENTITY this-loc     "https://docs.oasis-open.org/ubl/&dir;/v&version;/&stage;">
 <!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&dir;/v&version;/&pstage;">
 <!ENTITY latest-loc   "https://docs.oasis-open.org/ubl/&dir;/v&version;">
-<!ENTITY copyyear "2020">
-<!ENTITY pubdate "25 October 2020"><!--remove time from pub date-->
+<!ENTITY copyyear "2021">
+<!ENTITY pubdate "27 July 2021"><!--remove time from pub date-->
 
 <!--BDNDR information-->
 <!ENTITY bdndr-dir "Business-Document-NDR">
 <!ENTITY bdndr-name "&bdndr-dir;-v&bdndr-version;">
 <!ENTITY bdndr-version "1.1">
 <!ENTITY bdndr-title "Business Document Naming and Design Rules (BDNDR) Version&#xa0;&bdndr-version;">
-<!ENTITY bdndr-standard "Committee Specification Draft 03">
-<!ENTITY bdndr-stage                       "csd03"><!--remember title ent-->
+<!ENTITY bdndr-standard "Committee Specification Draft 04 WOrking Draft 01">
+<!ENTITY bdndr-stage                      "csd04wd01"><!--remember title ent-->
 <!ENTITY bdndr-this-loc     "https://docs.oasis-open.org/ubl/&bdndr-dir;/v&bdndr-version;/&bdndr-stage;">
 <!ENTITY bdndr-latest-loc   "https://docs.oasis-open.org/ubl/&bdndr-dir;/v&bdndr-version;">
-<!ENTITY bdndr-pubdate "29 July 2020">
-
-<!--UBL 2.3-->
-<!ENTITY ubl-name "UBL">
-<!ENTITY ubl-version  "2.3">
-<!ENTITY ubl-standard  "Committee Specification Draft 03">
-<!ENTITY ubl-latest-loc   "https://docs.oasis-open.org/ubl">
-<!ENTITY ubl-pubdate     "29 July 2020"><!--remove time from pub date-->
-<!ENTITY ubl-pubyear     "2020">
+<!ENTITY bdndr-pubdate "27 July 2021">
 
 ]>
 <article status="&stagetext;">
   <articleinfo>
     <productname>&name;</productname>
     <productnumber>&stage;</productnumber>
-    <releaseinfo role="track">Non-Standards Track</releaseinfo>
+    <releaseinfo role="track">Non-standards Track</releaseinfo>
     <releaseinfo role="OASIS-specification-this">&this-loc;/&name;-&stage;.html</releaseinfo>
     <releaseinfo role="OASIS-specification-this">&this-loc;/&name;-&stage;.pdf</releaseinfo>
     <releaseinfo role="OASIS-specification-this-authoritative">&this-loc;/&name;-&stage;.xml</releaseinfo>
-    
-    <releaseinfo role="OASIS-specification-previous"
-      >&previous-loc;/UBL-2.2.html</releaseinfo>
-    <releaseinfo role="OASIS-specification-previous"
-      >&previous-loc;/UBL-2.2.pdf</releaseinfo>
-    <releaseinfo role="OASIS-specification-previous-authoritative"
-      >&previous-loc;/UBL-2.2.xml</releaseinfo>
-
+    <releaseinfo role="OASIS-specification-previous">&previous-loc;/&name;-&pstage;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous">&previous-loc;/&name;-&pstage;.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous-authoritative">&previous-loc;/&name;-&pstage;.xml</releaseinfo>
     <!-- generic form of above
       <releaseinfo role="OASIS-specification-previous"
          >&previous-loc;/&name;-&version;.html</releaseinfo>
@@ -95,7 +82,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
          >&latest-loc;/&name;-&version;.pdf</releaseinfo>
       <releaseinfo role="OASIS-specification-latest-authoritative"
          >&latest-loc;/&name;-&version;.xml</releaseinfo> -->
-    <title>UBL 2.3 JSON Alternative Representation Version &version;</title>
+    <title>UBL 2.1 JSON Alternative Representation Version &version;</title>
     <releaseinfo role="committee"><ulink url="https://www.oasis-open.org/committees/ubl/" conformance="skip">OASIS Universal
       Business Language TC</ulink></releaseinfo>
     <authorgroup>
@@ -175,7 +162,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
           </itemizedlist>
         </listitem>
       </itemizedlist>
-      <para>The ZIP containing the complete files of this release is:</para>
+      <para>The ZIP containing the complete files of this release is found in the directory:</para>
       <itemizedlist>
         <listitem>
           <para><ulink url="&this-loc;/&name;-&stage;.zip"
@@ -188,12 +175,13 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
       <para>This note is related to:</para>
       <bibliolist>
         <bibliomixed conformance="skip">
-          <citetitle>Universal Business Language Version&#xa0;&ubl-version;. </citetitle>
-          <bibliomisc>Edited by G. Ken Holman. </bibliomisc>
-          <date>&ubl-pubdate;. </date>
-          <releaseinfo>&ubl-standard;. </releaseinfo>
+          <citetitle>Universal Business Language Version 2.1.</citetitle>
+          <bibliomisc>Edited by Jon Bosak, Tim McGrath and G. Ken Holman. </bibliomisc>
+          <date>04 November 2013. </date>
+          <releaseinfo>OASIS Standard. </releaseinfo>
           <bibliomisc>
-            <ulink url="&ubl-latest-loc;/UBL-2.3.html">&ubl-latest-loc;/UBL-2.3.html</ulink>. </bibliomisc>
+            <ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html"
+              >http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html</ulink>. </bibliomisc>
         </bibliomixed>
       </bibliolist>
       <para>This note is an implementation of the rules for JSON specified in:</para>
@@ -201,7 +189,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
         <bibliomixed conformance="skip"><abbrev>BDNDR</abbrev>
           <citetitle>&bdndr-title;. </citetitle>
           <bibliomisc>Edited by Kenneth Bengtsson, Erlend Klakegg Bergheim and G. Ken
-            Holman.</bibliomisc>
+            Holman. </bibliomisc>
           <date>&bdndr-pubdate;. </date>
           <releaseinfo>&bdndr-standard;. </releaseinfo>
           <bibliomisc>
@@ -216,9 +204,9 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
       </bibliolist>
     </legalnotice>
     <abstract>
-      <para>This committee note supplements the OASIS Universal Business Language version 2.3
+      <para>This committee note supplements the OASIS Universal Business Language version 2.1
         release with an alternative expression of the UBL sample XML documents in JSON syntax, and a
-        JSON schema expression of all 81 XSD schemas in conformance to the OASIS Business Document
+        JSON schema expression of all 65 XSD schemas in conformance to the OASIS Business Document
         Naming and Design Rules Version 1.1.</para>
     </abstract>
     <legalnotice role="status" id="STATUS">
@@ -251,9 +239,9 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
       <title>Citation format</title>
       <para>When referencing this note the following citation format should be used:</para>
       <bibliolist id="citationfmt">
-        <bibliomixed id="UBL-2.3-JSON" conformance="skip">
-          <abbrev>UBL-2.3-JSON</abbrev>
-          <citetitle>UBL 2.3 JSON Alternative Representation Version &version;.</citetitle>
+        <bibliomixed id="UBL-2.1-JSON" conformance="skip">
+          <abbrev>UBL-2.1-JSON</abbrev>
+          <citetitle>UBL 2.1 JSON Alternative Representation Version &version;.</citetitle>
           <bibliomisc>Edited by Kenneth Bengtsson, Erlend Klakegg Bergheim and G. Ken
             Holman.</bibliomisc>
           <date>&pubdate;.</date>
@@ -289,8 +277,8 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
         vocabulary.</para>
       <para>For users of JSON syntax, this note publishes a suite of <link linkend="json-schema"
           >JSON schemas</link> with which one can validate the structural content of a JSON document
-        against the constraints of the UBL 2.3 vocabulary. Also included is a transliteration of all
-        of the UBL 2.3 example documents in JSON syntax with which one can test a number of the JSON
+        against the constraints of the UBL 2.1 vocabulary. Also included is a transliteration of all
+        of the UBL 2.1 example documents in JSON syntax with which one can test a number of the JSON
         schemas.</para>
       <para>The structural patterns exhibited by JSON schemas that conform to the OASIS Business
         Document Naming and Design Rules Version 1.1 <xref linkend="bdndr"/> are distinctive as
@@ -332,7 +320,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
         (there is no “<literal>$schema</literal>” property).</para>
       <para>The UBL document schemas make provision for constraining UBL extension metadata but not
         for constraining extension content. The user wishing to validate extension content is
-        expected to replace the <literal>common/UBL-ExtensionContentDataType-2.3.json</literal>
+        expected to replace the <literal>common/UBL-ExtensionContentDataType-2.1.json</literal>
         fragment with one’s own specification of extension constraints. No other schema fragment is
         expected to be touched by users.</para>
     </section>
@@ -411,7 +399,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
         </bibliomixed>
         <bibliomixed id="ccts"><abbrev>CCTS</abbrev>
           <title>UN/CEFACT Core Component Technical Specification - Part 8 of the ebXML Framework) </title>
-          <date>15 November 2003 </date><edition>Version 2.01 </edition><citetitle><ulink
+          <date>15 November 2003</date><edition>Version 2.01</edition><citetitle><ulink
               url="http://www.unece.org/fileadmin/DAM/cefact/codesfortrade/CCTS/CCTS_V2-01_Final.pdf"
               >http://www.unece.org/fileadmin/DAM/cefact/codesfortrade/CCTS/CCTS_V2-01_Final.pdf</ulink></citetitle></bibliomixed>
         <bibliomixed id="json"><abbrev>ISO 21778 - ECMA JSON</abbrev>
@@ -614,352 +602,353 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
           id="T-CCTS-2.01-APPROVED-CORE-COMPONENT-TYPE-CONTENT-AND-SUPPLEMENTARY-COMPONENTS-FOR-PERMISSIBLE-REPRESENTATION-TERMS">
           <title>CCTS 2.01 approved core component type content and supplementary components for
             permissible representation terms</title>
-<tgroup cols="2">
-   <colspec colwidth="30*"/>
-   <colspec colwidth="70*"/>
-   <thead>
-      <row>
-         <entry>
-            <para>Permissible primary and secondary representation terms</para>
-         </entry>
-         <entry>
-            <para>Approved content and supplementary components</para>
-         </entry>
-      </row>
-   </thead>
-   <tbody>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Amount</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+          <tgroup cols="2">
+            <colspec colwidth="30*"/>
+            <colspec colwidth="70*"/>
+            <thead>
+              <row>
+                <entry>
+                  <para>Permissible primary and secondary representation terms</para>
+                </entry>
+                <entry>
+                  <para>Approved content and supplementary components (required components in bold
+                    face)</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Amount</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-               <member>
-                  <literal>currencyID</literal>
+                    <member>
+                      <literal>currencyID</literal>
                 (required component property)
               </member>
-               <member>
-                  <literal>currencyCodeListVersionID</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>BinaryObject</literal>
-               </member>
-               <member>
-                  <literal>Graphic</literal>
-               </member>
-               <member>
-                  <literal>Picture</literal>
-               </member>
-               <member>
-                  <literal>Sound</literal>
-               </member>
-               <member>
-                  <literal>Video</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+                    <member>
+                      <literal>currencyCodeListVersionID</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>BinaryObject</literal>
+                    </member>
+                    <member>
+                      <literal>Graphic</literal>
+                    </member>
+                    <member>
+                      <literal>Picture</literal>
+                    </member>
+                    <member>
+                      <literal>Sound</literal>
+                    </member>
+                    <member>
+                      <literal>Video</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-               <member>
+                    <member>
                   <literal>mimeCode</literal>
                 (required component property)
               </member>
                <member>
-                  <literal>format</literal>
-               </member>
-               <member>
-                  <literal>encodingCode</literal>
-               </member>
-               <member>
-                  <literal>characterSetCode</literal>
-               </member>
-               <member>
-                  <literal>uri</literal>
-               </member>
-               <member>
-                  <literal>filename</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Code</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+                      <literal>format</literal>
+                    </member>
+                    <member>
+                      <literal>encodingCode</literal>
+                    </member>
+                    <member>
+                      <literal>characterSetCode</literal>
+                    </member>
+                    <member>
+                      <literal>uri</literal>
+                    </member>
+                    <member>
+                      <literal>filename</literal>
+                    </member>
+                    </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Code</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-               <member>
-                  <literal>listID</literal>
-               </member>
-               <member>
-                  <literal>listAgencyID</literal>
-               </member>
-               <member>
-                  <literal>listAgencyName</literal>
-               </member>
-               <member>
-                  <literal>listName</literal>
-               </member>
-               <member>
-                  <literal>listVersionID</literal>
-               </member>
-               <member>
-                  <literal>name</literal>
-               </member>
-               <member>
-                  <literal>languageID</literal>
-               </member>
-               <member>
-                  <literal>listURI</literal>
-               </member>
-               <member>
-                  <literal>listSchemeURI</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>DateTime</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+                    <member>
+                      <literal>listID</literal>
+                    </member>
+                    <member>
+                      <literal>listAgencyID</literal>
+                    </member>
+                    <member>
+                      <literal>listAgencyName</literal>
+                    </member>
+                    <member>
+                      <literal>listName</literal>
+                    </member>
+                    <member>
+                      <literal>listVersionID</literal>
+                    </member>
+                    <member>
+                      <literal>name</literal>
+                    </member>
+                    <member>
+                      <literal>languageID</literal>
+                    </member>
+                    <member>
+                      <literal>listURI</literal>
+                    </member>
+                    <member>
+                      <literal>listSchemeURI</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>DateTime</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Date</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Date</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Time</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Time</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Identifier</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Identifier</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-               <member>
-                  <literal>schemeID</literal>
-               </member>
-               <member>
-                  <literal>schemeName</literal>
-               </member>
-               <member>
-                  <literal>schemeAgencyID</literal>
-               </member>
-               <member>
-                  <literal>schemeAgencyName</literal>
-               </member>
-               <member>
-                  <literal>schemeVersionID</literal>
-               </member>
-               <member>
-                  <literal>schemeDataURI</literal>
-               </member>
-               <member>
-                  <literal>schemeURI</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Indicator</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+                    <member>
+                      <literal>schemeID</literal>
+                    </member>
+                    <member>
+                      <literal>schemeName</literal>
+                    </member>
+                    <member>
+                      <literal>schemeAgencyID</literal>
+                    </member>
+                    <member>
+                      <literal>schemeAgencyName</literal>
+                    </member>
+                    <member>
+                      <literal>schemeVersionID</literal>
+                    </member>
+                    <member>
+                      <literal>schemeDataURI</literal>
+                    </member>
+                    <member>
+                      <literal>schemeURI</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Indicator</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Measure</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Measure</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-               <member>
+                    <member>
                   <literal>unitCode</literal>
                 (required component property)
               </member>
                <member>
-                  <literal>unitCodeListVersionID</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Numeric</literal>
-               </member>
-               <member>
-                  <literal>Value</literal>
-               </member>
-               <member>
-                  <literal>Percent</literal>
-               </member>
-               <member>
+                      <literal>unitCodeListVersionID</literal>
+                    </member>
+                    </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Numeric</literal>
+                    </member>
+                    <member>
+                      <literal>Value</literal>
+                    </member>
+                    <member>
+                      <literal>Percent</literal>
+                    </member>
+                  <member>
                   <literal>Rate</literal>
                </member>
             </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-               <member>
+                    <member>
                   <literal>format</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Quantity</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+                      </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Quantity</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-               <member>
-                  <literal>unitCode</literal>
-               </member>
-               <member>
-                  <literal>unitCodeListID</literal>
-               </member>
-               <member>
-                  <literal>unitCodeListAgencyID</literal>
-               </member>
-               <member>
-                  <literal>unitCodeListAgencyName</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Text</literal>
-               </member>
-               <member>
-                  <literal>Name</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
+                    <member>
+                      <literal>unitCode</literal>
+                    </member>
+                    <member>
+                      <literal>unitCodeListID</literal>
+                    </member>
+                    <member>
+                      <literal>unitCodeListAgencyID</literal>
+                    </member>
+                    <member>
+                      <literal>unitCodeListAgencyName</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Text</literal>
+                    </member>
+                    <member>
+                      <literal>Name</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal>
             (required content property)
           </member>
-               <member>
-                  <literal>languageID</literal>
-               </member>
-               <member>
-                  <literal>languageLocaleID</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-   </tbody>
-</tgroup>
+                    <member>
+                      <literal>languageID</literal>
+                    </member>
+                    <member>
+                      <literal>languageLocaleID</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
         </table>
         <para>Some examples of serialized BBIEs &#x2026; an identifier, a date and two notes:</para>
         <itemizedlist>
@@ -1106,8 +1095,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
     <title>Example UBL JSON documents</title>
     <section id="S-EXAMPLES-OVERVIEW">
       <title>Examples overview</title>
-      <para>The examples in the <literal>json/</literal> subdirectory are transliterated from the
-        sample XML instances found in the UBL 2.3 distribution at <ulink url="https://docs.oasis-open.org/ubl/os-UBL-2.3/xml/"/>.</para>
+      <para>The examples in the <literal>json/</literal> subdirectory are transliterated from the sample XML instances found in the UBL 2.1 distribution at <ulink url="https://docs.oasis-open.org/ubl/os-UBL-2.1/xml/"/>.</para>
       <para>For legibility the examples are indented. Indentation is insignificant white space and
         optionally can be eliminated from the file.</para>
     </section>
@@ -1732,8 +1720,7 @@ No schema validation errors.
         regarding intellectual property, the UBL TC <emphasis role="italic">cannot</emphasis> accept
         input from persons outside the UBL TC (including OASIS members) unless it is submitted via
         the comment list.</para>-->
-      <para>Release of this package initiates the process to develop Committee Note 01 of version
-        1.0.</para>
+      <para>Release of this package initiates the process to develop Committee Note 01 of version 2.0 using the latest business document naming and design rules.</para>
     </section>
     <section id="S-PACKAGE-STRUCTURE">
       <title>Package Structure</title>
@@ -1769,14 +1756,14 @@ No schema validation errors.
             <term><emphasis role="bold"><literal>json</literal>
               </emphasis></term>
             <listitem>
-              <para>JSON UBL 2.3 example documents</para>
+              <para>JSON UBL 2.1 example documents</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><emphasis role="bold"><literal>json-schema</literal>
               </emphasis></term>
             <listitem>
-              <para>JSON UBL 2.3 schemas</para>
+              <para>JSON UBL 2.1 schemas</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -1816,7 +1803,16 @@ No schema validation errors.
   </appendix>
   <appendix id="A-REVISION-HISTORY">
     <title>Revision History</title>
-    <para>All artefacts are created using the latest Business Document Naming and Design Rules2020Aprilchangedwhich</para>
+    <para>All artefacts are created using the latest Business Document Naming and Design Rules which changed in April 2020.</para>
+  <para>Accordingly, the following has changed since pre-April 2020:</para>
+    <itemizedlist>
+      <listitem>
+        <para>content and supplementary component property names are now concise abbreviations, and</para>
+      </listitem>
+      <listitem>
+        <para>the ASBIE/ABIE library namespace declaration property name changed from "_S" to be "_A".</para>
+      </listitem>
+    </itemizedlist>
   </appendix>
   <appendix role="iso-informative" id="A-ACKNOWLEDGEMENTS">
     <title>Acknowledgements</title>
@@ -1870,7 +1866,7 @@ No schema validation errors.
             <entry>cnd01wd01</entry>
             <entry>14 April 2020</entry>
             <entry>GKH</entry>
-            <entry>Initial version of 1.0</entry>
+            <entry>Initial version of 2.0</entry>
           </row>
         </tbody>
       </tgroup>

@@ -43,7 +43,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
 <!ENTITY previous-loc "http://docs.oasis-open.org/ubl/&dir;/v&version;/&pstage;">
 <!ENTITY latest-loc   "https://docs.oasis-open.org/ubl/&dir;/v&version;">
 <!ENTITY copyyear           "2021">
-<!ENTITY pubdate "19 July 2021">
+<!ENTITY pubdate "27 July 2021">
 <!ENTITY conformancePrefix "7">
 ]>
 <article status="&standard;" conformance="ids quotes">
