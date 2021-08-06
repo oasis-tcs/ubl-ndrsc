@@ -23,13 +23,13 @@ popd
 #bash packageGovernance.sh $1 cn01 $3 $4 $5 $6       | tee -a $1/ndr.console.$3.txt
 #UBLGovReturn=${PIPESTATUS[0]}
 echo UBL 2.1 JSON 2.0...                                | tee -a $1/ndr.console.$3.txt
-bash packageUBLJSON.sh $1 2.1 2.0 cnd02 $3 $4 $5 $6 | tee -a $1/ndr.console.$3.txt
+bash packageUBLJSON.sh $1 2.1 2.0 cnd02wd01 $3 $4 $5 $6 | tee -a $1/ndr.console.$3.txt
 UBL21Return=${PIPESTATUS[0]}
 echo UBL 2.2 JSON 1.0...                                | tee -a $1/ndr.console.$3.txt
-bash packageUBLJSON.sh $1 2.2 1.0 cnd02 $3 $4 $5 $6 | tee -a $1/ndr.console.$3.txt
+bash packageUBLJSON.sh $1 2.2 1.0 cnd02wd01 $3 $4 $5 $6 | tee -a $1/ndr.console.$3.txt
 UBL22Return=${PIPESTATUS[0]}
 echo UBL 2.3 JSON 1.0...                                | tee -a $1/ndr.console.$3.txt
-bash packageUBLJSON.sh $1 2.3 1.0 cnd02 $3 $4 $5 $6 | tee -a $1/ndr.console.$3.txt
+bash packageUBLJSON.sh $1 2.3 1.0 cnd02wd01 $3 $4 $5 $6 | tee -a $1/ndr.console.$3.txt
 UBL23Return=${PIPESTATUS[0]}
 #echo UBL NDR 3.1...                                     | tee -a $1/ndr.console.$3.txt
 #bash packageUBLNDR.sh $1 cn01 $3 $4 $5 $6          | tee -a $1/ndr.console.$3.txt
