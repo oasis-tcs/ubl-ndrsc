@@ -35,42 +35,37 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
 <!ENTITY name "&dir;-v&version;">
 <!ENTITY version "1.0">
 <!ENTITY pstage "cnd01">
-<!ENTITY stage  "cnd02">
-<!ENTITY stagetext "Committee Note Draft 02">
+<!ENTITY stage  "cnd02wd01">
+<!ENTITY stagetext "Committee Note Draft 02 Working Draft 01">
 <!ENTITY this-loc     "https://docs.oasis-open.org/ubl/&dir;/v&version;/&stage;">
 <!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&dir;/v&version;/&pstage;">
 <!ENTITY latest-loc   "https://docs.oasis-open.org/ubl/&dir;/v&version;">
 <!ENTITY copyyear "2021">
-<!ENTITY pubdate "27 July 2021"><!--remove time from pub date-->
+<!ENTITY pubdate "06 August 2021"><!--remove time from pub date-->
 
 <!--BDNDR information-->
 <!ENTITY bdndr-dir "Business-Document-NDR">
 <!ENTITY bdndr-name "&bdndr-dir;-v&bdndr-version;">
 <!ENTITY bdndr-version "1.1">
 <!ENTITY bdndr-title "Business Document Naming and Design Rules (BDNDR) Version&#xa0;&bdndr-version;">
-<!ENTITY bdndr-standard "Committee Specification Draft 04 WOrking Draft 01">
+<!ENTITY bdndr-standard "Committee Specification Draft 04 Working Draft 01">
 <!ENTITY bdndr-stage                      "csd04wd01"><!--remember title ent-->
 <!ENTITY bdndr-this-loc     "https://docs.oasis-open.org/ubl/&bdndr-dir;/v&bdndr-version;/&bdndr-stage;">
 <!ENTITY bdndr-latest-loc   "https://docs.oasis-open.org/ubl/&bdndr-dir;/v&bdndr-version;">
-<!ENTITY bdndr-pubdate "27 July 2021">
+<!ENTITY bdndr-pubdate "06 August 2021">
 
 ]>
 <article status="&stagetext;">
   <articleinfo>
     <productname>&name;</productname>
     <productnumber>&stage;</productnumber>
-    <releaseinfo role="track">Non-Standards Track</releaseinfo>
+    <releaseinfo role="track">Non-standards Track</releaseinfo>
     <releaseinfo role="OASIS-specification-this">&this-loc;/&name;-&stage;.html</releaseinfo>
     <releaseinfo role="OASIS-specification-this">&this-loc;/&name;-&stage;.pdf</releaseinfo>
     <releaseinfo role="OASIS-specification-this-authoritative">&this-loc;/&name;-&stage;.xml</releaseinfo>
-    
-    <releaseinfo role="OASIS-specification-previous"
-      >&previous-loc;/UBL-2.2.html</releaseinfo>
-    <releaseinfo role="OASIS-specification-previous"
-      >&previous-loc;/UBL-2.2.pdf</releaseinfo>
-    <releaseinfo role="OASIS-specification-previous-authoritative"
-      >&previous-loc;/UBL-2.2.xml</releaseinfo>
-
+    <releaseinfo role="OASIS-specification-previous">&previous-loc;/&name;-&pstage;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous">&previous-loc;/&name;-&pstage;.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous-authoritative">&previous-loc;/&name;-&pstage;.xml</releaseinfo>
     <!-- generic form of above
       <releaseinfo role="OASIS-specification-previous"
          >&previous-loc;/&name;-&version;.html</releaseinfo>
@@ -141,18 +136,34 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
       <para>This prose specification is one component of a Work Product that also includes:</para>
       <itemizedlist>
         <listitem>
-          <para>JSON examples:</para>
+          <para>JSON legacy instance examples:</para>
           <itemizedlist>
             <listitem>
-              <para><ulink url="&this-loc;/json/">&this-loc;/json/</ulink></para>
+              <para><ulink url="&this-loc;/json-legacy/">&this-loc;/json-legacy/</ulink></para>
             </listitem>
           </itemizedlist>
         </listitem>
         <listitem>
-          <para>JSON schemas:</para>
+          <para>JSON model instance examples:</para>
           <itemizedlist>
             <listitem>
-              <para><ulink url="&this-loc;/json-schema/">&this-loc;/json-schema/</ulink></para>
+              <para><ulink url="&this-loc;/json-model/">&this-loc;/json-model/</ulink></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>JSON legacy schemas:</para>
+          <itemizedlist>
+            <listitem>
+              <para><ulink url="&this-loc;/json-schema-legacy/">&this-loc;/json-schema-legacy/</ulink></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      <listitem>
+          <para>JSON model schemas:</para>
+          <itemizedlist>
+            <listitem>
+              <para><ulink url="&this-loc;/json-schema-model/">&this-loc;/json-schema-model/</ulink></para>
             </listitem>
           </itemizedlist>
         </listitem>
@@ -189,31 +200,24 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
       <bibliolist>
         <bibliomixed conformance="skip"><abbrev>BDNDR</abbrev>
           <citetitle>&bdndr-title;. </citetitle>
-          <bibliomisc>Edited by Kenneth Bengtsson, Erlend Klakegg Bergheim and G. Ken
-            Holman. </bibliomisc>
+          <bibliomisc>Edited by Kenneth Bengtsson, Erlend Klakegg Bergheim and G. Ken Holman. </bibliomisc>
           <date>&bdndr-pubdate;. </date>
           <releaseinfo>&bdndr-standard;. </releaseinfo>
           <bibliomisc>
-            <ulink url="&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html"
-                       >&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html</ulink>. Latest version: <ulink
-                 url="&bdndr-latest-loc;/&bdndr-name;.html"
-                     >&bdndr-latest-loc;/&bdndr-name;.html</ulink>.
-          </bibliomisc>
+            <ulink url="&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html">&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html</ulink>. Latest version: <ulink url="&bdndr-latest-loc;/&bdndr-name;.html">&bdndr-latest-loc;/&bdndr-name;.html</ulink>. </bibliomisc>
         </bibliomixed>
       </bibliolist>
     </legalnotice>
     <abstract>
-      <para>This committee note supplements the OASIS Universal Business Language version 2.2 release with an alternative expression of the UBL sample XML documents in JSON syntax, and a JSON schema expression of all 81 XSD schemas in conformance to the OASIS Business Document Naming and Design
+      <para>This committee note supplements the OASIS Universal Business Language version 2.2 release with an alternative expression of the UBL sample XML documents in JSON syntax, and two JSON schema expressions of all 81 XSD schemas in conformance to the OASIS Business Document Naming and Design
         Rules Version 1.1.</para>
     </abstract>
     <legalnotice role="status" id="STATUS">
       <title>Status</title>
-      <!--
       <para>This <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#dWorkingDraft">Working Draft</ulink> (WD) has been produced by one or more TC Members; it has not yet been voted on by the TC or <ulink conformance="skip"
           url="https://www.oasis-open.org/policies-guidelines/tc-process#committeeDraft">approved</ulink> as a Committee Note Draft. The OASIS document <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#standApprovProcess">Approval Process</ulink> begins
         officially with a TC vote to approve a WD as a Committee Note Draft. A TC may approve a Working Draft, revise it, and re-approve it any number of times as a Committee Note Draft.</para>
-      -->
-
+      <!--
       <para>This document was last revised or approved by the OASIS Universal Business Language TC
         on the above date. The level of approval is also listed above. Check the &#x201c;Latest
         version&#x201d; location noted above for possible later revisions of this document. Any
@@ -221,16 +225,10 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
         are listed at <ulink conformance="skip"
           url="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl#technical"
           >https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl#technical</ulink>.</para>
-      <para>TC members should send comments on this specification to the TC&#x2019;s email list.
-        Others should send comments to the TC&#x2019;s public comment list, after subscribing to it
-        by following the instructions at the &#x201c;<ulink conformance="skip"
-          url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=ubl">Send A
-          Comment</ulink>&#8221; button on the TC&#8217;s web page at <ulink
-          url="https://www.oasis-open.org/committees/ubl/"
-          >https://www.oasis-open.org/committees/ubl/</ulink>.</para>
-      
+      -->
+      <para>TC members should send comments on this specification to the TC&#x2019;s email list. Others should send comments to the TC&#x2019;s public comment list, after subscribing to it by following the instructions at the &#x201c;<ulink conformance="skip"
+          url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=ubl">Send A Comment</ulink>&#8221; button on the TC&#8217;s web page at <ulink url="https://www.oasis-open.org/committees/ubl/">https://www.oasis-open.org/committees/ubl/</ulink>.</para>
       <para>See <xref linkend="A-RELEASE-NOTES"/> for more information regarding this release package.</para>
-
     </legalnotice>
     <legalnotice role="citation" id="CITATION">
       <title>Citation format</title>
@@ -266,21 +264,27 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
       <title>Overview</title>
       <para>The OASIS Universal Business Language (UBL) defines a generic XML interchange format for business documents that can be restricted or extended to meet the requirements of particular industries. UBL includes a suite of <link linkend="xsd">XML Schemas</link> with which one can validate the
         structural content of an XML document against the constraints of the vocabulary.</para>
-      <para>For users of JSON syntax, this note publishes a suite of <link linkend="json-schema">JSON schemas</link> with which one can validate the structural content of a JSON document against the constraints of the UBL 2.2 vocabulary. Also included is a transliteration of all of the UBL 2.2
-        example documents in JSON syntax with which one can test a number of the JSON schemas.</para>
+      <para>For users of JSON syntax, this note publishes two suites of <link linkend="json-schema">JSON schemas</link> with which one can validate the structural content of a JSON document against the constraints of the UBL 2.2 vocabulary. Also included are two transliterations of all of the UBL
+        2.2 example documents in JSON syntax with which one can test a number of the JSON schemas.</para>
       <para>The structural patterns exhibited by JSON schemas that conform to the OASIS Business Document Naming and Design Rules Version 1.1 <xref linkend="bdndr"/> are distinctive as document interchange structures. As such, their intent is only to convey in syntax the information content
-        reflecting the same abstract model of the UN/CEFACT Core Component Technical Specification 2.01 <xref linkend="ccts"/> with which the document model was designed. Accordingly, and in parallel to an application’s use of XML syntax, the JSON syntax used is generic in nature and is neither
-        streamlined nor optimized for any particular application’s objectives. </para>
+        reflecting the same abstract model of the UN/CEFACT Core Component Technical Specification 2.01 <xref linkend="ccts"/> with which the document model was designed. The rules govern two possible JSON schema structures, a legacy-based approach supporting future backwards compatibility, and a
+        model-based approach specific to this version of UBL. Accordingly, and in parallel to an application’s use of XML syntax, the legacy-based JSON syntax used is generic in nature, supported by schemas of all versions of UBL. The model-based JSON syntax is suitable only for schemas conforming
+        to the UBL 2.2 structures. Neither syntax is streamlined nor optimized for any particular application’s objectives</para>
       <para>As one would undertake the unmarshalling of XML syntax into internal application data structures suitable for processing, one must also undertake the unmarshalling of JSON interchange syntax into whatever internal application data structures (or other JSON representations) of the content
         that are suitable for the task at hand. Of note, it has been observed that there are commercial JSON database tools unable to ingest this JSON interchange syntax directly without an application massaging the content first to suit the database schema necessary to enable a particular arbitrary
         use. Nevertheless, the JSON syntax used does conform to the published standard <xref linkend="json"/> and has been successfully demonstrated to be ingested by Python and Node.js applications and so is not a barrier to use for application developers.</para>
       <para>The UBL Technical Committee makes no assumptions regarding how the XML syntax of UBL documents is to be managed by applications, and so similarly makes no assumptions regarding how any application’s use of the JSON syntax is to be managed. With the only objective being the lossless
-        interchange of document content, the structures in both XML and JSON syntax are designed with forward and backward compatibility in mind for applications that ingest the content. Certain constraints in future versions of UBL may be lessened in a backward compatible fashion, such as in regard
-        to cardinality, and so applications can successfully ingest the arrays of objects used in this regard to implement cardinality. Moreover, transliteration can be accomplished without semantic interpretation of any contents that would require specialized treatment of any given
-        construct.</para>
+        interchange of document content, the structures in both XML and legacy-based JSON syntax are designed with forward and backward compatibility in mind for applications that ingest the content. Certain constraints in future versions of UBL may be lessened in a backward compatible fashion, such
+        as in regard to cardinality, and so applications can successfully ingest the arrays of objects used in this regard to accommodate changing cardinality. Moreover, transliteration can be accomplished without semantic interpretation of any contents that would require specialized treatment of
+        any given construct.</para>
+      <para>In contrast, model-based JSON syntax is not designed with forward and backward compatibility due to different conventions for expressing structures of different maximum cardinality. Where a CCTS construct is specified to have an unbounded maximum cardinality, an array is used in the same
+        way arrays are used in legacy-based JSON syntax. Where a CCTS construct is specified to have a bounded maximum cardinality of “1”, the structure is serialized without using an array. Accordingly, the serialization of JSON or the transliteration from XML requires knowledge of the maximum
+        cardinality of all constructs in order to use the appropriate structures. When a version of UBL changes a construct’s maximum cardinality (which can be from bounded to unbounded only), a past instance no longer will validate with the new schemas. This breaks forward compatibility from the
+        past instance’s perspective, and backward compatibility from a new instance’s perspective.</para>
       <para>The section <xref linkend="S-PACKAGE-STRUCTURE"/> outlines the top-level content of the ZIP file associated with this Committee Note. The directories are named such that the directories in this package can be overlaid on top of the directories of the UBL distribution without overwriting
-        any pre-existing UBL file. In another environment, one would copy the entire <literal>json-schema/</literal> subdirectory contents and then users would access the individual document schemas in the <literal>json-schema/maindoc/</literal> subdirectory. These schemas make relative references
-        to shared fragments found in the <literal>json-schema/common/</literal> subdirectory and as such those shared fragments are not referenced directly by users as they are not well-formed schemas in their own right (there is no “<literal>$schema</literal>” property).</para>
+        any pre-existing UBL file. In another environment, one would copy the entire <literal>json-schema-legacy/</literal> subdirectory or <literal>json-schema-model/</literal> subdirectory contents and then users would access the individual document schemas in the <literal>maindoc/</literal>
+        subdirectory. These schemas make relative references to shared fragments found in the <literal>common/</literal> subdirectory and as such those shared fragments are not referenced directly by users as they are not well-formed schemas in their own right (there is no
+          “<literal>$schema</literal>” property).</para>
       <para>The UBL document schemas make provision for constraining UBL extension metadata but not for constraining extension content. The user wishing to validate extension content is expected to replace the <literal>common/UBL-ExtensionContentDataType-2.2.json</literal> fragment with one’s own
         specification of extension constraints. No other schema fragment is expected to be touched by users.</para>
     </section>
@@ -308,7 +312,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
             </listitem>
           </varlistentry>
         </variablelist>
-<!--        <para>The keywords MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and OPTIONAL, when they appear in this document, are to be interpreted as described in <xref linkend="rfc2119"/>.</para>-->
+        <!--        <para>The keywords MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and OPTIONAL, when they appear in this document, are to be interpreted as described in <xref linkend="rfc2119"/>.</para>-->
       </section>
       <section id="S-SYMBOLS-AND-ABBREVIATIONS">
         <title>Symbols and Abbreviations</title>
@@ -339,16 +343,11 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
       <bibliolist>
         <bibliomixed id="bdndr">
           <abbrev>BDNDR</abbrev><citetitle>&bdndr-title;.</citetitle>
-          <bibliomisc>Edited by Kenneth Bengtsson, Erlend Klakegg Bergheim and G. Ken
-            Holman.</bibliomisc>
+          <bibliomisc>Edited by Kenneth Bengtsson, Erlend Klakegg Bergheim and G. Ken Holman.</bibliomisc>
           <date>&bdndr-pubdate;.</date>
           <releaseinfo>&bdndr-standard;.</releaseinfo>
           <bibliomisc>
-            <ulink url="&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html"
-                       >&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html</ulink>. Latest version: <ulink
-                 url="&bdndr-latest-loc;/&bdndr-name;.html"
-                     >&bdndr-latest-loc;/&bdndr-name;.html</ulink>.
-          </bibliomisc>
+            <ulink url="&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html">&bdndr-this-loc;/&bdndr-name;-&bdndr-stage;.html</ulink>. Latest version: <ulink url="&bdndr-latest-loc;/&bdndr-name;.html">&bdndr-latest-loc;/&bdndr-name;.html</ulink>. </bibliomisc>
         </bibliomixed>
         <bibliomixed id="ccts"><abbrev>CCTS</abbrev>
           <title>UN/CEFACT Core Component Technical Specification - Part 8 of the ebXML Framework) </title>
@@ -370,7 +369,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
             <surname>Luff</surname>
           </author>, Editors, <citetitle>
             <ulink url="http://json-schema.org/latest/json-schema-validation.html">http://json-schema.org/latest/json-schema-validation.html</ulink></citetitle></bibliomixed>
-<!--        <bibliomixed id="rfc2119"><abbrev>RFC2119</abbrev><citetitle>
+        <!--        <bibliomixed id="rfc2119"><abbrev>RFC2119</abbrev><citetitle>
             <ulink url="http://www.faqs.org/rfcs/rfc2119.html" conformance="skip">Key words for use in RFCs to Indicate Requirement Levels</ulink>
           </citetitle></bibliomixed>-->
         <bibliomixed id="xml"><abbrev>XML</abbrev><citetitle><ulink url="http://www.w3.org/TR/2000/REC-xml-20001006" conformance="skip">Extensible Markup Language (XML) 1.0 (Second Edition), W3C Recommendation 6 October 2000</ulink></citetitle></bibliomixed>
@@ -407,8 +406,8 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
       <title>Marshalling CCTS to JSON</title>
       <section id="S-BUSINESS-INFORMATION-ENTITY-BIE-NAMES">
         <title>Business Information Entity (BIE) names</title>
-        <para>There are four groups of names made from: the names of the Document ABIEs, the names of BBIEs, the names of both Library ABIEs and the ASBIEs that point to them, and the names of extension scaffolding and metadata items. In fact there are many groups of Document ABIEs as each Document
-          ABIE is in a group of one of only itself. </para>
+        <para>There are four groups of names in these document models: the names of the Document ABIEs, the names of BBIEs, the names of both Library ABIEs and the ASBIEs that point to them, and the names of extension scaffolding and metadata items. In fact there are many groups of Document ABIEs as
+          each Document ABIE is in a group of one of only itself. </para>
         <para>Names in XML documents are qualified with namespace URI strings. These UBL JSON schemas provide for preserving the four uses of XML namespaces in a source XML document that might have been transliterated to JSON syntax. This allows the JSON document to be “round-tripped” back to XML
           syntax should it be necessary. Accommodating extension content is up to extension designers.</para>
       </section>
@@ -430,35 +429,60 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
             <para>name &#x201c;<literal>_E</literal>&#x201d; with the string value of the extension namespace URI (when extensions are being used).</para>
           </listitem>
         </itemizedlist>
-        <para>That apex object always contains a property with the name of the Document ABIE and the value being an array containing a single Document ABIE object.</para>
-        <para>The Document ABIE object contains properties, in any order, of all of the ASBIE and BBIE members in actual use of those available as specified by the Document ABIE. Each property is defined as an array.</para>
+        <para>That apex object always contains a property with the name of the Document ABIE. In legacy-based schemas the value is an array containing a single Document ABIE object. In model-based schemas the value is the Document ABIE object, not in an array.</para>
+        <para>The Document ABIE object contains properties, in any order, of all of the ASBIE and BBIE members in actual use of those available as specified by the Document ABIE. In legacy-based schemas, each property is defined as an array. In model-based schemas, only those properties associated
+          with the model’s definition of the maximum cardinality as unbounded are defined as an array. Properties with bounded maximum cardinality are defined as an object.</para>
         <para>The Document ABIE object may contain a single property representing the apex of the scaffolding of foreign extension content. This name is defined in UBL to be “<literal>UBLExtensions</literal>”.</para>
-        <para>A UBL example of a serialized Document ABIE with some content elided by the ellipsis for brevity, leaving two BBIEs followed by an ASBIE that itself has two BBIEs is as follows:</para>
+        <para>A UBL example of a serialized legacy-based Document ABIE with some content elided by the ellipsis for brevity, leaving three BBIEs followed by an ASBIE that itself has two BBIEs is as follows:</para>
         <programlisting>{"_D":"urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
  "_A":"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
  "_B":"urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
  "Invoice":[{
  "ID":[{"_":"123"}],
  "IssueDate":[{"_":"2011-09-22"}],
+ "Note":[{"_":"Information text for the invoice"}],
  "InvoicePeriod":[{
   "StartDate":[{"_":"2011-08-01"}],
   "EndDate":[{"_":"2011-08-31"}]
  }],
 ...
 }]}</programlisting>
+      <para>A UBL example of a serialized model-based Document ABIE with the same content elided by the ellipsis for brevity, leaving three BBIEs followed by an ASBIE that itself has two BBIEs is as follows, given that the identifier and issue date both have a bounded maximum cardinality of “1”
+          and the note and invoice period structures each have an unbounded maximum cardinality:</para>
+        <programlisting>{"_D":"urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+ "_A":"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+ "_B":"urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+ "Invoice":{
+ "ID":{"_":"123"},
+ "IssueDate":{"_":"2011-09-22"},
+ "Note":[{"_":"Information text for the invoice"}],
+ "InvoicePeriod":[{
+  "StartDate":{"_":"2011-08-01"},
+  "EndDate":{"_":"2011-08-31"}
+ }],
+...
+}}</programlisting>
       </section>
       <section id="S-ASBIE-EXPRESSION">
         <title>ASBIE expression</title>
-        <para>Each sequence of one or more consecutive ASBIE components of the same name in an information bundle are serialized in user data as a single array property of its parent ASBIE or Document ABIE object.</para>
-        <para>The one name for that property is the name of the ASBIE. The one value for that property is an array of one or more objects, each object representing, in array order, the sequence order of the consecutive ASBIEs. If there are no ASBIEs of a given name, the property is absent.</para>
+        <para>Each sequence of standalone or consecutive ASBIE components of the same name in an information bundle is serialized in user data based on the type of serialization. In legacy-based serialization, the item or items are expressed in a single array property of its parent ASBIE or Document
+          ABIE object. In model-based serialization, only if the model declares an unbounded maximum cardinality for the item will an array be used, otherwise an array is not used.</para>
+        <para>The one name for that property is the name of the ASBIE. In legacy-based serialization the one value for that property is an array of one or more objects, each object representing, in array order, the sequence order of the consecutive ASBIEs. In model-based serialization, the property
+          is simply the object itself if the maximum cardinality is bounded to “1”, otherwise an array is used as in legacy-based serialization regardless of he number of ASBIEs. If there are no ASBIEs of a given name, the property is absent.</para>
         <para>Each object in the ASBIE array contains as its properties all of the ASBIE and BBIE members in actual use of those available as specified by the Library ABIE that defines the ASBIE.</para>
-        <para>This serialization for one “<literal>Party</literal>” ASBIE has one ASBIE child named “<literal>PartyName</literal>”:</para>
+        <para>This legacy-based serialization in the context of “<literal>AccountingSupplierParty</literal>” for one “<literal>Party</literal>” ASBIE has one ASBIE child named “<literal>PartyName</literal>”:</para>
         <programlisting> "Party":[{
    "PartyName":[{
     "Name":[{"_":"Custom Cotter Pins"}]
    }]
   }]</programlisting>
-        <para>This serialization for two “<literal>InvoiceLine</literal>” ASBIEs has as children two BBIEs and an ASBIE, where that ASBIE has on BBIE child:</para>
+        <para>This model-based serialization in the context of “<literal>AccountingSupplierParty</literal>” for the same “<literal>Party</literal>” ASBIE has one ASBIE child named “<literal>PartyName</literal>”, but the maximum cardinality of the Party in this context is bounded to be “1”:</para>
+        <programlisting> "Party":{
+   "PartyName":[{
+    "Name":[{"_":"Custom Cotter Pins"}]
+   }]
+  }</programlisting>
+        <para>This legacy-based serialization for two “<literal>InvoiceLine</literal>” ASBIEs has as children two BBIEs and an ASBIE, where that ASBIE has on BBIE child:</para>
         <programlisting> "InvoiceLine":[{
   "ID":[{"_":"1"}],
   "LineExtensionAmount":[{"_":100.00,
@@ -474,365 +498,352 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
    "Description":[{"_":"Axel"}]
   }]
  }]</programlisting>
+      <para>This model-based serialization for the same two “<literal>InvoiceLine</literal>” ASBIEs has as children two BBIEs and an ASBIE, where that ASBIE has on BBIE child:</para>
+        <programlisting> "InvoiceLine":[{
+  "ID":{"_":"1"},
+  "LineExtensionAmount":{"_":100.00,
+   "currencyID":"CAD"},
+  "Item":{
+   "Description":[{"_":"Cotter pin, MIL-SPEC"}]
+  }
+ },{
+  "ID":{"_":"2"},
+  "LineExtensionAmount":{"_":200.00,
+   "currencyID":"CAD"},
+  "Item":{
+   "Description":[{"_":"Axel"}]
+  }
+ }]</programlisting>
       </section>
       <section id="S-BBIE-EXPRESSION">
         <title>BBIE expression</title>
         <para>Each sequence of one or more consecutive BBIE components of the same name in an information bundle are serialized in user data as a single property of its parent ASBIE or Document ABIE object.</para>
-        <para>The one name for that property is the name of the BBIE. The one value for that property is a array of one or more objects, each object representing, in array order, the sequence order of the consecutive BBIEs. If there are no BBIEs of a given name, the property is absent.</para>
+        <para>The one name for that property is the name of the BBIE. In legacy-based serialization the one value for that property is an array of one or more objects, each object representing, in array order, the sequence order of the consecutive BBIEs. In model-based serialization, the property is
+          simply the object itself if the maximum cardinality is bounded to “1”, otherwise an array is used as in legacy-based serialization regardless of he number of BBIEs. If there are no BIEs of a given name, the property is absent.</para>
         <para>Each BBIE has a required property whose name is the underscore symbol and whose value is the value of the business object in the information bundle.</para>
-        <para>Each BBIE may have as many additional properties with the names and values of optional or required metadata supplementary components of the given instance of the Core Component Type. Such is defined by the BDNDR unqualified data types. Provision is made in the model for qualifying the data
-          types, and such are enumerated in UBL’s qualified data types. UBL provides no qualifications in the JSON model and so it is up to the application to impose qualifications as needed.</para>
+        <para>Each BBIE may have as many additional properties with the names and values of optional or required metadata supplementary components of the given instance of the Core Component Type. Such is defined by the BDNDR unqualified data types. Provision is made in the model for qualifying the
+          data types, and such are enumerated in UBL’s qualified data types. UBL provides no qualifications in the JSON model and so it is up to the application to impose qualifications as needed.</para>
         <para>The property names are derived from the XML Schema attributes for the approved CCTS 2.01 core component type content and supplementary component names. The list of available property attribute names is summarized as follows, with required properties indicated:</para>
         <table id="T-CCTS-2.01-APPROVED-CORE-COMPONENT-TYPE-CONTENT-AND-SUPPLEMENTARY-COMPONENTS-FOR-PERMISSIBLE-REPRESENTATION-TERMS">
           <title>CCTS 2.01 approved core component type content and supplementary components for permissible representation terms</title>
-<tgroup cols="2">
-   <colspec colwidth="30*"/>
-   <colspec colwidth="70*"/>
-   <thead>
-      <row>
-         <entry>
-            <para>Permissible primary and secondary representation terms</para>
-         </entry>
-         <entry>
-            <para>Approved content and supplementary components</para>
-         </entry>
-      </row>
-   </thead>
-   <tbody>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Amount</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-               <member>
-                  <literal>currencyID</literal>
-                (required component property)
-              </member>
-               <member>
-                  <literal>currencyCodeListVersionID</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>BinaryObject</literal>
-               </member>
-               <member>
-                  <literal>Graphic</literal>
-               </member>
-               <member>
-                  <literal>Picture</literal>
-               </member>
-               <member>
-                  <literal>Sound</literal>
-               </member>
-               <member>
-                  <literal>Video</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-               <member>
-                  <literal>mimeCode</literal>
-                (required component property)
-              </member>
-               <member>
-                  <literal>format</literal>
-               </member>
-               <member>
-                  <literal>encodingCode</literal>
-               </member>
-               <member>
-                  <literal>characterSetCode</literal>
-               </member>
-               <member>
-                  <literal>uri</literal>
-               </member>
-               <member>
-                  <literal>filename</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Code</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-               <member>
-                  <literal>listID</literal>
-               </member>
-               <member>
-                  <literal>listAgencyID</literal>
-               </member>
-               <member>
-                  <literal>listAgencyName</literal>
-               </member>
-               <member>
-                  <literal>listName</literal>
-               </member>
-               <member>
-                  <literal>listVersionID</literal>
-               </member>
-               <member>
-                  <literal>name</literal>
-               </member>
-               <member>
-                  <literal>languageID</literal>
-               </member>
-               <member>
-                  <literal>listURI</literal>
-               </member>
-               <member>
-                  <literal>listSchemeURI</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>DateTime</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Date</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Time</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Identifier</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-               <member>
-                  <literal>schemeID</literal>
-               </member>
-               <member>
-                  <literal>schemeName</literal>
-               </member>
-               <member>
-                  <literal>schemeAgencyID</literal>
-               </member>
-               <member>
-                  <literal>schemeAgencyName</literal>
-               </member>
-               <member>
-                  <literal>schemeVersionID</literal>
-               </member>
-               <member>
-                  <literal>schemeDataURI</literal>
-               </member>
-               <member>
-                  <literal>schemeURI</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Indicator</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Measure</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-               <member>
-                  <literal>unitCode</literal>
-                (required component property)
-              </member>
-               <member>
-                  <literal>unitCodeListVersionID</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Numeric</literal>
-               </member>
-               <member>
-                  <literal>Value</literal>
-               </member>
-               <member>
-                  <literal>Percent</literal>
-               </member>
-               <member>
-                  <literal>Rate</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-               <member>
-                  <literal>format</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Quantity</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-               <member>
-                  <literal>unitCode</literal>
-               </member>
-               <member>
-                  <literal>unitCodeListID</literal>
-               </member>
-               <member>
-                  <literal>unitCodeListAgencyID</literal>
-               </member>
-               <member>
-                  <literal>unitCodeListAgencyName</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-      <row valign="top">
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>Text</literal>
-               </member>
-               <member>
-                  <literal>Name</literal>
-               </member>
-            </simplelist>
-         </entry>
-         <entry>
-            <simplelist>
-               <member>
-                  <literal>_</literal>
-            (required content property)
-          </member>
-               <member>
-                  <literal>languageID</literal>
-               </member>
-               <member>
-                  <literal>languageLocaleID</literal>
-               </member>
-            </simplelist>
-         </entry>
-      </row>
-   </tbody>
-</tgroup>
+          <tgroup cols="2">
+            <colspec colwidth="30*"/>
+            <colspec colwidth="70*"/>
+            <thead>
+              <row>
+                <entry>
+                  <para>Permissible primary and secondary representation terms</para>
+                </entry>
+                <entry>
+                  <para>Approved content and supplementary components</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Amount</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                    <member>
+                      <literal>currencyID</literal> (required component property) </member>
+                    <member>
+                      <literal>currencyCodeListVersionID</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>BinaryObject</literal>
+                    </member>
+                    <member>
+                      <literal>Graphic</literal>
+                    </member>
+                    <member>
+                      <literal>Picture</literal>
+                    </member>
+                    <member>
+                      <literal>Sound</literal>
+                    </member>
+                    <member>
+                      <literal>Video</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                    <member>
+                      <literal>mimeCode</literal> (required component property) </member>
+                    <member>
+                      <literal>format</literal>
+                    </member>
+                    <member>
+                      <literal>encodingCode</literal>
+                    </member>
+                    <member>
+                      <literal>characterSetCode</literal>
+                    </member>
+                    <member>
+                      <literal>uri</literal>
+                    </member>
+                    <member>
+                      <literal>filename</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Code</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                    <member>
+                      <literal>listID</literal>
+                    </member>
+                    <member>
+                      <literal>listAgencyID</literal>
+                    </member>
+                    <member>
+                      <literal>listAgencyName</literal>
+                    </member>
+                    <member>
+                      <literal>listName</literal>
+                    </member>
+                    <member>
+                      <literal>listVersionID</literal>
+                    </member>
+                    <member>
+                      <literal>name</literal>
+                    </member>
+                    <member>
+                      <literal>languageID</literal>
+                    </member>
+                    <member>
+                      <literal>listURI</literal>
+                    </member>
+                    <member>
+                      <literal>listSchemeURI</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>DateTime</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Date</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Time</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Identifier</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                    <member>
+                      <literal>schemeID</literal>
+                    </member>
+                    <member>
+                      <literal>schemeName</literal>
+                    </member>
+                    <member>
+                      <literal>schemeAgencyID</literal>
+                    </member>
+                    <member>
+                      <literal>schemeAgencyName</literal>
+                    </member>
+                    <member>
+                      <literal>schemeVersionID</literal>
+                    </member>
+                    <member>
+                      <literal>schemeDataURI</literal>
+                    </member>
+                    <member>
+                      <literal>schemeURI</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Indicator</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Measure</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                    <member>
+                      <literal>unitCode</literal> (required component property) </member>
+                    <member>
+                      <literal>unitCodeListVersionID</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Numeric</literal>
+                    </member>
+                    <member>
+                      <literal>Value</literal>
+                    </member>
+                    <member>
+                      <literal>Percent</literal>
+                    </member>
+                    <member>
+                      <literal>Rate</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                    <member>
+                      <literal>format</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Quantity</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                    <member>
+                      <literal>unitCode</literal>
+                    </member>
+                    <member>
+                      <literal>unitCodeListID</literal>
+                    </member>
+                    <member>
+                      <literal>unitCodeListAgencyID</literal>
+                    </member>
+                    <member>
+                      <literal>unitCodeListAgencyName</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Text</literal>
+                    </member>
+                    <member>
+                      <literal>Name</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>_</literal> (required content property) </member>
+                    <member>
+                      <literal>languageID</literal>
+                    </member>
+                    <member>
+                      <literal>languageLocaleID</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
         </table>
-        <para>Some examples of serialized BBIEs &#x2026; an identifier, a date and two notes:</para>
+        <para>Some legacy-based serialization examples of BBIEs: an identifier, a date and two notes:</para>
         <itemizedlist>
           <listitem>
             <para>
@@ -872,8 +883,8 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
         <para>A JSON stream loaded into an application&#x2019;s variable will create in that variable the objects and arrays representing the CCTS constructs of UBL.</para>
         <para>The examples in this section are copied from the interactive interfaces of the Node.js interpreter and the Python interpreter.</para>
       </section>
-      <section id="S-JAVASCRIPT-SYNTAX">
-        <title>JavaScript syntax</title>
+      <section id="S-JAVASCRIPT-SYNTAX-FOR-LEGACY-BASED-SERIALIZATION">
+        <title>JavaScript syntax for legacy-based serialization</title>
         <para>This JSON representation support for CCTS objects fully supports the dot notation defined in JavaScript.</para>
         <para>The JSON stream creates an object with the optional properties of the namespaces and the mandatory property of Document ABIE. The name of that property is the name of the Document ABIE. The value of that property is the array of one object defining the contents of the Document ABIE
           comprised of BBIEs and ASBIEs.</para>
@@ -884,7 +895,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
         </note>
         <para>The content of a BBIE is addressed as the object property with the name &#x201c;<literal>_</literal>&#x201d;. Supplementary components of a BBIE are addressed by their equivalent XML Schema attribute name. For a complete list, see <xref
             linkend="T-CCTS-2.01-APPROVED-CORE-COMPONENT-TYPE-CONTENT-AND-SUPPLEMENTARY-COMPONENTS-FOR-PERMISSIBLE-REPRESENTATION-TERMS"/>.</para>
-        <para>Some examples of dot notation syntax:</para>
+        <para>Some examples of dot notation syntax for a legacy-based instance:</para>
         <programlisting>> obj.Invoice[0].Note[0]
 { _: 'Test', languageID: 'en' }
 > obj.Invoice[0].Note[1]
@@ -896,7 +907,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
 > obj.Invoice[0].InvoiceLine[1].LineExtensionAmount[0].currencyID
 'CAD'
 ></programlisting>
-        <para>This approach also supports the object notation defined in JavaScript. The same examples using list and object notation syntax:</para>
+        <para>This approach also supports the object notation defined in JavaScript. The same examples using list and object notation syntax for a legacy-based instance:</para>
         <programlisting>> obj["Invoice"][0]["Note"][0]
 { _: 'Test', languageID: 'en' }
 > obj["Invoice"][0]["Note"][1]
@@ -909,8 +920,8 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
 'CAD'
 ></programlisting>
       </section>
-      <section id="S-PYTHON-SYNTAX">
-        <title>Python syntax</title>
+      <section id="S-PYTHON-SYNTAX-FOR-LEGACY-BASED-SERIALIZATION">
+        <title>Python syntax for legacy-based serialization</title>
         <para>This approach fully supports the list and dictionary notation defined in Python.</para>
         <para>The JSON stream creates a dictionary with a single array of one property. The name of that property is the name of the Document ABIE. The value of that property is the object defining the contents of the Document ABIE comprised of BBIEs and ASBIEs.</para>
         <para>Each BBIE and ASBIE must be addressed as a list that is guaranteed to have at the least a single member addressed with &#x201c;<literal>[0]</literal>&#x201d;.</para>
@@ -920,7 +931,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
         </note>
         <para>The content of a BBIE is addressed as the dictionary property with the name ending in &#x201c;<literal>Content</literal>&#x201d;. Supplementary components of a BBIE are addressed by their name (compressed removing periods and spaces). For a complete list, see <xref
             linkend="T-CCTS-2.01-APPROVED-CORE-COMPONENT-TYPE-CONTENT-AND-SUPPLEMENTARY-COMPONENTS-FOR-PERMISSIBLE-REPRESENTATION-TERMS"/>.</para>
-        <para>Some examples using list and dictionary syntax:</para>
+        <para>Some examples using list and dictionary syntax for a legacy-based instance:</para>
         <programlisting>>>> obj["Invoice"][0]["Note"][0]
 {'_': 'Test', 'languageID': 'en'}
 >>> obj["Invoice"][0]["Note"][1]
@@ -942,8 +953,9 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
     <title>Example UBL JSON documents</title>
     <section id="S-EXAMPLES-OVERVIEW">
       <title>Examples overview</title>
-      <para>The examples in the <literal>json/</literal> subdirectory are transliterated from the sample XML instances found in the UBL 2.2 distribution at <ulink url="https://docs.oasis-open.org/ubl/os-UBL-2.2/xml/"/>.</para>
+      <para>The examples in the <literal>json-legacy/</literal> and <literal>json-model/</literal> subdirectories are transliterated from the sample XML instances found in the UBL 2.2 distribution at <ulink url="https://docs.oasis-open.org/ubl/os-UBL-2.2/xml/"/>.</para>
       <para>For legibility the examples are indented. Indentation is insignificant white space and optionally can be eliminated from the file.</para>
+    <para>The remaining sections are examples of legacy-mode JSON instances. See the model-mode directory for examples of the use of model-mode serialization.</para>
     </section>
     <section id="S-UBL-INVOICE-2.1-EXAMPLE-TRIVIAL.JSON">
       <title><literal>UBL-Invoice-2.1-Example-Trivial.json</literal></title>
@@ -1440,8 +1452,9 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
       <varlistentry>
         <term><emphasis role="bold"><literal>testjson.bat</literal> and <literal>testjson.sh</literal></emphasis></term>
         <listitem>
-          <para>Invoking the validate scripts once for each of the four sample files in the <literal>val/</literal> subdirectory: <literal>order-test-good.json</literal>, <literal>order-test-bad1.json</literal> (bad syntax), <literal>order-test-bad2.json</literal> (bad property name),
-              <literal>order-test-bad3.json</literal> (missing required property), and <literal>order-test-bad4.json</literal> (invalid date value).</para>
+          <para>Invoking the validate scripts once for each of the four sample files in the <literal>val/</literal> subdirectory: <literal>order-test-bad1.json</literal> (bad syntax), <literal>order-test-bad2.json</literal> (bad property name),
+              <literal>order-test-bad3.json</literal> (missing
+            required property), <literal>order-test-bad4.json</literal> (invalid date value), and <literal>order-test-good.json</literal> (no errors).</para>
           <note>
             <para>At the time of writing, it is observed that the <literal>jsonschema</literal> library is not correctly detecting an invalid date value in the <literal>order-test-bad4.json</literal> test file. This is due to the specification making support of such optional for implementations to
               offer.</para>
@@ -1451,7 +1464,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
       <varlistentry>
         <term><emphasis role="bold"><literal>testjsonsamples.bat</literal> and <literal>testjsonsamples.sh</literal></emphasis></term>
         <listitem>
-          <para>Invoking the validate scripts once for each of the sample files in the <literal>json/</literal> subdirectory.</para>
+          <para>Invoking the validate scripts once for each of the sample files in the <literal>json-legacy/</literal> subdirectory.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -1475,17 +1488,12 @@ order-test-bad4.json	testjsonsamples.bat
 ~/t/mytest/val $ sh testjson.sh 
 
 ############################################################
-Validating order-test-good.json
+Validating order-test-bad1.json with ../json-schema-legacy/maindoc/UBL-Order-2.2.json
 ############################################################
-No schema validation errors.
+Unexpected error injesting instance: Expecting , delimiter: line 19 column 30 (char 774)
 
 ############################################################
-Validating order-test-bad1.json
-############################################################
-Unexpected error injesting instance: Expecting , delimiter: line 19 column 30 (char 942)
-
-############################################################
-Validating order-test-bad2.json
+Validating order-test-bad2.json with ../json-schema-legacy/maindoc/UBL-Order-2.2.json
 ############################################################
 Validation error: Additional properties are not allowed (u'OrderDocumentReferenceXXXXX' was unexpected)
 validator: additionalProperties
@@ -1497,7 +1505,7 @@ schema_path: deque([u'properties', u'Order', u'items', u'additionalProperties'])
 parent: None
 
 ############################################################
-Validating order-test-bad3.json
+Validating order-test-bad3.json with ../json-schema-legacy/maindoc/UBL-Order-2.2.json
 ############################################################
 Validation error: u'ID' is a required property
 validator: required
@@ -1509,7 +1517,12 @@ schema_path: deque([u'properties', u'Order', u'items', u'required'])
 parent: None
 
 ############################################################
-Validating order-test-bad4.json
+Validating order-test-bad4.json with ../json-schema-legacy/maindoc/UBL-Order-2.2.json
+############################################################
+No schema validation errors.
+
+############################################################
+Validating order-test-good.json with ../json-schema-legacy/maindoc/UBL-Order-2.2.json
 ############################################################
 No schema validation errors.
 ~/t/mytest/val $ </programlisting>
@@ -1573,17 +1586,31 @@ No schema validation errors.
         </para>
         <variablelist>
           <varlistentry>
-            <term><emphasis role="bold"><literal>json</literal>
+            <term><emphasis role="bold"><literal>json-legacy</literal>
               </emphasis></term>
             <listitem>
-              <para>JSON UBL 2.2 example documents</para>
+              <para>JSON UBL 2.2 example documents in legacy-based serialization</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term><emphasis role="bold"><literal>json-schema</literal>
+            <term><emphasis role="bold"><literal>json-model</literal>
               </emphasis></term>
             <listitem>
-              <para>JSON UBL 2.2 schemas</para>
+              <para>JSON UBL 2.2 example documents in model-based serialization</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>json-schema-legacy</literal>
+              </emphasis></term>
+            <listitem>
+              <para>JSON UBL 2.2 schemas supporting legacy-based serialization</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>json-schema-model</literal>
+              </emphasis></term>
+            <listitem>
+              <para>JSON UBL 2.2 schemas supporting legacy-based serialization</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -1618,44 +1645,35 @@ No schema validation errors.
   </appendix>
   <appendix id="A-REVISION-HISTORY">
     <title>Revision History</title>
-    <para>All artefacts are created using the latest Business Document Naming and Design Rules which changed in April 2020.</para>
-    <para>Accordingly, the following has changed since pre-April 2020:</para>
-    <itemizedlist>
-      <listitem>
-        <para>content and supplementary component property names are now concise abbreviations, and</para>
-      </listitem>
-      <listitem>
-        <para>the ASBIE/ABIE library namespace declaration property name changed from "_S" to be "_A".</para>
-      </listitem>
-    </itemizedlist>
-  </appendix>
+    <para>All artefacts are created using the latest Business Document Naming and Design Rules2020Aprilchangedwhich</para>
+    </appendix>
   <appendix role="iso-informative" id="A-ACKNOWLEDGEMENTS">
     <title>Acknowledgements</title>
     <para>The following individuals have participated in the creation of this specification and are gratefully acknowledged:</para>
     <simplelist>
-     <member>Todd Albers, Federal Reserve Bank of Minneapolis</member>
-     <member>Rui Barros, Individual</member>
-     <member>Oriol Bausa Peris, Individual</member>
-     <member>Kenneth Bengtsson, Individual</member>
-     <member>Erlend Klakegg Bergheim, Norwegian Digitalisation Agency</member>
-     <member>Peter Borresen, ClearView Trade</member>
-     <member>Andrea Caccia, Individual</member>
-     <member>Ger Clancy, IBM</member>
-     <member>Kees Duvekot, RFS Holland Holding B.V.</member>
-     <member>Martin Forsberg, Swedish Association of Local Authorities &amp; Regions</member>
-     <member>Cecile Guasch, Individual</member>
-     <member>Philip Helger, Individual</member>
-     <member>Ken Holman, Crane Softwrights Ltd.</member>
-     <member>Yves Jordan, Publications Office of the European Union</member>
-     <member>Kari Korpela, Individual</member>
-     <member>Ole Madsen, Danish Business Authority</member>
-     <member>Natalie Muric, Publications Office of the European Union</member>
-     <member>Levine Naidoo, IBM</member>
-     <member>Enric Torregrosa, everis, S.L.U.</member>
-     <member>Matt Vickers, Xero</member>
+      <member>Todd Albers, Federal Reserve Bank of Minneapolis</member>
+      <member>Rui Barros, Individual</member>
+      <member>Oriol Bausa Peris, Individual</member>
+      <member>Kenneth Bengtsson, Individual</member>
+      <member>Erlend Klakegg Bergheim, Norwegian Digitalisation Agency</member>
+      <member>Peter Borresen, ClearView Trade</member>
+      <member>Andrea Caccia, Individual</member>
+      <member>Ger Clancy, IBM</member>
+      <member>Kees Duvekot, RFS Holland Holding B.V.</member>
+      <member>Martin Forsberg, Swedish Association of Local Authorities &amp; Regions</member>
+      <member>Cecile Guasch, Individual</member>
+      <member>Philip Helger, Individual</member>
+      <member>Ken Holman, Crane Softwrights Ltd.</member>
+      <member>Yves Jordan, Publications Office of the European Union</member>
+      <member>Kari Korpela, Individual</member>
+      <member>Ole Madsen, Danish Business Authority</member>
+      <member>Natalie Muric, Publications Office of the European Union</member>
+      <member>Levine Naidoo, IBM</member>
+      <member>Enric Torregrosa, everis, S.L.U.</member>
+      <member>Matt Vickers, Xero</member>
     </simplelist>
   </appendix>
-<!--  <appendix id="A-TEMPORARY-ANNEX-\-\-CHANGE-LOG">
+  <!--  <appendix id="A-TEMPORARY-ANNEX-\-\-CHANGE-LOG">
     <title>Temporary Annex - Change Log</title>
     <note>
       <para>This temporary appendix will be removed in the final version of the committee note.</para>
