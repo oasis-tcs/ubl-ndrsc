@@ -35,7 +35,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
 <!ENTITY name "&dir;-v&version;">
 <!ENTITY version "1.1">
 <!ENTITY title "Business Document Naming and Design Rules (BDNDR) Version&#xa0;&version;">
-<!ENTITY standard "Committee Specification 04">
+<!ENTITY standard "Committee Specification Draft 04">
 <!ENTITY pstage "csd03">
 <!ENTITY stage                                     "csd04">
 <!ENTITY summary SYSTEM "Business-Document-NDR-v1.1-csd04-summary.ent">
