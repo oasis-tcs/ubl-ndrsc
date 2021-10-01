@@ -146,13 +146,19 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
         begins officially with a TC vote to approve a WD as a Committee Draft. A TC may approve a Working Draft, revise it, and re-approve it any number of times as a Committee Draft. </para>
       -->
       
-      <para>This document was last revised or approved by the OASIS Universal Business Language TC on the above date. The level of approval is also listed above. Check the &#x201c;Latest version&#x201d; location noted above for possible later revisions of this document. Any other numbered Versions
+      <para>This document was last revised or approved by the OASIS Universal Business Language TC on the above date. The level of approval is also listed above. Check the &#x201c;Latest stage&#x201d; location noted above for possible later revisions of this document. Any other numbered Versions
         and other technical work produced by the Technical Committee (TC) are listed at <ulink conformance="skip" url="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl#technical">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl#technical</ulink>.</para>
       
       <para>TC members should send comments on this specification to the TC&#x2019;s email list. Others should send comments to the TC&#x2019;s public comment list, after subscribing to it by following the instructions at the &#x201c;<ulink conformance="skip"
           url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=ubl">Send A Comment</ulink>&#8221; button on the TC&#8217;s web page at <ulink url="https://www.oasis-open.org/committees/ubl/">https://www.oasis-open.org/committees/ubl/</ulink>.</para>
+      
+      <para>This specification is provided under the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr/#RF-on-Limited-Mode" conformance="skip">RF on Limited Terms Mode</ulink> of the <ulink url="https://www.oasis-open.org/policies-guidelines/ipr" conformance="skip">OASIS IPR
+          Policy</ulink>, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights
+        section of the Technical Committee web page (<ulink url="https://www.oasis-open.org/committees/ubl/ipr.php">https://www.oasis-open.org/committees/ubl/ipr.php</ulink>).</para>
+      
       <para>For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the Technical Committee web page at <ulink
           url="https://www.oasis-open.org/committees/ubl/ipr.php">https://www.oasis-open.org/committees/ubl/ipr.php</ulink>.</para>
+      
       <para>See <xref linkend="A-RELEASE-NOTES"/> for more information regarding this release package.</para>
     </legalnotice>
     <legalnotice role="citation" id="CITATION">
@@ -165,7 +171,7 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
           <date>&pubdate;.</date>
           <releaseinfo>OASIS &standard;.</releaseinfo>
           <bibliomisc>
-            <ulink url="&this-loc;/&name;-&stage;.html">&this-loc;/&name;-&stage;.html</ulink>. Latest version: <ulink url="&latest-loc;/&name;.html">&latest-loc;/&name;.html</ulink>. </bibliomisc>
+            <ulink url="&this-loc;/&name;-&stage;.html">&this-loc;/&name;-&stage;.html</ulink>. Latest stage: <ulink url="&latest-loc;/&name;.html">&latest-loc;/&name;.html</ulink>. </bibliomisc>
         </bibliomixed>
       </bibliolist>
     </legalnotice>
@@ -4386,7 +4392,7 @@ Last change: 14 January 2005</programlisting>
               <td>Every core component type shall be declared as an object named by the Dictionary Entry Name compressed by removing periods and spaces. It shall have as its title the CCTS Dictionary Entry Name. It shall have as its description the CCTS Definition. It shall have as its properties
                 the content declaration as well as a declaration of each of its supplemental components. The name of these properties shall be prefixed with the CCTS Dictionary Entry Name compressed by removing the word &#x201c;<literal>Type</literal>&#x201d; from the end and by removing periods and
                 spaces. The name of the content property shall be the underscore character &#x201c;<literal>_</literal>&#x201d;. The names of the supplemental component properties shall be the names of the associated XML attribute names defined in the CCTS Core Component Type Schema Module version
-                1.1 dated 14 January 2005 <ulink url="xsd/BDNDR-CCTS_CCT_SchemaModule.xsd" conformance="skip"><literal>BDNDR-CCTS_CCT_SchemaModule.xsd</literal></ulink>. The data types of the subordinate declarations shall be numbers or strings as appropriate to the corresponding XSD declared type.
+                1.1 dated 14 January 2005 <ulink url="xsd/BDNDR-CCTS_CCT_SchemaModule-1.1.xsd" conformance="skip"><literal>BDNDR-CCTS_CCT_SchemaModule-1.1.xsd</literal></ulink>. The data types of the subordinate declarations shall be numbers or strings as appropriate to the corresponding XSD declared type.
                 The object shall declare that additional properties are not permitted.<note>
                   <title>Example</title>
                   <programlisting>"MeasureType": {
