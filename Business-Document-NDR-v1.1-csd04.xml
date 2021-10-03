@@ -3224,7 +3224,7 @@ Last change: 14 January 2005</programlisting>
       </section>
       <section id="S-JSON-SERIALIZATION-MODE-SCHEMA-DECLARATION-DIFFERENCES">
         <title>JSON serialization mode schema declaration differences</title>
-        <para>Legacy-mode and model-mode schemas are predominantly identical except only for the applications of NDR <xref linkend="DCL24"/> and <xref linkend="DCL26"/> that differ based on creating an array of objects or a single object.</para>
+        <para>Legacy-mode and model-mode schemas are predominantly identical except only for the applications of NDR <link linkend="DCL24">DCL24 ASBIE property declaration in an ABIE object</link> and <link linkend="DCL26">DCL26 BBIE property declaration in an ABIE object</link> that differ based on creating an array of objects or a single object.</para>
       </section>
     </section>
     <section id="S-JSON-VALIDATION-ARTEFACTS-OVERVIEW">
@@ -3766,9 +3766,11 @@ definitions/SenderParty"
             </thead>
             <tbody>
               <tr>
-                <td>Every BBIE child of an ABIE shall be declared as an array named by the CCTS Component Name of the BBIE. It shall have as its title the CCTS Dictionary Entry Name. It shall have as its description the CCTS Definition. It shall have a minimum number of items as 1. If the
+                <td>
+                  <para>Legacy-mode declaration:</para>
+                  <para>Every BBIE child of an ABIE shall be declared as an array named by the CCTS Component Name of the BBIE. It shall have as its title the CCTS Dictionary Entry Name. It shall have as its description the CCTS Definition. It shall have a minimum number of items as 1. If the
                   cardinality has a maximum bound of 1, then the declaration shall have a maximum number of items as 1, otherwise there shall be no constraint on the maximum number of items. It shall declare that additional properties are not permitted. The items of the array shall be declared by
-                  referencing the BBIE declaration in the BBIE schema fragment using the CCTS Component Name of the BBIE.<note>
+                  referencing the BBIE declaration in the BBIE schema fragment using the CCTS Component Name of the BBIE.</para><note>
                     <title>Example</title>
                     <programlisting>"ResponseDate": {
   "title": "Application Response. Response Date. Date",
