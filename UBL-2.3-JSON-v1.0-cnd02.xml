@@ -41,18 +41,18 @@ href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl
 <!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&dir;/v&version;/&pstage;">
 <!ENTITY latest-loc   "https://docs.oasis-open.org/ubl/&dir;/v&version;">
 <!ENTITY copyyear "2021">
-<!ENTITY pubdate "08 September 2021"><!--remove time from pub date-->
+<!ENTITY pubdate "24 November 2021"><!--remove time from pub date-->
 
 <!--BDNDR information-->
 <!ENTITY bdndr-dir "Business-Document-NDR">
 <!ENTITY bdndr-name "&bdndr-dir;-v&bdndr-version;">
 <!ENTITY bdndr-version "1.1">
 <!ENTITY bdndr-title "Business Document Naming and Design Rules (BDNDR) Version&#xa0;&bdndr-version;">
-<!ENTITY bdndr-standard "Committee Specification Draft 04">
-<!ENTITY bdndr-stage                      "csd04"><!--remember title ent-->
+<!ENTITY bdndr-standard "Committee Specification 01">
+<!ENTITY bdndr-stage                      "cs01"><!--remember title ent-->
 <!ENTITY bdndr-this-loc     "https://docs.oasis-open.org/ubl/&bdndr-dir;/v&bdndr-version;/&bdndr-stage;">
 <!ENTITY bdndr-latest-loc   "https://docs.oasis-open.org/ubl/&bdndr-dir;/v&bdndr-version;">
-<!ENTITY bdndr-pubdate "08 September 2021">
+<!ENTITY bdndr-pubdate "08 November 2021">
 
 <!--UBL 2.3-->
 <!ENTITY ubl-name "UBL">
