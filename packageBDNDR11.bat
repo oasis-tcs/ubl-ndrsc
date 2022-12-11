@@ -10,7 +10,7 @@ if %errorlevel% neq 0 goto :done
 del output.txt
 
 echo Building package...
-java -Dant.home=utilities\ant -cp "utilities\ant\lib\ant-launcher.jar;db\spec-0.8\validate\saxon9he.jar" org.apache.tools.ant.launch.Launcher -buildfile packageBDNDR11.xml "-Ddir=%~1" "-Dstage=%~2" "-Dversion=%~3" "-Ddatetimelocal=%~4" "-Dsetareuser=%~5" "-Dsetarepass=%~6"
+java -Dant.home=utilities\ant -cp "utilities\ant\lib\ant-launcher.jar;db\spec-0.8\validate\saxon9he.jar" org.apache.tools.ant.launch.Launcher -buildfile packageBDNDR11.xml "-Ddir=%~1" "-Dstage=%~2" "-Dversion=%~3" "-Ddatetimelocal=%~4" "-Drealtauser=%~5" "-Drealtapass=%~6"
 if %errorlevel% neq 0 goto :done
 
 :done

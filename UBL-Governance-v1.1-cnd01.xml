@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+For use when a committee document points at the OASIS web site for publishing:
+<?xml-stylesheet type="text/xsl" 
+href="http://docs.oasis-open.org/templates/DocBook/spec-0.8/stylesheets/oasis-specification-html.xsl"?>
+<!DOCTYPE article
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+         "https://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" 
+
+For use when a committee document points to an embedded installation of DocBook
+<?xml-stylesheet type="text/xsl" 
+               href="db/spec-0.8/stylesheets/oasis-specification-html.xsl"?>
+<!DOCTYPE article
+ PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+        "db/spec-0.8/docbook/docbookx.dtd" 
+
+For use when a committee document is published in a local environment only
+(note the instructions for local publishing require adjusting the stylesheet
+ and DocBook directories in these declarations):
+<?xml-stylesheet type="text/xsl" 
+href="file:///z:/oasis/spec-0.8/stylesheets/oasis-specification-html-offline.xsl"?>
+<!DOCTYPE article
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+         "file:///z:/oasis/spec-0.8/docbook/docbookx.dtd" 
+-->
+<?xml-stylesheet type="text/xsl"
+               href="db/spec-0.8/stylesheets/oasis-note-html.xsl"?>
+<?oasis-spec-base-uri db/spec-0.8/?>
+<!DOCTYPE article
+ PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" 
+        "db/spec-0.8/docbook/docbookx.dtd" 
+[
+<!-- the document properties-->
+<!ENTITY dir "UBL-Governance">
+<!ENTITY name "&dir;-v&version;">
+<!ENTITY pversion "1.0xxxxxxxxxxxx">
+<!ENTITY version "1.1">
+<!ENTITY stage "cnd01">
+<!ENTITY note "Committee Note Draft 01">
+<!ENTITY this-loc     "https://docs.oasis-open.org/ubl/&dir;/v&version;/&stage;">
+<!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&dir;/v&pversion;">
+<!ENTITY latest-loc   "https://docs.oasis-open.org/ubl/&dir;/v&version;">
+<!ENTITY copyyear "2020">
+<!ENTITY pubdate "29 July 2020"><!--remove time from pub date-->
+]>
+<article status="&note;" conformance="ids quotes ebuzzwords">
+  <articleinfo>
+    <productname>&name;</productname>
+    <productnumber>&stage;</productnumber>
+    <releaseinfo role="track">Non-standards Track</releaseinfo>
+    <releaseinfo role="OASIS-specification-this-authoritative">&this-loc;/&name;-&stage;.xml</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">&this-loc;/&name;-&stage;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">&this-loc;/&name;-&stage;.pdf</releaseinfo>
+    <!--<releaseinfo role="OASIS-specification-previous">&previous-loc;/&name;-&version;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous">&previous-loc;/&name;-&version;.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous-authoritative">&previous-loc;/&name;-&version;.xml</releaseinfo>-->
+    <releaseinfo role="OASIS-specification-latest">&latest-loc;/&dir;-v&version;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-latest">&latest-loc;/&dir;-v&version;.pdf</releaseinfo>
+    <!-- generic form of above
+      <releaseinfo role="OASIS-specification-latest"
+         >&latest-loc;/&name;-&version;.html</releaseinfo>
+      <releaseinfo role="OASIS-specification-latest"
+         >&latest-loc;/&name;-&version;.pdf</releaseinfo>
+      <releaseinfo role="OASIS-specification-latest-authoritative"
+         >&latest-loc;/&name;-&version;.xml</releaseinfo> -->
+    <title>UBL Maintenance Governance Procedures Version &version;</title>
+    <releaseinfo role="committee"><ulink conformance="skip" url="https://www.oasis-open.org/committees/ubl/">OASIS Universal
+        Business Language (UBL) TC</ulink></releaseinfo>
+    <authorgroup>
+      <editor>
+        <firstname>G. Ken</firstname>
+        <surname>Holman</surname>
+        <affiliation>
+          <orgname><ulink conformance="skip" url="http://www.CraneSoftwrights.com/links/info-ubl.htm">Crane Softwrights Ltd.</ulink></orgname>
+        </affiliation>
+        <email>gkholman@CraneSoftwrights.com</email>
+      </editor>
+      <othercredit>
+        <firstname>Kenneth</firstname>
+        <surname>Bengtsson</surname>
+        <affiliation>
+          <orgname>Individual</orgname>
+        </affiliation>
+        <email>kbengtsson@efact.pe</email>
+      </othercredit>
+      <othercredit>
+        <firstname>G. Ken</firstname>
+        <surname>Holman</surname>
+        <affiliation>
+          <orgname><ulink conformance="skip" url="http://www.CraneSoftwrights.com/links/info-ubl.htm">Crane Softwrights Ltd.</ulink></orgname>
+        </affiliation>
+        <email>gkholman@CraneSoftwrights.com</email>
+      </othercredit>
+    </authorgroup>
+    <pubdate>&pubdate;</pubdate>
+    <copyright>
+      <year>&copyyear;</year>
+    </copyright>
+    <legalnotice role="additional">
+      <title>Additional artefacts</title>
+      <para>The ZIP containing the complete files of this release is found in the directory:</para>
+      <itemizedlist>
+        <listitem>
+          <para><ulink url="&this-loc;/">&this-loc;/</ulink></para>
+        </listitem>
+      </itemizedlist>
+    </legalnotice>
+    <legalnotice role="related">
+      <title>Related work</title>
+      <para>This note is related to:</para>
+      <bibliolist>
+        <bibliomixed conformance="skip">
+          <citetitle>Universal Business Language Version 2.1.</citetitle>
+          <bibliomisc>Edited by Jon Bosak, Tim McGrath and G. Ken Holman. </bibliomisc>
+          <date>04 November 2013. </date>
+          <releaseinfo>OASIS Standard. </releaseinfo>
+          <bibliomisc>
+            <ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html">http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html</ulink>. </bibliomisc>
+        </bibliomixed>
+        <bibliomixed conformance="skip">
+          <citetitle>Universal Business Language Version 2.2.</citetitle>
+          <bibliomisc>Edited by G. Ken Holman.</bibliomisc>
+          <date>09 July 2018. </date>
+          <releaseinfo>OASIS Standard. </releaseinfo>
+          <bibliomisc>
+            <ulink conformance="skip" url="http://docs.oasis-open.org/ubl/&stage;-UBL-2.2/UBL-2.2.html">http://docs.oasis-open.org/ubl/&stage;-UBL-2.2/UBL-2.2.html</ulink>. Latest version: <ulink conformance="skip" url="http://docs.oasis-open.org/ubl/UBL-2.2.html"
+              >http://docs.oasis-open.org/ubl/UBL-2.2.html</ulink>. </bibliomisc>
+        </bibliomixed>
+        <bibliomixed conformance="skip">
+          <citetitle>Universal Business Language Version 2.3.</citetitle>
+          <bibliomisc>Edited by G. Ken Holman.</bibliomisc>
+          <date>12 May 2020. </date>
+          <releaseinfo>Committee Specification Public Review Draft 03. </releaseinfo>
+          <bibliomisc>
+            <ulink url="https://docs.oasis-open.org/ubl/csprd03-UBL-2.3/UBL-2.3.html">https://docs.oasis-open.org/ubl/csprd03-UBL-2.3/UBL-2.3.html</ulink>. Latest version: <ulink url="https://docs.oasis-open.org/ubl/UBL-2.3.html">https://docs.oasis-open.org/ubl/UBL-2.3.html</ulink>. </bibliomisc>
+        </bibliomixed>
+      </bibliolist>
+    </legalnotice>
+    <abstract>
+      <para>This document describes the governance of the process to propose, accept and incorporate changes to the OASIS Universal Business Language (UBL) 2 specifications.</para>
+    </abstract>
+    <legalnotice role="status" id="STATUS">
+      <title>Status</title>
+      <!--
+      <para>This <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#dWorkingDraft">Working Draft</ulink> (WD) has been produced by one or more TC Members; it has not yet been voted on by the TC or <ulink conformance="skip"
+          url="https://www.oasis-open.org/policies-guidelines/tc-process#committeeDraft">approved</ulink> as a Committee Note Draft. The OASIS document <ulink conformance="skip" url="https://www.oasis-open.org/policies-guidelines/tc-process#standApprovProcess">Approval Process</ulink> begins
+        officially with a TC vote to approve a WD as a Committee Note Draft. A TC may approve a Working Draft, revise it, and re-approve it any number of times as a Committee Note Draft.</para>
+      -->
+
+      <para>This document was last revised or approved by the OASIS Universal Business Language TC
+        on the above date. The level of approval is also listed above. Check the &#x201c;Latest
+        version&#x201d; location noted above for possible later revisions of this document. Any
+        other numbered Versions and other technical work produced by the Technical Committee (TC)
+        are listed at <ulink conformance="skip"
+          url="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl#technical"
+          >https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl#technical</ulink>.</para>
+      <para>TC members should send comments on this specification to the TC&#x2019;s email list.
+        Others should send comments to the TC&#x2019;s public comment list, after subscribing to it
+        by following the instructions at the &#x201c;<ulink conformance="skip"
+          url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=ubl">Send A
+          Comment</ulink>&#8221; button on the TC&#8217;s web page at <ulink
+          url="https://www.oasis-open.org/committees/ubl/"
+          >https://www.oasis-open.org/committees/ubl/</ulink>.</para>
+      
+      <para>See <xref linkend="A-RELEASE-NOTES"/> for more information regarding this release package.</para>
+      
+    </legalnotice>
+    <legalnotice role="citation" id="CITATION">
+      <title>Citation format</title>
+      <para>When referencing this note the following citation format should be used:</para>
+      <bibliolist id="citationfmt">
+        <bibliomixed conformance="skip"><abbrev>UBL-Governance</abbrev>
+          <citetitle>UBL Maintenance Governance Procedures Version &version;.</citetitle>
+          <bibliomisc>Edited by G. Ken Holman.</bibliomisc>
+          <date>&pubdate;.</date>
+          <releaseinfo>OASIS &note;.</releaseinfo>
+          <bibliomisc>
+            <ulink url="&this-loc;/&dir;-v&version;-&stage;.html">&this-loc;/&dir;-v&version;-&stage;.html</ulink>. </bibliomisc>
+          <bibliomisc> Latest version: <ulink url="&latest-loc;/&dir;-v&version;.html">&latest-loc;/&dir;-v&version;.html</ulink>.</bibliomisc>
+        </bibliomixed>
+      </bibliolist>
+    </legalnotice>
+    <legalnotice role="notices">
+      <title>Notices</title>
+      <para>Copyright &#169; OASIS Open &copyyear;. All Rights Reserved. </para>
+      <para>All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the &#8220;OASIS IPR Policy&#8221;). The full <ulink url="https://www.oasis-open.org/policies-guidelines/ipr" conformance="skip">Policy</ulink> may be found at
+        the OASIS website.</para>
+      <para>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided
+        that the above copyright notice and this section are included on all such copies and derivative works. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document
+        or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.</para>
+      <para>The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns.</para>
+      <para>This document and the information contained herein is provided on an &#8220;AS IS&#8221; basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS AND ANY IMPLIED
+        WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</para>
+      <para>OASIS requests that any OASIS Party or any other party that believes it has patent claims that would necessarily be infringed by implementations of this OASIS Committee Specification or OASIS Standard notify OASIS TC Administrator and provide an indication of its willingness to grant
+        patent licenses to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this specification.</para>
+      <para>OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim of ownership of any patent claims that would necessarily be infringed by implementations of this specification by a patent holder that is not willing to provide a license to such patent claims in a
+        manner consistent with the IPR Mode of the OASIS Technical Committee that produced this specification. OASIS may include such claims on its website, but disclaims any obligation to do so.</para>
+      <para>OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be
+        available; neither does it represent that it has made any effort to identify any such rights. Information on OASIS&#8217; procedures with respect to rights in any document or deliverable produced by an OASIS Technical Committee can be found on the OASIS website. Copies of claims of rights
+        made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Committee Specification or OASIS Standard, can be
+        obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be complete, or that any claims in such list are, in fact, Essential Claims.</para>
+      <para>The name &#8220;OASIS&#8221; is a trademark of <ulink conformance="skip" url="https://www.oasis-open.org">OASIS</ulink>, the owner and developer of this specification, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and
+        implementation and use of, specifications, while reserving the right to enforce its marks against misleading uses. Please see <ulink url="https://www.oasis-open.org/policies-guidelines/trademark">https://www.oasis-open.org/policies-guidelines/trademark</ulink> for guidance.</para>
+    </legalnotice>
+  </articleinfo>
+  <section id="S-INTRODUCTION">
+    <title>Introduction</title>
+    <section id="S-GOVERNANCE">
+      <title>Governance</title>
+      <para>The OASIS Universal Business Language (UBL) is an important and useful XML standard for exchanging business documents. The more the standard is implemented, the more requirements emerge for new areas of business. Therefore the OASIS Universal Business Language (UBL) TC has documented the
+        processes by which UBL can be further enhanced to address additional requirements.</para>
+      <para>New and existing implementers analyze the UBL standard looking for a way to express their required business information in XML document structures. But no standard can be all things to all people. There inevitably will be information required for business processes that are not currently
+        supported. </para>
+      <para>There are many ways implementers can resolve this situation. However, interoperability is inhibited if different approaches are used to address the same business requirements. Interoperability can be enhanced if UBL incorporates common solutions to accommodate these additional
+        requirements.</para>
+      <para>This Committee Note provides guidance for UBL implementers to contribute proposals for additional business processes including additional document types or additional information requirements for consideration as candidates for the UBL standard. Significantly, these guidelines identify a
+        process that allows implementers to apply their own solutions immediately within their current environment and still contribute these to future releases of UBL.</para>
+      <para>The aim of this Committee Note is to create security and certainty for organizations and communities investing in UBL implementations by documenting the governance procedures to ensure business requirements are met currently and into the future.</para>
+      <para>Finally, the document outlines the anticipated release cycle and time schedules for each phase of the OASIS standardization process. This will allow implementers to manage their expectations for candidate proposals and guide them in the timing of their submissions. </para>
+    </section>
+    <section id="S-ROLES">
+      <title>Roles</title>
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">OASIS TC Administrator</emphasis>: acts as the Technical Committee Liaison to the OASIS Board for the purpose of keeping the Board apprised of activities related to the TC Process. This is a staff member of OASIS.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">UBL TC</emphasis>: the OASIS Universal Business Language (UBL) TC is a voluntary group of OASIS members responsible for the maintenance, development and publication of the OASIS UBL standard.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">UBL TC Member</emphasis>: a member of OASIS who has joined the UBL TC and agreed to its IPR policy.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">UBL TC Voting Member</emphasis>: UBL TC members who are qualified for voting status.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">UBL TC Observer</emphasis>: a member of OASIS who as joined the UBL TC but not agreed to its IPR policy. Observers may attend meetings and subscribe (but not post) to the UBL TC mailing list.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Proposer</emphasis>: a submitter of a proposal for enhancements to UBL.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Subcommittee</emphasis>: a group of UBL TC members contributing specifically in an area of expertise, responsible for analyzing proposals and making recommendations to the UBL TC.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Designated Editor</emphasis> - responsible for editing the information describing the agreed-upon recommendations and incorporating the models, documentation and schema into a complete working draft.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Editor</emphasis> - responsible for editing the prose content and the packaging of the agreed-upon additions and changes to the specification.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Task Group</emphasis>: contributing time and expertise to the horizontal tasks such as generating artifacts for use by the Editors.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Responsible Party</emphasis>: a committee member, subcommittee or task group delegated with responsibility for processing a proposal submission.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+  <section id="S-THE-UBL-TC">
+    <title>The UBL TC</title>
+    <section id="S-COMMITTEE">
+      <title>Committee</title>
+      <para>The OASIS Universal Business Language (UBL) TC is ultimately responsible for the maintenance, development and publication of the OASIS UBL standard. <xref linkend="A-CURRENT-UBL-RESOURCES"/> contains contemporary information regarding specific resources of the UBL TC.</para>
+    </section>
+    <section id="S-MEMBERS">
+      <title>Members</title>
+      <para>The committee has open membership to any OASIS member in good standing. Committee members are allowed to actively participate in any of the UBL subcommittees and task groups.</para>
+      <para>All committee members are welcome to propose suggestions for enhancements to UBL.</para>
+      <para>UBL TC members are urged to participate in reviewing work products.</para>
+      <para>See <ulink url="https://www.oasis-open.org/join"><emphasis role="underline">https://www.oasis-open.org/join</emphasis></ulink> for information on becoming an OASIS member and joining the UBL Technical Committee.</para>
+    </section>
+    <section id="S-VOTING-MEMBERS">
+      <title>Voting members</title>
+      <para>Voting at the UBL TC is possible only by committee members who are qualified for voting status at the time of the vote, as described in the OASIS Process.</para>
+      <para>Voting members are required to vote on all motions.</para>
+    </section>
+    <section id="S-OBSERVERS">
+      <title>Observers</title>
+      <para>The committee also allows observer status to any OASIS member in good standing. Observers may attend meetings and subscribe (but not post) to the UBL TC mailing list.</para>
+      <para>This allows interested parties to monitor progress within the UBL TC.</para>
+    </section>
+    <section id="S-OASIS-TECHNICAL-COMMITTEE-PROCESS">
+      <title>OASIS Technical Committee Process</title>
+      <para>The UBL TC follows the OASIS Technical Committee Process (referred to in this document as the “OASIS Process”) found at <ulink url="https://www.oasis-open.org/policies-guidelines/tc-process"><emphasis role="underline"
+          >https://www.oasis-open.org/policies-guidelines/tc-process</emphasis></ulink>. The procedures in <xref linkend="S-THE-PATHWAY-TO-STANDARDIZATION"/> of this Committee Note conform to the OASIS Process at the time of writing, but OASIS may produce updates that will need to be reflected as
+        revisions to this Committee Note.</para>
+    </section>
+  </section>
+  <section id="S-INTELLECTUAL-PROPERTY-RIGHTS">
+    <title>Intellectual Property Rights</title>
+    <para>All proposals for changes or additions to UBL are considered contributions to OASIS and the UBL TC and must be given on a royalty free (with limited terms) basis as outlined in the OASIS IPR Policy available at:</para>
+    <para><emphasis role="underline"><ulink url="https://www.oasis-open.org/policies-guidelines/ipr">https://www.oasis-open.org/policies-guidelines/ipr</ulink></emphasis></para>
+    <para>Committee members agree to this policy on joining the UBL TC. </para>
+    <para>Proposers who are not UBL TC members accept these conditions when submitting via the public comment channel (UBL-comment). This is the official public comment channel that provides a means for outside input, requests and suggestions to be submitted to the UBL TC. For IPR protection and
+      transparency this must always be the means by which contributions are made by proposers who are not UBL TC Members. </para>
+    <para>Every contribution is documented, tracked and a Responsible Party is tasked with its disposition. </para>
+    <para>Proposers should understand that UBL is an open standard. This means that it follows transparent, consensus-based, decision-making procedures. As such the UBL TC cannot ensure that all proposals will be incorporated in their exact form into the UBL standard.</para>
+  </section>
+  <section id="S-GUIDELINES-FOR-PROPOSALS">
+    <title>Guidelines for proposals</title>
+    <section id="S-PREPARING-YOUR-PROPOSAL">
+      <title>Preparing your proposal</title>
+      <para>This section explains how to assist the UBL TC in processing your proposal.</para>
+      <para>It should be noted that a proposal that is incomplete or is a statement along the lines of “UBL should contain a...” will require more time to process than a proposal complete with the information the UBL TC needs to consider and implement the suggestions.</para>
+    </section>
+    <section id="S-IS-THIS-REALLY-A-NEW-REQUIREMENT">
+      <title>Is this really a new requirement?</title>
+      <para>The UBL standard appears complex because of the wide-ranging scope of solutions where it plays a role. Those new to UBL may be unable to find an existing component to support their requirement, or they may create their own extension component unknowingly duplicating an existing
+        component. </para>
+      <para>UBL has been in production for many years and has been tested and deployed in many organizations. As an example, in Denmark UBL for invoicing has been in production and required by law on a regional and national level for more than 15 years. Occasionally implementers in Denmark identify
+        what they believe are new requirements. In many cases these are already addressed by the UBL standard, though perhaps in a different manner to how the implementers conceived them.</para>
+    </section>
+    <section id="S-PROPOSING-NEW-DOCUMENT-TYPES">
+      <title>Proposing new document types</title>
+      <para>A proposal to include new document types into UBL would benefit from including the following details:</para>
+      <itemizedlist>
+        <listitem>
+          <para>A description of the business process requiring these document types. </para>
+          <para>An example is the process for Collaborative, Planning, Forecasting and Replenishment described in UBL 2.1 (<ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html#S-COLLABORATIVE-PLANNING-FORECASTING-AND-REPLENISHMENT"
+              >http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html#S-COLLABORATIVE-PLANNING-FORECASTING-AND-REPLENISHMENT</ulink>). This was proposed by a Committee Member who provided all of the information needed.</para>
+        </listitem>
+      </itemizedlist>
+      <itemizedlist>
+        <listitem>
+          <para>A description of the context of the use of the document types in enough detail to describe their use in the business process envisaged and the roles of the players involved in their exchanges.</para>
+        </listitem>
+      </itemizedlist>
+      <itemizedlist>
+        <listitem>
+          <para>A diagrammatic expression of the activities involved. </para>
+          <para>For example, a set of UML activity diagrams illustrating the choreography of the exchange of instances of the document types.</para>
+        </listitem>
+      </itemizedlist>
+      <itemizedlist>
+        <listitem>
+          <para>A data model of the structures required by the proposed document.</para>
+        </listitem>
+      </itemizedlist>
+      <itemizedlist>
+        <listitem>
+          <para>XML Schemas using the contributor’s namespace URIs for all components. These must not use the standard UBL namespace URIs.</para>
+        </listitem>
+      </itemizedlist>
+      <itemizedlist>
+        <listitem>
+          <para>Example instances conforming to the proposed document model schemas using the contributor’s namespace URIs.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section id="S-PROPOSING-NEW-ELEMENTS">
+      <title>Proposing new elements</title>
+      <para>A submitter proposing new XML elements for UBL has the responsibility to describe in detail (or assist in describing) the supporting information required for the proposed element. These include the context of use and business case, the element’s type, proposed name, description, example
+        values, and any equivalent business terms.</para>
+      <para>See <xref linkend="S-USING-THE-UBL-EXTENSION-POINT"/> for guidance adding the proposed elements in context as extensions to a given ABIE.</para>
+    </section>
+    <section id="S-USING-THE-UBL-DATA-MODEL-APPROACH">
+      <title>Using the UBL data model approach</title>
+      <para>Each XML element in a UBL schema represents a component found in the equivalent UBL data model. These components are defined as Business Information Entities following the terminology from the ISO/TS 15000-5:2005 Core Component Technical Specification (CCTS). This specification is
+        available at:</para>
+      <para><ulink url="https://www.oasis-open.org/committees/document.php?document_id=6232"><emphasis role="underline">https://www.oasis-open.org/committees/document.php?document_id=6232</emphasis></ulink>.</para>
+      <para>Those proposers working with CCTS will find the UBL data model, the digital signature extension model and a prototypical empty model all available to be copied as proforma models with which to create new proposals. </para>
+      <para><ulink conformance="skip" url="http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html#A-THE-UBL-2.1-DATA-MODEL"/> contains useful information about the data modeling concepts used in UBL.</para>
+      <para>For guidance on the many CCTS fields in the model columns of the spreadsheet, please review the latest version of the UBL Naming and Design Rules Version 3.1:</para>
+      <bibliolist>
+        <bibliomixed conformance="skip">
+          <abbrev>UBL-NDR</abbrev>
+          <citetitle>UBL Naming and Design Rules Version 3.1. </citetitle>
+          <date>14 April 2020. </date>
+          <releaseinfo>OASIS Committee Note Draft 01 / Working Draft 01. </releaseinfo>
+          <bibliomisc>
+            <ulink url="https://docs.oasis-open.org/ubl/UBL-NDR/v3.1/cnd01wd01/UBL-NDR-v3.1-cnd01wd01.html">https://docs.oasis-open.org/ubl/UBL-NDR/v3.1/cnd01wd01/UBL-NDR-v3.1-cnd01wd01.html</ulink>. Latest version: <ulink url="https://docs.oasis-open.org/ubl/UBL-NDR/v3.1/UBL-NDR-v3.1.html"
+              >https://docs.oasis-open.org/ubl/UBL-NDR/v3.1/UBL-NDR-v3.1.html</ulink>. </bibliomisc>
+        </bibliomixed>
+      </bibliolist>
+    </section>
+    <section id="S-PRESERVING-BACKWARD-COMPATIBILITY">
+      <title>Preserving backward compatibility</title>
+      <para>It is required that proposals for enhancements preserve backward compatibility with the previous version of UBL. This is enforced through rules on the acceptable cardinality of proposed changes to elements.</para>
+      <para>The cardinality of a UBL element means the number of times the element is allowed to exist at the particular point in the document tree (between the immediately-preceding element of another name and the immediately-following element of another name).</para>
+      <para>Cardinality applies to leaf and branch elements of the document tree. </para>
+      <para>There are four possible values for cardinality:</para>
+      <itemizedlist>
+        <listitem>
+          <para>the element is optional and cannot be repeated if it exists</para>
+        </listitem>
+        <listitem>
+          <para>the element is mandatory and cannot be repeated</para>
+        </listitem>
+        <listitem>
+          <para>the element is optional and if it exists it can be repeated with immediate like-named element siblings</para>
+        </listitem>
+        <listitem>
+          <para>the element is mandatory and can be repeated with immediate like-named element siblings</para>
+        </listitem>
+      </itemizedlist>
+      <para>In order to preserve backward compatibility with all previous versions of UBL, the cardinality of all proposed new or modified elements is strictly controlled. </para>
+      <para>For example, backward compatibility means that every conceivable schema-valid instance of UBL 2.0 also is a schema-valid instance of UBL 2.1 and all subsequent minor revisions of UBL. Similarly every schema-valid instance of UBL 2.1 also shall be a schema-valid instance of UBL 2.2 and
+        all subsequent minor revisions of UBL.</para>
+      <para>The following cardinality scenarios are mandated to preserve backward compatibility:</para>
+      <itemizedlist>
+        <listitem>
+          <para>an existing container element can have only optional additions to its children.</para>
+        </listitem>
+        <listitem>
+          <para>a new container element can have any new, or re-use existing, children, each with any cardinality, including being mandatory.</para>
+        </listitem>
+        <listitem>
+          <para>an existing element can have its minimum cardinality decreased or its maximum cardinality increased. This means an element cannot be removed or deprecated.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Therefore any proposed changes to existing elements should be as follows:</para>
+      <itemizedlist>
+        <listitem>
+          <para>from optional singular to optional multiple</para>
+        </listitem>
+        <listitem>
+          <para>from mandatory singular to mandatory multiple</para>
+        </listitem>
+        <listitem>
+          <para>from mandatory singular to optional singular</para>
+        </listitem>
+        <listitem>
+          <para>from mandatory singular to optional multiple </para>
+        </listitem>
+        <listitem>
+          <para>from mandatory multiple to optional multiple</para>
+        </listitem>
+      </itemizedlist>
+      <para>Guaranteeing forward compatibility is not practical because of the additional elements in forward releases. For example, a UBL 2.1 instance is not guaranteed to be a schema-valid instance of UBL 2.0 because it may contain an element not defined in UBL 2.0.</para>
+      <para>However it is true that a user of UBL 2.1 choosing only to use UBL 2.0 elements in the UBL 2.1 document will have an instance that is schema-valid with the UBL 2.0 schemas. The UBL Customization Guidelines at <ulink conformance="skip"
+          url="http://docs.oasis-open.org/ubl/guidelines/UBL2-Customization1.0cs01.pdf"><emphasis role="underline">http://docs.oasis-open.org/ubl/guidelines/UBL2-Customization1.0cs01.pdf</emphasis></ulink> makes reference to potential forward-compatible processing by pruning from a document those
+        elements that a system does not recognize. </para>
+    </section>
+    <section id="S-PROPOSING-FORMATTED-TEXT-ELEMENTS">
+      <title>Proposing formatted text elements</title>
+      <para>UBL is a transactional data language and as such there is no concept of “paragraphs of text”, “field lengths” or other presentational facets. </para>
+      <para>A single element of a textual data type is a continuous string of text from the start tag of the element to the end tag of the element without any formatting characteristics.</para>
+      <para>UBL does support repeating textual elements but only where the same information may be required in different languages. These are not designed to convey different sets of information – such as different paragraphs or lines.</para>
+      <para>Therefore a proposal for a textual element (such as a description) may have multiple cardinality but if repeated each instance should contain different translations of the same information (indicated by a language identifier).</para>
+    </section>
+    <section id="S-USING-THE-UBL-EXTENSION-POINT">
+      <title>Using the UBL extension point</title>
+      <para>All UBL document schemas provide an extension point to accommodate additional information elements. This extension point provides a technical solution for custom requirements to be met within standard UBL documents. In UBL 2.0, 2.1, and 2.2 there is a single extension point found at the
+        beginning of the document element so as to be encountered in a serial parsing of the document before elements that the extension point may influence. In UBL 2.3 and subsequent releases there are additional extension points, one found at the beginning of every manifest ASBIE of the document.
+        This is every element that, itself, has element children also has an optional UBL extension point as the first of all its element children.</para>
+      <para>It should be noted that interoperability is inhibited if each implementer uses the extension point syntax differently to express the same requirement. Accordingly, it behooves industry sectors or other UBL communities to agree amongst themselves how non-UBL content is to be expressed,
+        and where it is to be expressed, in a UBL document.</para>
+      <para>The sender of a document cannot be guaranteed that the receiver of the document recognizes any extension. Thus, it is important not to require processing of any given extension for the successful processing of the document itself. Extensions should be used only for additional information
+        that the receiver may be in a position to access.</para>
+      <para>The UBL extension point is useful when proposing to the committee that new elements be included in the UBL specification. One can create illustrative test documents including the proposed new elements in the context of the ABIE in which the proposal is being made by using that ABIE’s
+        extension point where manifest.</para>
+    </section>
+    <section id="S-USING-THE-UBL-NAMESPACES">
+      <title>Using the UBL namespaces</title>
+      <para>Namespaces are critically important in XML, and thus are critically important in UBL. Unfortunately, the simple concept embodied by XML namespaces is often misunderstood, leading to confusion with users. Regrettably, the verbose nature of UBL namespaces contributes to the mistaken
+        impression that the namespaces somehow are adding to the complexity of the XML in UBL documents.</para>
+      <para>This Committee Note does not attempt to explain the technical declaration syntax for XML namespaces. See <xref linkend="A-DECLARING-NAMESPACES"/> for more details regarding choosing and using namespaces.</para>
+    </section>
+    <section id="S-DEMONSTRATING-CONTRIBUTIONS-USING-SCHEMAS">
+      <title>Demonstrating contributions using schemas</title>
+      <section id="S-CONTRIBUTING-A-SCHEMA">
+        <title>Contributing a schema</title>
+        <para>A proposal to the UBL Technical Committee may also benefit from including representative XML schemas that satisfy the requirements of the proposal. These may be those used in an actual implementation by the proposer.</para>
+        <para>If the proposer wishes to submit demonstration schemas that remain compatible with existing UBL document types, then the proposed new components must be implemented as UBL Extensions.</para>
+      </section>
+      <section id="S-CONTRIBUTIONS-BASED-ON-UBL-EXTENSION">
+        <title>Contributions based on UBL extension</title>
+        <para>Proposers may submit an XML schema based on the UBL extension methodology to illustrate their proposal. Pre-UBL-2.3 the UBL extension is allowed only at the beginning of the document element. From UBL 2.3 and beyond, a UBL extension is allows at the beginning of any ASBIE element
+          defined by an ABIE.</para>
+        <para>The use of a UBL extension in a proposal does not signify that the extended content itself will become part of the UBL standard. If deemed appropriate the UBL TC will incorporate the proposed elements in the libraries or document types of the next release.</para>
+        <para>Proposers may choose to hand-craft their schemas. Alternatively they may choose to copy the UBL Signature Extension spreadsheet (as an example) and use publicly-available tools to generate the schemas. </para>
+        <para>The UBL TC does not provide a schema generation service for those creating their own document models or proposing enhancements to UBL. Interested parties seeking assistance may use publicly-available software or consult with companies who can provide such a service. The UBL community
+          web site has listings of candidate products and services at, respectively, <ulink url="http://ubl.xml.org/products"><emphasis role="underline">http://ubl.xml.org/products</emphasis></ulink> and <ulink url="http://ubl.xml.org/services"><emphasis role="underline"
+              >http://ubl.xml.org/services</emphasis></ulink>.</para>
+        <para>A UBL extension is presented in XML using three custom non-standard-UBL namespace URI strings. One string is for the extension apex, one is for the non-Standard-UBL aggregates and association components, and one is for the non-standard-UBL basic components. The standard-UBL namespace
+          URI strings are used for those UBL components that already exist in the standard-UBL model and schemas.</para>
+      </section>
+      <section id="S-CONTRIBUTIONS-BASED-ON-NON-UBL-XML-SCHEMAS">
+        <title>Contributions based on non-UBL XML schemas</title>
+        <para>If the proposer wishes their demonstration schemas to describe the desired document type incorporating their additions then the proposer is obliged to use non-Standard-UBL namespace URI strings for all components. </para>
+        <para>While this will be compatible (but not conformant) with the UBL standard at the time of the submission, if the proposed changes are adopted fully then simply changing the namespace URIs would identify the standard UBL Schema.</para>
+      </section>
+    </section>
+  </section>
+  <section id="S-SUBMITTING-A-PROPOSAL">
+    <title>Submitting a proposal</title>
+    <para>There are two methods to propose a submission to the UBL TC:</para>
+    <orderedlist>
+      <listitem>
+        <para>Anyone who is a UBL TC member can propose a submission by raising this as an issue within the UBL TC.</para>
+      </listitem>
+      <listitem>
+        <para>Any person or organization who is not a UBL TC member can propose a submission by subscribing to the UBL-comment list and then posting their contribution. </para>
+      </listitem>
+    </orderedlist>
+    <para>All contributions and subsequent discussions must be submitted to the UBL public comment list under the terms of the OASIS Feedback License, which assures potential implementers and OASIS that the contribution may be used by the UBL TC in a way that is consistent with its charter and
+      licensed as Royalty Free (with Limited Terms) as defined by the OASIS IPR Policy. </para>
+    <para>While this mail list is not meant for general discussion purposes, the committee is obliged to solicit answers from the submitter to questions about the submission through the same list so as to any answers are treated as additional information to the original submission.</para>
+    <para>All exchanges on the UBL public comment list, be they questions or submissions of any kind, are publicly-archived and individual posts may not be removed from the archive.</para>
+    <para>Proposers should note that the more time the UBL TC has to review a contribution before the release cycle deadlines, the more chance the submission will get full consideration. Any submission received that is not able to have full consideration may be delayed for consideration in a later
+      release.</para>
+  </section>
+  <section id="S-THE-PATHWAY-TO-STANDARDIZATION">
+    <title>The pathway to standardization</title>
+    <para>Once a proposal has been submitted the Responsible Party will evaluate the proposal and notify the UBL TC of their finalized dispositions and their recommendations. This may involve sets of enhancements for the next UBL release. </para>
+    <para>If the UBL TC approves the recommendations it then incorporates the enhancements into the draft models (including any additional documentation) for the next release. </para>
+    <para>If the UBL TC does not approve the recommendations then it may make suggestions for the enhancements before they may be reconsidered. </para>
+    <para>The proposers may review the draft models before they are created as candidate schema.</para>
+    <para>Once approved the Designated Editors incorporate the enhancements (models, documentation and schema) into the draft set of new UBL specifications referred to as the Working Draft.</para>
+    <para>The UBL TC review the changes made by the Designated Editors and approve that the Working Draft is ready to go towards standardization. This review is scheduled according the planned UBL Release Cycle. </para>
+    <para>The UBL TC then proceeds with the OASIS Process for production of an OASIS standard. This will include synchronizing with ISO/IEC JTC 1 on the maintenance of ISO/IEC 19845.</para>
+    <figure id="F-UBL-GOVERNANCE">
+      <title>UBL Governance</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="art/UBL-Governance-v1.1-process.png"/>
+        </imageobject>
+        <textobject>
+          <phrase>UBL Governance</phrase>
+        </textobject>
+      </mediaobject>
+    </figure>
+    <para>The formal stages of the OASIS Process are illustrated above and summarized as follows. The UBL TC will publish target dates during the completion of each of the stages. Refer to the OASIS website <ulink url="https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26"
+        >https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26</ulink> for details regarding this process.</para>
+  </section>
+  <section id="S-THE-PLANNED-UBL-RELEASE-CYCLE">
+    <title>The planned UBL release cycle</title>
+    <para>To ensure predictable scheduling the UBL TC proposes to publish revisions to the UBL standard every three years. For example, the UBL 2.1 standard was published in late 2013 while UBL 2.2 was 18 months late being published in mid-2018. UBL 2.3 is ahead of the mid-2021 goal by at least 6
+      months.</para>
+  </section>
+  <appendix id="A-RELEASE-NOTES">
+    <title>Release Notes</title>
+    <section id="S-AVAILABILITY">
+      <title>Availability</title>
+      <para>Online and downloadable versions of this release are available from the locations specified at the top of this document.</para>
+    </section>
+    <section id="S-PACKAGE-STRUCTURE">
+      <title>Package structure</title>
+      <para>This OASIS Committee Note is published as a zip archive in the <ulink url="&this-loc;/">&this-loc;/</ulink> directory. Unzipping this archive creates a directory tree containing a number of files and subdirectories. Note that while the XML file comprises the revisable version of this
+        specification, this revisable XML may not be directly viewable in all currently available web browsers.</para>
+      <blockquote>
+        <variablelist>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>&name;-&stage;.xml</literal>
+              </emphasis></term>
+            <listitem>
+              <para>The revisable form of the cover document.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <variablelist>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>&name;-&stage;.html</literal>
+              </emphasis></term>
+            <listitem>
+              <para>An HTML rendering of the cover document.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>&name;-&stage;.pdf</literal>
+              </emphasis></term>
+            <listitem>
+              <para>A PDF rendering of the cover document.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </blockquote>
+      <para>There are two subdirectories in the package:</para>
+      <blockquote>
+        <variablelist>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>art</literal>
+              </emphasis></term>
+            <listitem>
+              <para>Graphic files</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>db</literal>
+              </emphasis></term>
+            <listitem>
+              <para>DocBook documentation support files</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </blockquote>
+    </section>
+  </appendix>
+  <appendix id="A-CURRENT-UBL-RESOURCES">
+    <title>Current UBL resources</title>
+    <section id="S-MEETING-SCHEDULES">
+      <title>Meeting schedules</title>
+      <para>At the time of writing there are two teleconferences that make up a single weekly meeting of UBL technical committee members. This is for the convenience of members from around the world to be able to participate in active discussion. Please see the committee home page for the current
+        meeting details at:</para>
+      <para><ulink url="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl#meetings"><emphasis role="underline">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl#meetings</emphasis></ulink></para>
+    </section>
+    <section id="S-MODEL-COLLABORATION-ENVIRONMENT">
+      <title>Model collaboration environment</title>
+      <para>A Google spreadsheet, termed the “master spreadsheet”, contains the latest state of all document types and business objects in UBL. Designated model editors are directed by the technical committee to incorporate subcommittee recommendations in the models by editing the master
+        spreadsheet. The spreadsheet location, instructions and colour legend are found in the summary document at:</para>
+      <para><ulink url="https://docs.google.com/document/d/1RSvewwdS-lp4sl-gYHI5gjNxrgXXqCc5wuA6UI5hhWA/view"><emphasis role="underline">https://docs.google.com/document/d/1RSvewwdS-lp4sl-gYHI5gjNxrgXXqCc5wuA6UI5hhWA/view</emphasis></ulink>.</para>
+      <para>Each of the subcommittees can use their own means, including their own copy of the Google spreadsheet, in order to draft their recommendations to the Technical Committee.</para>
+      <para>Members of the Schema Generation Task Group (SGTG) create schemas for the UBL standard. The tools used by the SGTG are publicly available in the <ulink url="https://github.com/oasis-tcs/ubl-2.3-artefacts#readme">https://github.com/oasis-tcs/ubl-2.3-artefacts#readme</ulink> GitHub
+        repository.</para>
+    </section>
+    <section id="S-DOCUMENT-REPOSITORY">
+      <title>Document repository</title>
+      <para>Working drafts are stored in the committee’s Kavi repository of documents as ZIP files at:</para>
+      <para><ulink url="https://www.oasis-open.org/committees/documents.php?wg_abbrev=ubl"><emphasis role="underline">https://www.oasis-open.org/committees/documents.php?wg_abbrev=ubl</emphasis></ulink></para>
+    </section>
+    <section id="S-SUBMISSION-PACKAGES-SUPPORT">
+      <title>Submission packages support</title>
+      <para>These resources are linked from the help document describing the conventions and instructions:</para>
+      <para><ulink url="https://docs.google.com/document/d/1RSvewwdS-lp4sl-gYHI5gjNxrgXXqCc5wuA6UI5hhWA/view"><emphasis role="underline">https://docs.google.com/document/d/1RSvewwdS-lp4sl-gYHI5gjNxrgXXqCc5wuA6UI5hhWA/view</emphasis></ulink></para>
+    </section>
+  </appendix>
+  <appendix id="A-DECLARING-NAMESPACES">
+    <title>Declaring namespaces</title>
+    <para>The focus of this appendix is to guide the reader regarding the selection of XML namespaces used in UBL and in user contributions to the committee.</para>
+    <para>The sole role of namespaces in UBL documents is to distinguish element names found in separate collections of element names where the element names otherwise would be ambiguous because they have the same spelling. A simple example in UBL is the comparison of the ABIE named “Location” and
+      the BBIE named “Location”. These are different Business Information Entities and so the components have different XML element structures. The ABIE named “Location” is comprised of elements as children. The BBIE named “Location” is comprised only of text. They cannot both be expressed in a
+      single XML document using the markup &lt;Location&gt; as neither the user nor the XML processor interpreting the markup knows which ASBIE (pointing to the ABIE) or BBIE component is being referenced. Therefore, to avoid ambiguity, the identically-named components must come from separate
+      collections.</para>
+    <para>To avoid ambiguity users of UBL have the responsibility to use unique user-defined namespaces for their defined components, and to use only the standard UBL namespaces for standard-UBL components.</para>
+    <para>While the choice of a unique namespace prefix name is irrelevant to the XML process, good practice promotes human understanding. Accordingly, the UBL Naming and Design Rules chooses to use the same set of abbreviations for all UBL namespace prefix names. The rules also define the empty
+      prefix be used for XML root elements (the top-most element or very first element that surrounds all information).</para>
+    <para>In UBL all Library ABIEs belong in a single collection. </para>
+    <para>XML namespace URIs should be considered as organizational assets, and as such, they should be managed accordingly. Care should be taken when defining a URI string for a collection that that string has not already been used for a different collection elsewhere in the organization’s XML
+      corpus.</para>
+    <para>URL strings have a strict (but unenforced) syntax of an absolute URL that should use a domain owned by the user. URN strings have a strict (but unenforced) syntax of allowed values in the second field, called the “URN Namespace” (for example, OASIS has formally registered “oasis” as a URN
+      namespace and so is allowed to use it). There is a back door in the URN scheme that allows anyone to use what is termed an “experimental” URN namespace. As such there is no attempt to assert the namespace is anything other than something used temporarily or for experimental purposes.</para>
+    <para>Thus, if a user is not managing namespace URIs as organizational assets, it would be entirely appropriate to use the experimental URN namespace for the User Extension Apex ABIE, User Document ABIE, User Library ABIE and User BBIE collections along the lines as follows (only one URI for
+      each collection):</para>
+    <para>urn:X-MyCompany:Extension</para>
+    <para>urn:X-MyCompany:Document</para>
+    <para>urn:X-MyCompany:Aggregate</para>
+    <para>urn:X-MyCompany:Basic</para>
+    <para>Abbreviated, respectively, using prefix names along the lines of myx:, myd:, mya: and myb:</para>
+    <para>An example of a managed set of namespaces would be to use URLs to the organizational web site. This ensures no other organization following proper etiquette would create an ambiguously-identical namespace URI string, whereas two organizations could very well create identical experimental
+      URN strings. Using a URL for the URI string provides an added benefit that the URL could deliver information to a browser should anyone attempt to dereference the URL. A common practice is to create an XHTML page with RDDL attributes that guides the reader to information about the XML
+      namespace. As mentioned before, an XML processor uses the namespace URI as just a string, so the fact that the string happens also to be a URL does not require the URL to actually exist. Examples of URLs to use as namespace URIs are:</para>
+    <para>http://myCompany.com/ns/ubl/Extension</para>
+    <para>http://myCompany.com/ns/ubl/Document</para>
+    <para>http://myCompany.com/ns/ubl/Aggregate</para>
+    <para>http://myCompany.com/ns/ubl/Basic</para>
+    <para>Abbreviated, respectively, using prefix names along the lines of mx:, md:, ma: and mb:</para>
+  </appendix>
+  <appendix id="A-ACKNOWLEDGEMENTS" role="non-normative">
+    <title>Acknowledgements</title>
+    <para>The following individuals have participated in the creation of this specification and are gratefully acknowledged:</para>
+    <simplelist>
+      <member>Todd Albers, Federal Reserve Bank of Minneapolis</member>
+      <member>Rui Barros, Individual</member>
+      <member>Oriol Bausa Peris, Individual</member>
+      <member>Kenneth Bengtsson, Individual</member>
+      <member>Erlend Klakegg Bergheim, Norwegian Digitalisation Agency</member>
+      <member>Peter Borresen, ClearView Trade</member>
+      <member>Andrea Caccia, Individual</member>
+      <member>Ger Clancy, IBM</member>
+      <member>Kees Duvekot, RFS Holland Holding B.V.</member>
+      <member>Martin Forsberg, Swedish Association of Local Authorities &amp; Regions</member>
+      <member>Cecile Guasch, Individual</member>
+      <member>Philip Helger, Individual</member>
+      <member>Ken Holman, Crane Softwrights Ltd.</member>
+      <member>Yves Jordan, Publications Office of the European Union</member>
+      <member>Kari Korpela, Individual</member>
+      <member>Ole Madsen, Danish Business Authority</member>
+      <member>Natalie Muric, Publications Office of the European Union</member>
+      <member>Levine Naidoo, IBM</member>
+      <member>Enric Torregrosa, everis, S.L.U.</member>
+      <member>Matt Vickers, Xero</member>
+    </simplelist>
+  </appendix>
+<!--  <appendix id="A-TEMPORARY-ANNEX-\-\-CHANGE-LOG" role="non-normative">
+    <title>Temporary Annex - Change Log</title>
+    <note>
+      <para>This temporary appendix will be removed in the final version of the committee specification.</para>
+    </note>
+    <informaltable>
+      <tgroup cols="4">
+        <colspec colwidth="1*"/>
+        <colspec colwidth="2*"/>
+        <colspec colwidth="1*"/>
+        <colspec colwidth="8*"/>
+        <thead>
+          <row>
+            <entry>Revision</entry>
+            <entry>Date</entry>
+            <entry>Editor</entry>
+            <entry>Changes made</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>cnd01wd01</entry>
+            <entry>16 June 2020</entry>
+            <entry>GKH</entry>
+            <entry>Addressing ticket 234 regarding extension points.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </appendix>-->
+</article>
