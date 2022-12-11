@@ -77,7 +77,7 @@
       <property name="entrypoint" value="OASIS-note2pdfhtml"/>
       <property name="fileupload"
                 value="UBL-Governance-v1.1-${stage}-pub.zip"/>
-      <property name="dateprefix" value="UBL-NDR"/>
+      <property name="dateprefix" value="UBL-Governance"/>
     </ant>
     <echo message="Check and cleanup..."/>
     <available property="ready-pdf" file="${dir}/UBL-Governance-v1.1-${stage}.pdf"/>
